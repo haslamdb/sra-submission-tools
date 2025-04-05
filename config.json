@@ -1,0 +1,17 @@
+{
+  "username": "your_ncbi_username",
+  "password": "your_ncbi_password",
+  "api_key": "your_ncbi_api_key",
+  "default_values": {
+    "library_strategy": "WGS",
+    "library_source": "METAGENOMIC",
+    "library_selection": "RANDOM",
+    "platform": "ILLUMINA",
+    "instrument_model": "Illumina MiSeq"
+  },
+  "contact": {
+    "name": "Your Name",
+    "email": "your.email@example.com",
+    "organization": "Your Organization"
+  }
+}
