@@ -469,3 +469,90 @@ class SRASubmission:
         logger.info(f"Metadata TSV: {metadata_path}")
         
         return submission_xml_path
+    
+def main():
+    """Main entry point for the SRA submission tool."""
+    # Set up argument parsing
+    parser = argparse.ArgumentParser(
+        description="SRA Metagenomic Data Submission Tool"
+    )
+    
+    # Add command-line arguments
+    parser.add_argument('--config', help='Path to configuration JSON file')
+    parser.add_argument('--metadata', help='Path to metadata CSV or Excel file')
+    parser.add_argument('--files', help='Directory containing sequence files')
+    parser.add_argument('--output', default='sra_submission', help='Output directory for submission package')
+    parser.add_argument('--submit', action='store_true', help='Submit to SRA after preparing package')
+    parser.add_argument('--prepare-metadata', help='Prepare SRA-compatible metadata and save to specified file')
+    parser.add_argument('--verify-only', action='store_true', help='Only verify files, do not create submission package')
+    parser.add_argument('--auto-pair', action='store_true', help='Automatically detect paired-end files')
+    
+    args = parser.parse_args()
+    
+    # Handle metadata preparation only mode
+    if args.prepare_metadata:
+        if not args.metadata:
+            print("Error: --metadata argument is required with --prepare-metadata")
+            sys.exit(1)
+        try:
+            sra_df = prepare_metadata(args.metadata, args.prepare_metadata, args.config)
+            print(f"Prepared SRA metadata saved to {args.prepare_metadata}")
+            sys.exit(0)
+        except Exception as e:
+            print(f"Error preparing metadata: {str(e)}")
+            sys.exit(1)
+    
+    # Initialize SRA submission object
+    submission = SRASubmission(args.config)
+    
+    # Collect metadata (from file or interactively)
+    if args.metadata:
+        submission.collect_metadata_from_file(args.metadata)
+    else:
+        submission.collect_metadata_interactive()
+    
+    # Validate metadata
+    if not submission.validate_metadata():
+        print("Metadata validation failed. Please correct the issues and try again.")
+        sys.exit(1)
+    
+    # Collect sequence files
+    if args.files:
+        submission.collect_sequence_files(args.files)
+    else:
+        submission.collect_sequence_files()
+    
+    # Verify files exist
+    if not submission.verify_sequence_files():
+        print("File verification failed. Some files are missing.")
+        sys.exit(1)
+    
+    # If only verifying files, exit here
+    if args.verify_only:
+        print("File verification completed successfully.")
+        sys.exit(0)
+    
+    # Prepare submission package
+    submission_xml_path = submission.prepare_submission_package(args.output)
+    print(f"\nSubmission package prepared in {args.output}")
+    
+    # Submit if requested
+    if args.submit:
+        print("\nSubmitting to NCBI SRA...")
+        submission.authenticate()
+        if submission.upload_files():
+            if submission.submit(submission_xml_path):
+                print("Submission successful!")
+            else:
+                print("Submission failed. See log file for details.")
+                sys.exit(1)
+        else:
+            print("File upload failed. See log file for details.")
+            sys.exit(1)
+    else:
+        print("\nTo submit to SRA later, run:")
+        config_arg = f"--config {args.config}" if args.config else ""
+        print(f"sra-submit {config_arg} --output {args.output} --submit")
+
+if __name__ == "__main__":
+    main()
