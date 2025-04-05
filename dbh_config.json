@@ -6,7 +6,7 @@
     "library_selection": "RANDOM",
     "platform": "ILLUMINA",
     "instrument_model": "Illumina HiSeq",
-    "project_title": "Hellman IBD Microbiome Study"
+    "project_title": "Hellman IBD Study"
   },
   "contact": {
     "name": "David Haslam",
@@ -14,4 +14,4 @@
     "organization": "Cincinnati Chilren's Hospital"
   }
 }
-}
+
