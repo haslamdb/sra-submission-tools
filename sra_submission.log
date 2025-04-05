@@ -11,3 +11,12 @@
 2025-04-05 15:21:52,797 - __main__ - ERROR -   - /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/IBD_533_R2.fastq.gz
 2025-04-05 15:21:52,797 - __main__ - ERROR - Some sequence files are missing. Please check the paths.
 2025-04-05 15:21:59,024 - sra_submission - INFO - Loaded configuration from dbh_config.json
+2025-04-05 16:15:29,579 - sra_metagenome_submission.main - INFO - Loaded configuration from dbh_config.json
+2025-04-05 16:15:29,592 - sra_metagenome_submission.main - INFO - Loaded metadata from hellman_metadata2.csv
+2025-04-05 16:15:29,592 - sra_metagenome_submission.main - ERROR - Missing required metadata fields: project_title
+2025-04-05 16:17:53,464 - sra_metagenome_submission.main - INFO - Loaded configuration from dbh_config.json
+2025-04-05 16:17:53,471 - sra_metagenome_submission.main - INFO - Loaded metadata from hellman_metadata2.csv
+2025-04-05 16:17:53,471 - sra_metagenome_submission.main - ERROR - Missing required metadata fields: project_title
+2025-04-05 16:19:20,544 - sra_metagenome_submission.main - INFO - Loaded configuration from dbh_config.json
+2025-04-05 16:19:20,551 - sra_metagenome_submission.main - INFO - Loaded metadata from hellman_metadata2.csv
+2025-04-05 16:19:20,551 - sra_metagenome_submission.main - ERROR - Missing required metadata fields: project_title
