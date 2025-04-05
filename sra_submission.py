@@ -59,29 +59,49 @@ class SRASubmission:
             logger.error(f"Failed to load configuration: {str(e)}")
             sys.exit(1)
     
-    def authenticate(self):
-        """Authenticate with NCBI SRA using API key or username/password."""
-        if 'api_key' in self.config:
-            auth_data = {'api_key': self.config['api_key']}
-        elif 'username' in self.config and 'password' in self.config:
-            auth_data = {
-                'username': self.config['username'],
-                'password': self.config['password']
-            }
-        else:
-            logger.error("Authentication credentials not found in config")
-            sys.exit(1)
-        
-        try:
-            response = requests.post(NCBI_AUTH_URL, json=auth_data)
-            response.raise_for_status()
-            self.session_token = response.json().get('session_token')
-            if not self.session_token:
-                raise ValueError("Session token not found in response")
-            logger.info("Successfully authenticated with NCBI")
-        except Exception as e:
-            logger.error(f"Authentication failed: {str(e)}")
-            sys.exit(1)
+# In the authenticate method of our SRASubmission class:
+
+def authenticate(self):
+    """Authenticate with NCBI SRA using API key or username/password."""
+    if 'api_key' in self.config:
+        # Preferred method - API key
+        auth_data = {'api_key': self.config['api_key']}
+        auth_type = "API key"
+    elif 'access_token' in self.config:
+        # Alternative - existing access token
+        self.session_token = self.config['access_token'] 
+        logger.info("Using provided access token for authentication")
+        return
+    elif 'username' in self.config and 'password' in self.config:
+        # Traditional username/password
+        auth_data = {
+            'username': self.config['username'],
+            'password': self.config['password']
+        }
+        auth_type = "username/password"
+    else:
+        logger.error("Authentication credentials not found in config. "
+                    "Please provide an API key, access token, or username/password.")
+        print("\nAuthentication Error: No valid credentials found.")
+        print("If you use Gmail or other third-party login for NCBI:")
+        print("1. Generate an API key at https://www.ncbi.nlm.nih.gov/account/settings/")
+        print("2. Add this key to your config.json file as 'api_key'")
+        sys.exit(1)
+    
+    try:
+        logger.info(f"Authenticating with NCBI using {auth_type}")
+        response = requests.post(NCBI_AUTH_URL, json=auth_data)
+        response.raise_for_status()
+        self.session_token = response.json().get('session_token')
+        if not self.session_token:
+            raise ValueError("Session token not found in response")
+        logger.info("Successfully authenticated with NCBI")
+    except Exception as e:
+        logger.error(f"Authentication failed: {str(e)}")
+        print("\nAuthentication failed. Please verify your credentials.")
+        print("If you use Gmail or third-party login, generate an API key at:")
+        print("https://www.ncbi.nlm.nih.gov/account/settings/")
+        sys.exit(1)
     
     def collect_metadata_interactive(self):
         """Interactively collect metadata from user input."""
