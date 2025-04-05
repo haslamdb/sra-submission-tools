@@ -1,10 +1,16 @@
 #!/usr/bin/env python3
 """
-SRA Metagenomic Data Submission Script
+Enhanced SRA Metagenomic Data Submission Script
 
 This script automates the process of preparing and submitting metagenomic data
 to NCBI's Sequence Read Archive (SRA). It helps generate required metadata
 files and uploads data using the NCBI submission portal API.
+
+Enhancements:
+- Metadata preparation from various input formats
+- File verification to ensure all files exist
+- Automatic detection of paired-end files
+- Support for building metadata from files directly
 """
 
 import os
@@ -18,6 +24,31 @@ import logging
 import re
 from datetime import datetime
 from pathlib import Path
+
+# Import utility functions
+try:
+    from sra_utils import (
+        prepare_metadata, 
+        verify_files, 
+        detect_file_pairs,
+        collect_fastq_files,
+        build_sample_metadata
+    )
+except ImportError:
+    # If sra_utils is not installed, check if it exists in the current directory
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    sys.path.append(current_dir)
+    try:
+        from sra_utils import (
+            prepare_metadata, 
+            verify_files, 
+            detect_file_pairs,
+            collect_fastq_files,
+            build_sample_metadata
+        )
+    except ImportError:
+        print("Error: sra_utils module not found. Please ensure sra_utils.py is in the same directory.")
+        sys.exit(1)
 
 # Set up logging
 logging.basicConfig(
@@ -59,49 +90,47 @@ class SRASubmission:
             logger.error(f"Failed to load configuration: {str(e)}")
             sys.exit(1)
     
-# In the authenticate method of our SRASubmission class:
-
-def authenticate(self):
-    """Authenticate with NCBI SRA using API key or username/password."""
-    if 'api_key' in self.config:
-        # Preferred method - API key
-        auth_data = {'api_key': self.config['api_key']}
-        auth_type = "API key"
-    elif 'access_token' in self.config:
-        # Alternative - existing access token
-        self.session_token = self.config['access_token'] 
-        logger.info("Using provided access token for authentication")
-        return
-    elif 'username' in self.config and 'password' in self.config:
-        # Traditional username/password
-        auth_data = {
-            'username': self.config['username'],
-            'password': self.config['password']
-        }
-        auth_type = "username/password"
-    else:
-        logger.error("Authentication credentials not found in config. "
-                    "Please provide an API key, access token, or username/password.")
-        print("\nAuthentication Error: No valid credentials found.")
-        print("If you use Gmail or other third-party login for NCBI:")
-        print("1. Generate an API key at https://www.ncbi.nlm.nih.gov/account/settings/")
-        print("2. Add this key to your config.json file as 'api_key'")
-        sys.exit(1)
-    
-    try:
-        logger.info(f"Authenticating with NCBI using {auth_type}")
-        response = requests.post(NCBI_AUTH_URL, json=auth_data)
-        response.raise_for_status()
-        self.session_token = response.json().get('session_token')
-        if not self.session_token:
-            raise ValueError("Session token not found in response")
-        logger.info("Successfully authenticated with NCBI")
-    except Exception as e:
-        logger.error(f"Authentication failed: {str(e)}")
-        print("\nAuthentication failed. Please verify your credentials.")
-        print("If you use Gmail or third-party login, generate an API key at:")
-        print("https://www.ncbi.nlm.nih.gov/account/settings/")
-        sys.exit(1)
+    def authenticate(self):
+        """Authenticate with NCBI SRA using API key or username/password."""
+        if 'api_key' in self.config:
+            # Preferred method - API key
+            auth_data = {'api_key': self.config['api_key']}
+            auth_type = "API key"
+        elif 'access_token' in self.config:
+            # Alternative - existing access token
+            self.session_token = self.config['access_token'] 
+            logger.info("Using provided access token for authentication")
+            return
+        elif 'username' in self.config and 'password' in self.config:
+            # Traditional username/password
+            auth_data = {
+                'username': self.config['username'],
+                'password': self.config['password']
+            }
+            auth_type = "username/password"
+        else:
+            logger.error("Authentication credentials not found in config. "
+                        "Please provide an API key, access token, or username/password.")
+            print("\nAuthentication Error: No valid credentials found.")
+            print("If you use Gmail or other third-party login for NCBI:")
+            print("1. Generate an API key at https://www.ncbi.nlm.nih.gov/account/settings/")
+            print("2. Add this key to your config.json file as 'api_key'")
+            sys.exit(1)
+        
+        try:
+            logger.info(f"Authenticating with NCBI using {auth_type}")
+            response = requests.post(NCBI_AUTH_URL, json=auth_data)
+            response.raise_for_status()
+            self.session_token = response.json().get('session_token')
+            if not self.session_token:
+                raise ValueError("Session token not found in response")
+            logger.info("Successfully authenticated with NCBI")
+        except Exception as e:
+            logger.error(f"Authentication failed: {str(e)}")
+            print("\nAuthentication failed. Please verify your credentials.")
+            print("If you use Gmail or third-party login, generate an API key at:")
+            print("https://www.ncbi.nlm.nih.gov/account/settings/")
+            sys.exit(1)
     
     def collect_metadata_interactive(self):
         """Interactively collect metadata from user input."""
@@ -158,25 +187,22 @@ def authenticate(self):
         logger.info("Collected metadata through interactive input")
     
     def collect_metadata_from_file(self, metadata_file):
-        """Load metadata from a CSV or Excel file."""
+        """Load metadata from a CSV or Excel file with enhanced processing."""
         try:
-            if metadata_file.endswith('.csv'):
-                df = pd.read_csv(metadata_file)
-            elif metadata_file.endswith(('.xls', '.xlsx')):
-                df = pd.read_excel(metadata_file)
-            else:
-                logger.error(f"Unsupported metadata file format: {metadata_file}")
-                sys.exit(1)
+            # Use the prepare_metadata utility for enhanced processing
+            sra_df = prepare_metadata(metadata_file, config_file=self.config_file if hasattr(self, 'config_file') else None)
             
             # Convert first row to metadata dictionary
-            if len(df) > 0:
-                self.metadata = df.iloc[0].to_dict()
+            if len(sra_df) > 0:
+                self.metadata = sra_df.iloc[0].to_dict()
+                
                 # Handle environment-specific metadata columns
-                env_cols = [col for col in df.columns if col.startswith('env_')]
+                env_cols = [col for col in sra_df.columns if col.startswith('env_')]
                 if env_cols:
                     self.metadata['environment_metadata'] = {}
                     for col in env_cols:
-                        self.metadata['environment_metadata'][col] = df.iloc[0][col]
+                        self.metadata['environment_metadata'][col] = sra_df.iloc[0][col]
+                        
                 logger.info(f"Loaded metadata from {metadata_file}")
             else:
                 logger.error("Metadata file is empty")
@@ -210,18 +236,40 @@ def authenticate(self):
         return True
     
     def collect_sequence_files(self, file_dir=None):
-        """Collect sequence files for submission."""
+        """Collect sequence files for submission with enhanced file handling."""
         if file_dir:
-            # Auto-detect sequence files from directory
-            path = Path(file_dir)
-            fastq_files = list(path.glob("*.fastq")) + list(path.glob("*.fq")) + \
-                         list(path.glob("*.fastq.gz")) + list(path.glob("*.fq.gz"))
+            # Use the collect_fastq_files utility for enhanced file detection
+            fastq_files = collect_fastq_files(file_dir)
             
             if not fastq_files:
                 logger.warning(f"No FASTQ files found in {file_dir}")
             else:
-                self.files = [str(f) for f in fastq_files]
+                # Detect paired files
+                file_pairs = detect_file_pairs(fastq_files)
+                
+                # Flatten the pairs into a list of files
+                self.files = []
+                for file1, file2 in file_pairs:
+                    self.files.append(file1)
+                    if file2:
+                        self.files.append(file2)
+                
                 logger.info(f"Found {len(self.files)} sequence files in {file_dir}")
+                
+                # Ask if user wants to build metadata from files
+                if not hasattr(self, 'metadata') or not self.metadata:
+                    print(f"\nFound {len(file_pairs)} sample(s) in {file_dir}.")
+                    print("Would you like to build metadata from these files? [y/N]")
+                    response = input("> ").strip().lower()
+                    if response == 'y':
+                        # Build metadata from file pairs
+                        sra_df = build_sample_metadata(
+                            file_pairs, 
+                            config_file=self.config_file if hasattr(self, 'config_file') else None
+                        )
+                        if len(sra_df) > 0:
+                            self.metadata = sra_df.iloc[0].to_dict()
+                            logger.info("Built metadata from sequence files")
         else:
             # Interactive file collection
             print("\n=== Sequence Files ===")
@@ -236,6 +284,91 @@ def authenticate(self):
                     logger.warning(f"File not found: {file_path}")
             
             logger.info(f"Added {len(self.files)} sequence files")
+    
+    def verify_sequence_files(self):
+        """Verify that all sequence files exist."""
+        missing_files = []
+        
+        for file_path in self.files:
+            if not os.path.exists(file_path):
+                missing_files.append(file_path)
+        
+        if missing_files:
+            logger.error(f"Missing {len(missing_files)} sequence files:")
+            for file in missing_files[:10]:  # Show first 10 missing files
+                logger.error(f"  - {file}")
+            if len(missing_files) > 10:
+                logger.error(f"  ... and {len(missing_files) - 10} more")
+            
+            print(f"\nWarning: {len(missing_files)} sequence files are missing.")
+            print("Would you like to continue anyway? [y/N]")
+            response = input("> ").strip().lower()
+            
+            return response == 'y'
+        
+        logger.info(f"All {len(self.files)} sequence files verified")
+        return True
+    
+    def upload_files(self):
+        """Upload sequence files to NCBI SRA."""
+        if not self.session_token:
+            logger.error("Not authenticated. Call authenticate() first")
+            return False
+        
+        headers = {"Authorization": f"Bearer {self.session_token}"}
+        
+        for file_path in self.files:
+            try:
+                file_name = os.path.basename(file_path)
+                logger.info(f"Uploading {file_name}...")
+                
+                with open(file_path, 'rb') as f:
+                    files = {'file': (file_name, f)}
+                    response = requests.post(
+                        NCBI_UPLOAD_URL,
+                        headers=headers,
+                        files=files
+                    )
+                    response.raise_for_status()
+                
+                logger.info(f"Successfully uploaded {file_name}")
+            except Exception as e:
+                logger.error(f"Failed to upload {file_name}: {str(e)}")
+                return False
+        
+        return True
+    
+    def submit(self, submission_xml_path):
+        """Submit the prepared package to NCBI SRA."""
+        if not self.session_token:
+            logger.error("Not authenticated. Call authenticate() first")
+            return False
+        
+        try:
+            logger.info("Submitting to NCBI SRA...")
+            
+            headers = {"Authorization": f"Bearer {self.session_token}"}
+            
+            with open(submission_xml_path, 'rb') as f:
+                files = {'submission_xml': f}
+                response = requests.post(
+                    NCBI_SUBMIT_URL,
+                    headers=headers,
+                    files=files
+                )
+                response.raise_for_status()
+            
+            result = response.json()
+            if result.get('status') == 'success':
+                logger.info(f"Submission successful! Submission ID: {result.get('submission_id')}")
+                return True
+            else:
+                logger.error(f"Submission failed: {result.get('message', 'Unknown error')}")
+                return False
+                
+        except Exception as e:
+            logger.error(f"Failed to submit: {str(e)}")
+            return False
     
     def prepare_submission_package(self, output_dir):
         """Prepare the XML submission package."""
@@ -336,113 +469,3 @@ def authenticate(self):
         logger.info(f"Metadata TSV: {metadata_path}")
         
         return submission_xml_path
-    
-    def upload_files(self):
-        """Upload sequence files to NCBI SRA."""
-        if not self.session_token:
-            logger.error("Not authenticated. Call authenticate() first")
-            return False
-        
-        headers = {"Authorization": f"Bearer {self.session_token}"}
-        
-        for file_path in self.files:
-            try:
-                file_name = os.path.basename(file_path)
-                logger.info(f"Uploading {file_name}...")
-                
-                with open(file_path, 'rb') as f:
-                    files = {'file': (file_name, f)}
-                    response = requests.post(
-                        NCBI_UPLOAD_URL,
-                        headers=headers,
-                        files=files
-                    )
-                    response.raise_for_status()
-                
-                logger.info(f"Successfully uploaded {file_name}")
-            except Exception as e:
-                logger.error(f"Failed to upload {file_name}: {str(e)}")
-                return False
-        
-        return True
-    
-    def submit(self, submission_xml_path):
-        """Submit the prepared package to NCBI SRA."""
-        if not self.session_token:
-            logger.error("Not authenticated. Call authenticate() first")
-            return False
-        
-        try:
-            logger.info("Submitting to NCBI SRA...")
-            
-            headers = {"Authorization": f"Bearer {self.session_token}"}
-            
-            with open(submission_xml_path, 'rb') as f:
-                files = {'submission_xml': f}
-                response = requests.post(
-                    NCBI_SUBMIT_URL,
-                    headers=headers,
-                    files=files
-                )
-                response.raise_for_status()
-            
-            result = response.json()
-            if result.get('status') == 'success':
-                logger.info(f"Submission successful! Submission ID: {result.get('submission_id')}")
-                return True
-            else:
-                logger.error(f"Submission failed: {result.get('message', 'Unknown error')}")
-                return False
-                
-        except Exception as e:
-            logger.error(f"Failed to submit: {str(e)}")
-            return False
-
-
-def main():
-    """Main entry point for the script."""
-    parser = argparse.ArgumentParser(description="Automate SRA submission for metagenomic data")
-    parser.add_argument("--config", help="Path to configuration file (JSON)")
-    parser.add_argument("--metadata", help="Path to metadata file (CSV/Excel)")
-    parser.add_argument("--files", help="Directory containing sequence files")
-    parser.add_argument("--output", default="sra_submission", help="Output directory for submission package")
-    parser.add_argument("--submit", action="store_true", help="Submit to SRA (requires authentication)")
-    
-    args = parser.parse_args()
-    
-    # Initialize submission handler
-    submission = SRASubmission(args.config)
-    
-    # Collect metadata
-    if args.metadata:
-        submission.collect_metadata_from_file(args.metadata)
-    else:
-        submission.collect_metadata_interactive()
-    
-    # Validate metadata
-    if not submission.validate_metadata():
-        logger.error("Metadata validation failed. Please correct the issues and try again.")
-        sys.exit(1)
-    
-    # Collect sequence files
-    submission.collect_sequence_files(args.files)
-    
-    if not submission.files:
-        logger.error("No sequence files specified")
-        sys.exit(1)
-    
-    # Prepare submission package
-    submission_xml_path = submission.prepare_submission_package(args.output)
-    
-    # Submit if requested
-    if args.submit:
-        submission.authenticate()
-        if submission.upload_files():
-            submission.submit(submission_xml_path)
-    else:
-        logger.info(f"Submission package prepared in {args.output}")
-        logger.info("Run with --submit to submit to SRA")
-
-
-if __name__ == "__main__":
-    main()

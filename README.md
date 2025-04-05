@@ -9,6 +9,8 @@ This package provides tools to streamline the preparation and submission of meta
 - Creating required metadata files in the correct format
 - Organizing sequence files according to SRA requirements
 - Automating the submission process via the NCBI Submission Portal API
+- Verifying files and metadata before submission
+- Detecting paired-end sequencing files automatically
 
 ## Table of Contents
 
@@ -23,32 +25,53 @@ This package provides tools to streamline the preparation and submission of meta
 
 ## Installation
 
+### Using Conda (Recommended)
+
+```bash
+# Create and activate a conda environment with required dependencies
+conda create -n sra-tools python=3.8 pandas requests openpyxl
+conda activate sra-tools
+
+# Clone the repository
+git clone https://github.com/yourusername/sra-metagenome-submission.git
+cd sra-metagenome-submission
+
+# Install in development mode
+pip install -e .
+```
+
+### Using pip
+
+```bash
+# Install directly using pip
+pip install sra-metagenome-submission
+```
+
+### From Source
+
 ```bash
 # Clone the repository
 git clone https://github.com/yourusername/sra-metagenome-submission.git
 cd sra-metagenome-submission
 
-# Install the package and dependencies
-pip install -e .
-```
-
-Or install directly using pip:
-
-```bash
-pip install sra-metagenome-submission
+# Install using pip with pyproject.toml
+pip install .
 ```
 
 ## Quick Start
 
 ```bash
-# Interactive mode - will prompt for required information
-python sra_submission.py --output my_submission
+# Activate the conda environment
+conda activate sra-tools
 
-# Use existing metadata file
-python sra_submission.py --metadata my_metadata.csv --files /path/to/fastq_files
+# Using the command-line tool (installed via pyproject.toml)
+sra-submit --config config.json --metadata hellman_metadata2.csv --files /path/to/sequence/files --output submission_package
+
+# Or run the script directly
+python sra_submission.py --config config.json --metadata hellman_metadata2.csv --files /path/to/sequence/files --output submission_package
 
 # Submit to SRA (requires authentication)
-python sra_submission.py --config config.json --metadata my_metadata.csv --submit
+sra-submit --config config.json --metadata hellman_metadata2.csv --files /path/to/sequence/files --output submission_package --submit
 ```
 
 ## Understanding the SRA Submission Process
@@ -125,13 +148,19 @@ This is the primary script for preparing and submitting metagenomic data to SRA.
 
 ```bash
 # Basic usage with interactive prompts
-python sra_submission.py --output submission_package
+sra-submit --output submission_package
 
 # Using metadata file and auto-detecting sequence files
-python sra_submission.py --metadata metadata.csv --files /path/to/fastq_files --output submission_package
+sra-submit --metadata metadata.csv --files /path/to/fastq_files --output submission_package
 
 # Full submission with authentication
-python sra_submission.py --config config.json --metadata metadata.csv --files /path/to/fastq_files --output submission_package --submit
+sra-submit --config config.json --metadata metadata.csv --files /path/to/fastq_files --output submission_package --submit
+
+# Prepare SRA-compatible metadata from your existing metadata file
+sra-submit --config config.json --metadata your_metadata.csv --prepare-metadata sra_metadata.csv
+
+# Verify that all sequence files exist
+sra-submit --config config.json --metadata sra_metadata.csv --files /path/to/sequence/files --verify-only
 ```
 
 ### Command-line Arguments
@@ -141,6 +170,9 @@ python sra_submission.py --config config.json --metadata metadata.csv --files /p
 - `--files`: Directory containing sequence files (will auto-detect FASTQ/FQ/FASTQ.GZ files)
 - `--output`: Directory to store generated submission files (default: sra_submission)
 - `--submit`: Flag to submit data to SRA (requires authentication)
+- `--prepare-metadata`: Prepare SRA-compatible metadata from input file and save to specified output file
+- `--verify-only`: Only verify files without creating submission package
+- `--auto-pair`: Automatically detect paired-end files
 
 ### Interactive Mode
 
@@ -183,8 +215,6 @@ Example `config.json`:
 
 ```json
 {
-  "username": "your_ncbi_username",
-  "password": "your_ncbi_password",
   "api_key": "your_ncbi_api_key",
   "default_values": {
     "library_strategy": "WGS",
@@ -240,6 +270,67 @@ bioproject_id,project_title,project_description,sample_source,collection_date,ge
 PRJXXXXX,Marine Metagenome Project,Characterization of microbial communities in coastal waters,environmental,2023-07-15,USA:California,36.9513 N 122.0733 W,WGS,METAGENOMIC,RANDOM,ILLUMINA,Illumina NovaSeq 6000,marine biome,coastal water,sea water,10,0,,,
 ```
 
+## Python API
+
+You can also use the package as a Python library:
+
+```python
+from sra_submission import SRASubmission
+from sra_utils import prepare_metadata, verify_files
+
+# Prepare metadata
+sra_df = prepare_metadata("your_metadata.csv", "sra_metadata.csv", "config.json")
+
+# Initialize submission
+submission = SRASubmission("config.json")
+
+# Collect metadata and files
+submission.collect_metadata_from_file("sra_metadata.csv")
+submission.collect_sequence_files("/path/to/sequence/files")
+
+# Verify files
+if submission.verify_sequence_files():
+    # Prepare submission package
+    submission_xml_path = submission.prepare_submission_package("submission_package")
+    
+    # Submit to SRA
+    submission.authenticate()
+    if submission.upload_files():
+        submission.submit(submission_xml_path)
+```
+
+## Development
+
+### Package Structure
+
+This package uses `pyproject.toml` for modern Python packaging:
+
+```
+sra-metagenome-submission/
+├── pyproject.toml         # Package build configuration
+├── README.md              # This file
+├── LICENSE                # License file
+├── src/                   # Source code directory
+│   └── sra_metagenome_submission/
+│       ├── __init__.py    # Package initialization
+│       ├── sra_submission.py  # Main submission script
+│       ├── sra_utils.py   # Utility functions
+│       └── _version.py    # Version information
+```
+
+### Building and Testing
+
+```bash
+# Make sure you have build tools
+pip install build
+
+# Build the package
+python -m build
+
+# Install in development mode
+pip install -e .
+```
+
 ## Troubleshooting
 
 ### Common Submission Errors
@@ -249,7 +340,7 @@ PRJXXXXX,Marine Metagenome Project,Characterization of microbial communities in 
    - Pay attention to format (dates as YYYY-MM-DD, lat/lon as decimal degrees)
 
 2. **Authentication Issues**:
-   - Verify your NCBI username/password or API key
+   - Verify your NCBI API key in the config.json file
    - Check your network connection
 
 3. **File Format Problems**:
