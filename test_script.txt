@@ -1,3 +1,4 @@
 
 # Submit to SRA (requires authentication)
-sra-submit --config dbh_config.json --metadata hellman_metadata2.csv --files /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/ --output submission_package --submit
+
+sra-submit --config dbh_config.json --metadata hellman_metadata.csv --files /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/ --output submission_package --submit --aspera-key aspera.openssh.txt --upload-destination subasp@upload.ncbi.nlm.nih.gov:uploads/dbhaslam_gmail.com_QFq0F7SG
