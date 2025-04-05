@@ -1,0 +1,13 @@
+2025-04-05 15:21:52,605 - __main__ - INFO - Starting Hellman dataset SRA submission preparation
+2025-04-05 15:21:52,636 - __main__ - INFO - SRA metadata file created: hellman_sra_submission/sra_metadata.csv
+2025-04-05 15:21:52,796 - __main__ - ERROR - Missing 8 sequence files:
+2025-04-05 15:21:52,796 - __main__ - ERROR -   - /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/C2Jenny02_R1.fastq.gz
+2025-04-05 15:21:52,796 - __main__ - ERROR -   - /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/C2Jenny02_R2.fastq.gz
+2025-04-05 15:21:52,797 - __main__ - ERROR -   - /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/F12Jenny1_R1.fastq.gz
+2025-04-05 15:21:52,797 - __main__ - ERROR -   - /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/F12Jenny1_R2.fastq.gz
+2025-04-05 15:21:52,797 - __main__ - ERROR -   - /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/IBD_525_A.N_R1.fastq.gz
+2025-04-05 15:21:52,797 - __main__ - ERROR -   - /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/IBD_525_A.N_R2.fastq.gz
+2025-04-05 15:21:52,797 - __main__ - ERROR -   - /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/IBD_533_R1.fastq.gz
+2025-04-05 15:21:52,797 - __main__ - ERROR -   - /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/IBD_533_R2.fastq.gz
+2025-04-05 15:21:52,797 - __main__ - ERROR - Some sequence files are missing. Please check the paths.
+2025-04-05 15:21:59,024 - sra_submission - INFO - Loaded configuration from dbh_config.json
