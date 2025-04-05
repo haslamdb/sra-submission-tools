@@ -1,0 +1,3 @@
+
+# Submit to SRA (requires authentication)
+sra-submit --config dbh_config.json --metadata hellman_metadata2.csv --files /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/ --output submission_package --submit

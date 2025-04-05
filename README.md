@@ -29,7 +29,7 @@ This package provides tools to streamline the preparation and submission of meta
 
 ```bash
 # Create and activate a conda environment with required dependencies
-conda create -n sra-tools python=3.8 pandas requests openpyxl
+conda create -n sra-tools python=3.12 pandas requests openpyxl
 conda activate sra-tools
 
 # Clone the repository
