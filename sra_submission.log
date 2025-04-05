@@ -39,3 +39,13 @@
 2025-04-05 16:36:29,280 - sra_metagenome_submission.main - INFO - Loaded configuration from dbh_config.json
 2025-04-05 16:36:29,288 - sra_metagenome_submission.main - INFO - Loaded metadata from hellman_metadata.csv
 2025-04-05 16:36:29,289 - sra_metagenome_submission.main - ERROR - Missing required metadata fields: project_title
+2025-04-05 16:43:07,125 - sra_metagenome_submission.main - INFO - Loaded configuration from dbh_config.json
+2025-04-05 16:43:07,132 - sra_metagenome_submission.main - INFO - Loaded metadata from hellman_metadata.csv
+2025-04-05 16:43:07,133 - sra_metagenome_submission.main - INFO - Metadata validation successful
+2025-04-05 16:43:13,883 - sra_metagenome_submission.main - INFO - Found 32711 sequence files in /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/
+2025-04-05 16:43:21,298 - sra_metagenome_submission.main - INFO - All 32711 sequence files verified
+2025-04-05 16:43:21,491 - sra_metagenome_submission.main - INFO - Created submission package in submission_package
+2025-04-05 16:43:21,491 - sra_metagenome_submission.main - INFO - Submission XML: submission_package/submission.xml
+2025-04-05 16:43:21,491 - sra_metagenome_submission.main - INFO - Metadata TSV: submission_package/metadata.tsv
+2025-04-05 16:43:21,493 - sra_metagenome_submission.main - INFO - Authenticating with NCBI using API key
+2025-04-05 16:43:21,654 - sra_metagenome_submission.main - ERROR - Authentication failed: 404 Client Error: Not Found for url: https://www.ncbi.nlm.nih.gov/projects/r_submit/api/auth
