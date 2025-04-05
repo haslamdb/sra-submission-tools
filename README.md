@@ -76,9 +76,6 @@ sra-submit --config config.json --metadata hellman_metadata2.csv --files /path/t
 
 ## Understanding the SRA Submission Process
 
-### What is SRA?
-
-The Sequence Read Archive (SRA) is NCBI's primary archive of high-throughput sequencing data. It stores raw sequencing data and alignment information from various sequencing platforms.
 
 ### NCBI Submission Process Overview
 
@@ -97,6 +94,39 @@ The SRA submission process involves several steps:
    - Upload files to SRA
    - Provide experiment and run metadata
    - Submit and track your submission
+
+## SRA Submission Process
+
+### Prerequisites
+
+Before submitting metagenomic data to SRA, you need to complete several setup steps:
+
+1. **Install Aspera Connect**:
+   - Download the Aspera Connect installer from [IBM's website](https://www.ibm.com/products/aspera/downloads#cds)
+   - For Linux users, this will download a bash script that you need to run to complete the installation
+   - Verify installation by running `ascp --version` in your terminal
+   - On Linux you may need to add an alias to your ~/.bashrc   (e.g. alias ascp='/home/your-username/.aspera/connect/bin/ascp')
+
+2. **Obtain Aspera Key File**:
+   - Download the `aspera.openssh` key file from NCBI: [https://submit.ncbi.nlm.nih.gov/preload/aspera_key/](https://submit.ncbi.nlm.nih.gov/preload/aspera_key/)
+   - **Important**: Copy and paste the downloaded file from your downloads folder to a secure location. Do not open and save it as a text file, as this would corrupt the file format.
+   - Make note of the path to this key file as you'll need it for the submission process
+
+3. **Request a Preload Folder**:
+   - Log into your NCBI account at [https://submit.ncbi.nlm.nih.gov/](https://submit.ncbi.nlm.nih.gov/)
+   - Request a preload folder for your submission
+   - You will receive an upload destination path in the format: `subasp@upload.ncbi.nlm.nih.gov:uploads/your_username_XYZ123`
+   - Save this destination path for use in the submission process
+
+
+
+### Running the Submission Process
+
+The submission process is split into two main steps:
+
+1. **Prepare the Submission Package**:
+   ```bash
+   sra-submit --config config.json --metadata your_metadata.csv --files /path/to/sequence/files --output submission_package
 
 ### Manual Submission Steps
 

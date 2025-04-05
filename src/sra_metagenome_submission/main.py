@@ -104,6 +104,31 @@ class SRASubmission:
         """
         import subprocess
         from pathlib import Path
+
+        # Find the ascp executable
+        ascp_path = "ascp"  # Default to just the command name
+        
+        # Check if the command exists in PATH
+        try:
+            subprocess.run(["which", "ascp"], check=True, capture_output=True)
+        except subprocess.CalledProcessError:
+            # If not in PATH, check common locations
+            common_locations = [
+                "/home/david/.aspera/connect/bin/ascp",
+                os.path.expanduser("~/.aspera/connect/bin/ascp"),
+                "/usr/local/bin/ascp"
+            ]
+            
+            for loc in common_locations:
+                if os.path.exists(loc):
+                    ascp_path = loc
+                    logger.info(f"Found ascp at: {ascp_path}")
+                    break
+            else:
+                logger.error("Aspera command 'ascp' not found in PATH or common locations")
+                print("\nError: Aspera command 'ascp' not found.")
+                print("Please install Aspera Connect from: https://downloads.asperasoft.com/connect2/")
+                return False
         
         # Validate required parameters
         if not key_path:
