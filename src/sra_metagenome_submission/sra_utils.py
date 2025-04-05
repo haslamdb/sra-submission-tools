@@ -59,7 +59,8 @@ def prepare_metadata(input_file, output_file=None, config_file=None):
             "library_selection": "library_selection",
             "library_layout": "library_layout",
             "platform": "platform",
-            "instrument_model": "instrument_model"
+            "instrument_model": "instrument_model",
+            "project_title": "project_title"
         }
         
         # Copy existing fields and apply defaults where needed
