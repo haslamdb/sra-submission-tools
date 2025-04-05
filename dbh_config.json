@@ -5,11 +5,13 @@
     "library_source": "METAGENOMIC",
     "library_selection": "RANDOM",
     "platform": "ILLUMINA",
-    "instrument_model": "Illumina HiSeq"
+    "instrument_model": "Illumina HiSeq",
+    "project_title": "Hellman IBD Microbiome Study"
   },
   "contact": {
     "name": "David Haslam",
     "email": "david.haslam@cchmc.org",
     "organization": "Cincinnati Chilren's Hospital"
   }
+}
 }
