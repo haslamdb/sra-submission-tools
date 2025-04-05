@@ -65,7 +65,7 @@ logger = logging.getLogger(__name__)
 # Note: These are example URLs; you'll need to use the actual NCBI API endpoints
 NCBI_AUTH_URL = "https://www.ncbi.nlm.nih.gov/projects/r_submit/api/auth"
 NCBI_UPLOAD_URL = "https://www.ncbi.nlm.nih.gov/projects/r_submit/api/upload"
-NCBI_SUBMIT_URL = "https://www.ncbi.nlm.nih.gov/projects/r_submit/api/submit"
+NCBI_SUBMIT_URL = "https://submit.ncbi.nlm.nih.gov/subs/"
 
 class SRASubmission:
     """Class to handle SRA submission process for metagenomic data."""
@@ -89,6 +89,81 @@ class SRASubmission:
         except Exception as e:
             logger.error(f"Failed to load configuration: {str(e)}")
             sys.exit(1)
+
+    def upload_files_with_aspera(self, files_dir=None, key_path=None, upload_destination=None):
+        """
+        Upload files using Aspera command line.
+        
+        Args:
+            files_dir: Directory containing files to upload (defaults to directory of first file)
+            key_path: Path to Aspera key file (required)
+            upload_destination: NCBI upload destination (required)
+        
+        Returns:
+            bool: True if upload successful, False otherwise
+        """
+        import subprocess
+        from pathlib import Path
+        
+        # Validate required parameters
+        if not key_path:
+            logger.error("Aspera key file path is required")
+            return False
+        
+        if not upload_destination:
+            logger.error("NCBI upload destination is required")
+            return False
+        
+        # If no directory is specified, use the directory of the first file
+        if not files_dir and self.files:
+            files_dir = str(Path(self.files[0]).parent)
+        
+        if not files_dir:
+            logger.error("Files directory is required")
+            return False
+        
+        try:
+            logger.info(f"Uploading files with Aspera from {files_dir}")
+            
+            # Construct Aspera command
+            aspera_cmd = [
+                "ascp",
+                "-i", key_path,
+                "-QT",
+                "-l100m",
+                "-k1",
+                "-d",
+                files_dir,
+                upload_destination
+            ]
+            
+            # Execute Aspera command
+            logger.info(f"Running command: {' '.join(aspera_cmd)}")
+            print(f"\nStarting Aspera upload from {files_dir}...")
+            print(f"This may take a while depending on the size of your files.")
+            
+            process = subprocess.run(
+                aspera_cmd,
+                capture_output=True,
+                text=True,
+                check=True
+            )
+            
+            logger.info("Aspera upload completed successfully")
+            print("\nAspera upload completed successfully!")
+            return True
+        
+        except subprocess.CalledProcessError as e:
+            logger.error(f"Aspera upload failed: {e}")
+            logger.error(f"Stderr: {e.stderr}")
+            print(f"\nAspera upload failed: {e}")
+            print(f"Error details: {e.stderr}")
+            return False
+        except FileNotFoundError:
+            logger.error("Aspera command 'ascp' not found. Please install Aspera Connect.")
+            print("\nError: Aspera command 'ascp' not found.")
+            print("Please install Aspera Connect from: https://downloads.asperasoft.com/connect2/")
+            return False
     
     def authenticate(self):
         """Authenticate with NCBI SRA using API key or username/password."""
@@ -486,6 +561,9 @@ def main():
     parser.add_argument('--prepare-metadata', help='Prepare SRA-compatible metadata and save to specified file')
     parser.add_argument('--verify-only', action='store_true', help='Only verify files, do not create submission package')
     parser.add_argument('--auto-pair', action='store_true', help='Automatically detect paired-end files')
+    # Add command-line arguments for Aspera
+    parser.add_argument('--aspera-key', help='Path to Aspera key file')
+    parser.add_argument('--upload-destination', help='NCBI upload destination (e.g., subasp@upload.ncbi.nlm.nih.gov:uploads/your_folder)')
     
     args = parser.parse_args()
     
@@ -538,21 +616,43 @@ def main():
     
     # Submit if requested
     if args.submit:
-        print("\nSubmitting to NCBI SRA...")
-        submission.authenticate()
-        if submission.upload_files():
-            if submission.submit(submission_xml_path):
-                print("Submission successful!")
-            else:
-                print("Submission failed. See log file for details.")
-                sys.exit(1)
+        print("\nPreparing to submit to NCBI SRA...")
+        
+        # Ask for Aspera key path if not provided
+        key_path = args.aspera_key
+        while not key_path or not os.path.exists(key_path):
+            if key_path:
+                print(f"Key file not found: {key_path}")
+            key_path = input("Enter path to Aspera key file: ")
+            if not key_path:
+                print("Submission canceled.")
+                sys.exit(0)
+        
+        # Ask for upload destination if not provided
+        upload_destination = args.upload_destination
+        while not upload_destination:
+            upload_destination = input("Enter NCBI upload destination (e.g., subasp@upload.ncbi.nlm.nih.gov:uploads/your_folder): ")
+            if not upload_destination:
+                print("Submission canceled.")
+                sys.exit(0)
+        
+        # Use Aspera to upload files
+        if submission.upload_files_with_aspera(args.files, key_path, upload_destination):
+            print("\nFiles uploaded successfully!")
+            print("\nTo complete your submission:")
+            print("1. Log into NCBI Submission Portal: https://submit.ncbi.nlm.nih.gov/")
+            print("2. Select 'New Submission' and choose 'Sequence Read Archive (SRA)'")
+            print("3. Follow the prompts to associate your uploaded files with your metadata")
+            print(f"4. You can use the metadata files in {args.output} to help complete the submission")
         else:
             print("File upload failed. See log file for details.")
             sys.exit(1)
     else:
-        print("\nTo submit to SRA later, run:")
-        config_arg = f"--config {args.config}" if args.config else ""
-        print(f"sra-submit {config_arg} --output {args.output} --submit")
+        print("\nSubmission package prepared. To upload files and submit to SRA later:")
+        print(f"1. Use Aspera to upload your files:")
+        print(f"   ascp -i /path/to/key_file -QT -l100m -k1 -d {args.files} subasp@upload.ncbi.nlm.nih.gov:uploads/your_folder")
+        print(f"2. Complete the submission through the NCBI Submission Portal: https://submit.ncbi.nlm.nih.gov/")
+
 
 if __name__ == "__main__":
     main()
