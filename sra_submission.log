@@ -27,3 +27,9 @@
 2025-04-05 16:28:16,321 - sra_metagenome_submission.main - INFO - Loaded configuration from dbh_config.json
 2025-04-05 16:28:16,332 - sra_metagenome_submission.main - INFO - Loaded metadata from hellman_metadata.csv
 2025-04-05 16:28:16,332 - sra_metagenome_submission.main - ERROR - Missing required metadata fields: project_title
+2025-04-05 16:29:49,515 - sra_metagenome_submission.main - INFO - Loaded configuration from dbh_config.json
+2025-04-05 16:29:49,523 - sra_metagenome_submission.main - INFO - Loaded metadata from hellman_metadata.csv
+2025-04-05 16:29:49,523 - sra_metagenome_submission.main - ERROR - Missing required metadata fields: project_title
+2025-04-05 16:31:31,400 - sra_metagenome_submission.main - INFO - Loaded configuration from dbh_config.json
+2025-04-05 16:31:31,409 - sra_metagenome_submission.main - INFO - Loaded metadata from hellman_metadata.csv
+2025-04-05 16:31:31,409 - sra_metagenome_submission.main - ERROR - Missing required metadata fields: project_title
