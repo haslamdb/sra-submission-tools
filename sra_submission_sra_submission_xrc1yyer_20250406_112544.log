@@ -1,0 +1,2 @@
+2025-04-06 11:25:44,525 - sra_metagenome_submission.main - INFO - Log file renamed to include submission ID: sra_submission_sra_submission_xrc1yyer_20250406_112544.log
+2025-04-06 11:25:44,574 - sra_metagenome_submission.main - INFO - Running command: "/home/david/.aspera/connect/bin/ascp" -i "aspera.openssh" -QT -l100m -k1 -d "/tmp/sra_submission_xrc1yyer" subasp@upload.ncbi.nlm.nih.gov:uploads/dbhaslam_gmail.com_QFq0F7SG
