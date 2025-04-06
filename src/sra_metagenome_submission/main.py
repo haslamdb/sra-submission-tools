@@ -90,81 +90,148 @@ class SRASubmission:
             logger.error(f"Failed to load configuration: {str(e)}")
             sys.exit(1)
 
-    def upload_files_with_aspera(self, files_dir=None, key_path=None, upload_destination=None):
-        """
-        Upload files using Aspera command line.
+
+## The previous implementation used subprocess.run() to execute the ascp command
+## However, subprocess doesn't automatically recognize shell aliases or use the full PATH environment
+## So a direct path to the ascp executable is needed even if it's accessible from the shell
+## Switching to os.system() allows the command to use the shell environment where ascp is available
+
+    # def upload_files_with_aspera(self, files_dir=None, key_path=None, upload_destination=None):
+    #     """
+    #     Upload files using Aspera command line.
         
-        Args:
-            files_dir: Directory containing files to upload (defaults to directory of first file)
-            key_path: Path to Aspera key file (required)
-            upload_destination: NCBI upload destination (required)
+    #     Args:
+    #         files_dir: Directory containing files to upload (defaults to directory of first file)
+    #         key_path: Path to Aspera key file (required)
+    #         upload_destination: NCBI upload destination (required)
         
-        Returns:
-            bool: True if upload successful, False otherwise
-        """
-        import subprocess
-        from pathlib import Path
+    #     Returns:
+    #         bool: True if upload successful, False otherwise
+    #     """
+    #     import subprocess
+    #     from pathlib import Path
         
-        # Validate required parameters
-        if not key_path:
-            logger.error("Aspera key file path is required")
-            return False
+    #     # Validate required parameters
+    #     if not key_path:
+    #         logger.error("Aspera key file path is required")
+    #         return False
         
-        if not upload_destination:
-            logger.error("NCBI upload destination is required")
-            return False
+    #     if not upload_destination:
+    #         logger.error("NCBI upload destination is required")
+    #         return False
         
-        # If no directory is specified, use the directory of the first file
-        if not files_dir and self.files:
-            files_dir = str(Path(self.files[0]).parent)
+    #     # If no directory is specified, use the directory of the first file
+    #     if not files_dir and self.files:
+    #         files_dir = str(Path(self.files[0]).parent)
         
-        if not files_dir:
-            logger.error("Files directory is required")
-            return False
+    #     if not files_dir:
+    #         logger.error("Files directory is required")
+    #         return False
         
-        try:
-            logger.info(f"Uploading files with Aspera from {files_dir}")
+    #     try:
+    #         logger.info(f"Uploading files with Aspera from {files_dir}")
             
-            # Construct Aspera command
-            aspera_cmd = [
-                "/home/david/.aspera/connect/bin/ascp",
-                "-i", key_path,
-                "-QT",
-                "-l100m",
-                "-k1",
-                "-d",
-                files_dir,
-                upload_destination
-            ]
+    #         # Construct Aspera command
+    #         aspera_cmd = [
+    #             "/home/your username/.aspera/connect/bin/ascp",
+    #             "-i", key_path,
+    #             "-QT",
+    #             "-l100m",
+    #             "-k1",
+    #             "-d",
+    #             files_dir,
+    #             upload_destination
+    #         ]
             
-            # Execute Aspera command
-            logger.info(f"Running command: {' '.join(aspera_cmd)}")
-            print(f"\nStarting Aspera upload from {files_dir}...")
-            print(f"This may take a while depending on the size of your files.")
+    #         # Execute Aspera command
+    #         logger.info(f"Running command: {' '.join(aspera_cmd)}")
+    #         print(f"\nStarting Aspera upload from {files_dir}...")
+    #         print(f"This may take a while depending on the size of your files.")
             
-            process = subprocess.run(
-                aspera_cmd,
-                capture_output=True,
-                text=True,
-                check=True
-            )
+    #         process = subprocess.run(
+    #             aspera_cmd,
+    #             capture_output=True,
+    #             text=True,
+    #             check=True
+    #         )
             
+    #         logger.info("Aspera upload completed successfully")
+    #         print("\nAspera upload completed successfully!")
+    #         return True
+        
+    #     except subprocess.CalledProcessError as e:
+    #         logger.error(f"Aspera upload failed: {e}")
+    #         logger.error(f"Stderr: {e.stderr}")
+    #         print(f"\nAspera upload failed: {e}")
+    #         print(f"Error details: {e.stderr}")
+    #         return False
+    #     except FileNotFoundError:
+    #         logger.error("Aspera command 'ascp' not found. Please install Aspera Connect.")
+    #         print("\nError: Aspera command 'ascp' not found.")
+    #         print("Please install Aspera Connect from: https://downloads.asperasoft.com/connect2/")
+    #         return False
+
+
+# this command ususes os.system to submit the aspc command
+def upload_files_with_aspera(self, files_dir=None, key_path=None, upload_destination=None):
+    """
+    Upload files using Aspera command line.
+    
+    Args:
+        files_dir: Directory containing files to upload (defaults to directory of first file)
+        key_path: Path to Aspera key file (required)
+        upload_destination: NCBI upload destination (required)
+    
+    Returns:
+        bool: True if upload successful, False otherwise
+    """
+    # Validate required parameters
+    if not key_path:
+        logger.error("Aspera key file path is required")
+        return False
+    
+    if not upload_destination:
+        logger.error("NCBI upload destination is required")
+        return False
+    
+    # If no directory is specified, use the directory of the first file
+    if not files_dir and self.files:
+        files_dir = str(Path(self.files[0]).parent)
+    
+    if not files_dir:
+        logger.error("Files directory is required")
+        return False
+    
+    try:
+        logger.info(f"Uploading files with Aspera from {files_dir}")
+        
+        # Construct the Aspera command
+        cmd = f"ascp -i {key_path} -QT -l100m -k1 -d {files_dir} {upload_destination}"
+        
+        # Log the command
+        logger.info(f"Running command: {cmd}")
+        print(f"\nStarting Aspera upload from {files_dir}...")
+        print(f"This may take a while depending on the size of your files.")
+        
+        # Execute the command using os.system()
+        return_code = os.system(cmd)
+        
+        if return_code == 0:
             logger.info("Aspera upload completed successfully")
             print("\nAspera upload completed successfully!")
             return True
-        
-        except subprocess.CalledProcessError as e:
-            logger.error(f"Aspera upload failed: {e}")
-            logger.error(f"Stderr: {e.stderr}")
-            print(f"\nAspera upload failed: {e}")
-            print(f"Error details: {e.stderr}")
+        else:
+            logger.error(f"Aspera upload failed with return code: {return_code}")
+            print(f"\nAspera upload failed with return code: {return_code}")
             return False
-        except FileNotFoundError:
-            logger.error("Aspera command 'ascp' not found. Please install Aspera Connect.")
-            print("\nError: Aspera command 'ascp' not found.")
-            print("Please install Aspera Connect from: https://downloads.asperasoft.com/connect2/")
-            return False
-    
+            
+    except Exception as e:
+        logger.error(f"Error during Aspera upload: {str(e)}")
+        print(f"\nError during Aspera upload: {str(e)}")
+        return False
+
+
+
     def authenticate(self):
         """Authenticate with NCBI SRA using API key or username/password."""
         if 'api_key' in self.config:
