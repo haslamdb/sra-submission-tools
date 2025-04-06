@@ -12,11 +12,7 @@ This package provides tools to make preparation and submission of metagenomic se
 - Organizing sequence files according to SRA requirements
 - Automating the submission process via the NCBI Submission Portal API
 - Verifying files and metadata before submission
-
-- This workflow uses aspera 
-
-
-
+- Handling file uploads using IBM Aspera Connect
 
 ## Table of Contents
 
@@ -31,7 +27,23 @@ This package provides tools to make preparation and submission of metagenomic se
 
 ## Installation
 
-### Using Conda (Recommended)
+### Using pipx (Recommended)
+
+[pipx](https://pypa.github.io/pipx/) is the recommended installation method as it creates an isolated environment for the package, avoids dependency conflicts with other Python applications, and makes the command-line tools accessible system-wide.
+
+```bash
+# Install pipx if you don't have it already
+python -m pip install --user pipx
+python -m pipx ensurepath
+
+# Install the package
+pipx install git+https://github.com/yourusername/sra-metagenome-submission.git
+
+# The sra-submit command should now be available in your PATH
+sra-submit --help
+```
+
+### Using Conda
 
 ```bash
 # Create and activate a conda environment with required dependencies
@@ -45,7 +57,6 @@ cd sra-metagenome-submission
 # Install in development mode
 pip install -e .
 ```
-
 
 ### From Source
 
@@ -61,23 +72,20 @@ pip install .
 ## Quick Start
 
 ```bash
-# Activate the conda environment
-conda activate sra-tools
-
-# Using the command-line tool (installed via pyproject.toml)
+# Using pipx-installed command-line tool
 sra-submit --config config.json --metadata test_metadata.csv --files /path/to/sequence/files --output submission_package
 
-# Or run the script directly
-python sra_submission.py --config config.json --metadata test_metadata.csv --files /path/to/sequence/files --output submission_package
+# Or, if using conda environment
+conda activate sra-tools
+sra-submit --config config.json --metadata test_metadata.csv --files /path/to/sequence/files --output submission_package
 
 # Submit to SRA (requires authentication)
-sra-submit --config config.json --metadata test_metadata.csv --files /path/to/sequence/files --output submission_package --submit
+sra-submit --config config.json --metadata test_metadata.csv --files /path/to/sequence/files --output submission_package --submit --submission-name my_project_name
 ```
 
+## Understanding the SRA Submission Process
 
-### NCBI Submission Process Overview
-
-### Extra steps required with first-time upload
+### First-Time Setup
 
 1. **Create NCBI Account**:
    - Go to [NCBI](https://www.ncbi.nlm.nih.gov/)
@@ -86,41 +94,63 @@ sra-submit --config config.json --metadata test_metadata.csv --files /path/to/se
 2. **Install Aspera Connect**:
    - Download the Aspera Connect installer from [IBM's website](https://www.ibm.com/products/aspera/downloads#cds)
    - For Linux users, this will download a bash script that you need to run to complete the installation
-   - The filepath to aspc (__e.g.__ /home/david/.aspera/connect/bin/ascp)has to be provided at runtime (see example commands below) 
+   - The filepath to ascp (e.g., `/home/username/.aspera/connect/bin/ascp`) will be needed during the submission process
+   - You can provide this path using the `--aspera-path` parameter
 
 3. **Obtain Aspera Key File**:
    - Download the `aspera.openssh` key file from NCBI: [https://submit.ncbi.nlm.nih.gov/preload/aspera_key/](https://submit.ncbi.nlm.nih.gov/preload/aspera_key/)
    - **Important**: Copy and paste the downloaded file from your downloads folder to a secure location. Do not open and save it as a text file, as this would corrupt the file format.
    - Make note of the path to this key file as you'll need it for the submission process
+   - You can provide this path using the `--aspera-key` parameter
 
 4. **Obtain Upload Destination Path**:
    - Navigate to SRA submission start page [https://submit.ncbi.nlm.nih.gov/subs/sra/](https://submit.ncbi.nlm.nih.gov/subs/sra/)
    - Click "New Submission"
-   - Request a personal account folder to pre-upload your sequence data files (for the first time users) by clicking on the button "Request preload folder" 
-      - more instructions here: [https://www.ncbi.nlm.nih.gov/sra/docs/submitportal/](https://www.ncbi.nlm.nih.gov/sra/docs/submitportal/) 
+   - Request a personal account folder to pre-upload your sequence data files (for first-time users) by clicking on the button "Request preload folder" 
+      - More instructions here: [https://www.ncbi.nlm.nih.gov/sra/docs/submitportal/](https://www.ncbi.nlm.nih.gov/sra/docs/submitportal/) 
    - You will receive an upload destination path in the format: `subasp@upload.ncbi.nlm.nih.gov:uploads/your_username_XYZ123`
    - Save this destination path for use in all subsequent submission processes
-   - The destination path is not quite the same as a preload folder. Each upload will generate a preload folder at the destination path
+   - You can provide this path using the `--upload-destination` parameter
 
    - **Note:** Subsequent uploads will reuse your aspera.openssh key and submission destination `subasp@upload.ncbi.nlm.nih.gov:uploads/your_username_XYZ123`
 
 
-### Running the Submission Process
+### Complete Submission Process
 
 The submission process is split into two main steps:
 
-1. **Prepare and Submit a Submission Package**:
+1. **Prepare and Upload Files**:
    ```bash
-   sra-submit --config config.json --metadata your_metadata.csv --files /path/to/sequence/files --output submission_package
+   sra-submit --config config.json --metadata your_metadata.csv --files /path/to/sequence/files --output submission_package --submit --submission-name my_project_name --aspera-key /path/to/aspera.openssh --upload-destination subasp@upload.ncbi.nlm.nih.gov:uploads/your_username_XYZ123
    ```
+   
+   The `--submission-name` parameter is optional but recommended as it:
+   - Creates a descriptive name for your submission folder
+   - Makes it easier to identify your submission in NCBI's system
+   - Labels your log files for better organization
+   - Helps with tracking multiple submissions
 
 2. **Associate BioProject with the Preload Folder**:
-- See below
+   After successfully uploading your files, you'll need to associate them with your BioProject:
+   
+   - Log into [NCBI Submission Portal](https://submit.ncbi.nlm.nih.gov/)
+   - Select "New Submission" and choose "Sequence Read Archive (SRA)"
+   - Follow the submission wizard steps:
+     - Select your BioProject ID (create one if needed)
+     - Select your preload folder from the dropdown list
+     - The system will automatically detect your uploaded files
+     - Complete the submission wizard by providing any additional required metadata
+     - The system will validate your submission and assign SRA accession numbers
 
-**Track Submission Status**:
+   This second step must be done through NCBI's web interface as it requires interactive validation and confirmation of your submission metadata.
+
+### Track Submission Status
+
+After completing both steps:
    - Monitor your submission at [NCBI Submission Portal](https://submit.ncbi.nlm.nih.gov/)
    - Address any validation errors or issues
    - Receive accession numbers once submission is accepted
+   - Note that processing can take several days to complete
 
 ### Important URLs
 
@@ -147,7 +177,7 @@ sra-submit --output submission_package
 sra-submit --metadata metadata.csv --files /path/to/fastq_files --output submission_package
 
 # Full submission with authentication
-sra-submit --config config.json --metadata metadata.csv --files /path/to/fastq_files --output submission_package --submit
+sra-submit --config config.json --metadata metadata.csv --files /path/to/fastq_files --output submission_package --submit --submission-name my_project_name
 
 # Prepare SRA-compatible metadata from your existing metadata file
 sra-submit --config config.json --metadata your_metadata.csv --prepare-metadata sra_metadata.csv
@@ -163,6 +193,10 @@ sra-submit --config config.json --metadata sra_metadata.csv --files /path/to/seq
 - `--files`: Directory containing sequence files (will auto-detect FASTQ/FQ/FASTQ.GZ files)
 - `--output`: Directory to store generated submission files (default: sra_submission)
 - `--submit`: Flag to submit data to SRA (requires authentication)
+- `--submission-name`: Provide a descriptive name for your submission (used in log files and NCBI folder names)
+- `--aspera-key`: Path to your Aspera key file (required for submission)
+- `--aspera-path`: Full path to the Aspera Connect (ascp) executable
+- `--upload-destination`: NCBI upload destination (e.g., subasp@upload.ncbi.nlm.nih.gov:uploads/your_username_XYZ123)
 - `--prepare-metadata`: Prepare SRA-compatible metadata from input file and save to specified output file
 - `--verify-only`: Only verify files without creating submission package
 - `--auto-pair`: Automatically detect paired-end files
@@ -263,6 +297,22 @@ bioproject_id,project_title,project_description,sample_source,collection_date,ge
 PRJXXXXX,Marine Metagenome Project,Characterization of microbial communities in coastal waters,environmental,2023-07-15,USA:California,36.9513 N 122.0733 W,WGS,METAGENOMIC,RANDOM,ILLUMINA,Illumina NovaSeq 6000,marine biome,coastal water,sea water,10,0,,,
 ```
 
+### Using the Submission Name Parameter
+
+The `--submission-name` parameter offers several benefits:
+
+1. **Organizationally** - Creates a descriptive folder name in your NCBI submission account, making it easier to identify your submission among multiple projects
+2. **Traceability** - Creates dedicated log files with your submission name, which is helpful for troubleshooting or tracking
+3. **Clarity** - Improves communication with NCBI support if you need to reference a specific submission
+4. **Reusability** - Makes it easier to identify files for potential reuse in future submissions
+
+Example usage:
+```bash
+sra-submit --config config.json --metadata my_samples.csv --files /data/fastq_files --submit --submission-name coral_microbiome_may2023
+```
+
+This will create both a log file and submission folder labeled with `coral_microbiome_may2023` for easy identification.
+
 ## Python API
 
 You can also use the package as a Python library:
@@ -335,22 +385,35 @@ pip install -e .
 2. **Authentication Issues**:
    - Verify your NCBI API key in the config.json file
    - Check your network connection
+   - Ensure your Aspera key file is valid and not corrupted
 
 3. **File Format Problems**:
    - SRA accepts FASTQ, BAM, and SFF formats
    - Ensure files are properly compressed if using gzip
+   - File names should not contain spaces or special characters
 
 4. **Validation Errors**:
    - Read error messages carefully
    - Address each issue before resubmitting
+
+5. **BioProject Association Issues**:
+   - If your preload folder isn't showing up in the web interface, wait up to 30 minutes for NCBI's system to register it
+   - Ensure you've completed the file upload step successfully before attempting to associate with a BioProject
+   - Check that the submit.ready file was uploaded correctly (this signals to NCBI that your upload is complete)
+
+6. **Aspera Connection Problems**:
+   - Ensure your firewall allows Aspera's ports (typically 33001)
+   - Verify you're using the correct path to the ascp executable 
+   - Check that the aspera.openssh key file has not been corrupted (don't open it with text editors)
 
 ### Getting Help
 
 If you encounter issues with the submission process:
 
 1. Check NCBI's [SRA Submission Guide](https://www.ncbi.nlm.nih.gov/sra/docs/submit/)
-2. Contact NCBI Help Desk at info@ncbi.nlm.nih.gov
-3. Open an issue on our GitHub repository
+2. Review the generated log files for detailed error messages
+3. Contact NCBI Help Desk at info@ncbi.nlm.nih.gov
+4. Open an issue on our GitHub repository with your log file attached (remove any sensitive information)
 
 ## License
 
