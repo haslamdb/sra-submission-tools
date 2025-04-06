@@ -65,13 +65,13 @@ pip install .
 conda activate sra-tools
 
 # Using the command-line tool (installed via pyproject.toml)
-sra-submit --config config.json --metadata hellman_metadata2.csv --files /path/to/sequence/files --output submission_package
+sra-submit --config config.json --metadata test_metadata.csv --files /path/to/sequence/files --output submission_package
 
 # Or run the script directly
-python sra_submission.py --config config.json --metadata hellman_metadata2.csv --files /path/to/sequence/files --output submission_package
+python sra_submission.py --config config.json --metadata test_metadata.csv --files /path/to/sequence/files --output submission_package
 
 # Submit to SRA (requires authentication)
-sra-submit --config config.json --metadata hellman_metadata2.csv --files /path/to/sequence/files --output submission_package --submit
+sra-submit --config config.json --metadata test_metadata.csv --files /path/to/sequence/files --output submission_package --submit
 ```
 
 ## Understanding the SRA Submission Process
