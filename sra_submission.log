@@ -184,3 +184,16 @@
 2025-04-05 22:28:42,907 - sra_metagenome_submission.main - INFO - Running command: "/home/david/.aspera/connect/bin/ascp" -i "aspera.openssh" -QT "/tmp/sra_submission_d9it3egx/submit.ready" subasp@upload.ncbi.nlm.nih.gov:uploads/dbhaslam_gmail.com_QFq0F7SG/sra_submission_d9it3egx
 2025-04-05 22:28:45,468 - sra_metagenome_submission.main - INFO - Submit.ready file uploaded successfully
 2025-04-05 22:28:45,469 - sra_metagenome_submission.main - INFO - Removed temporary directory: /tmp/sra_submission_d9it3egx
+2025-04-05 22:32:45,244 - sra_metagenome_submission.main - INFO - Loaded configuration from dbh_config.json
+2025-04-05 22:32:45,253 - sra_metagenome_submission.main - INFO - Loaded metadata from metadata_files/hellman_metadata.csv with 292 samples
+2025-04-05 22:32:45,663 - sra_metagenome_submission.main - WARNING - Could not find 8 files mentioned in metadata:
+2025-04-05 22:32:45,663 - sra_metagenome_submission.main - WARNING -   - /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/C2Jenny02_R1.fastq.gz
+2025-04-05 22:32:45,663 - sra_metagenome_submission.main - WARNING -   - /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/C2Jenny02_R2.fastq.gz
+2025-04-05 22:32:45,663 - sra_metagenome_submission.main - WARNING -   - /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/F12Jenny1_R1.fastq.gz
+2025-04-05 22:32:45,663 - sra_metagenome_submission.main - WARNING -   - /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/F12Jenny1_R2.fastq.gz
+2025-04-05 22:32:45,663 - sra_metagenome_submission.main - WARNING -   - /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/IBD_525_A.N_R1.fastq.gz
+2025-04-05 22:32:45,663 - sra_metagenome_submission.main - WARNING -   ... and 3 more
+2025-04-05 22:32:45,663 - sra_metagenome_submission.main - INFO - Found 572 unique sequence files from metadata
+2025-04-05 22:32:45,663 - sra_metagenome_submission.main - INFO - Using Aspera client at: /home/david/.aspera/connect/bin/ascp
+2025-04-05 22:32:45,664 - sra_metagenome_submission.main - INFO - Created temporary directory for submission: /tmp/sra_submission_sqyco55y
+2025-04-05 22:32:45,684 - sra_metagenome_submission.main - INFO - Running command: "/home/david/.aspera/connect/bin/ascp" -i "aspera.openssh" -QT -l100m -k1 -d "/tmp/sra_submission_sqyco55y" subasp@upload.ncbi.nlm.nih.gov:uploads/dbhaslam_gmail.com_QFq0F7SG
