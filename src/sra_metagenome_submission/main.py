@@ -113,6 +113,12 @@ class SRASubmission:
             logger.error("NCBI upload destination is required")
             return False
         
+        # If no files are specified, exit early
+        if not self.files:
+            logger.error("No files specified for upload")
+            print("\nError: No files specified for upload. Please check your metadata file.")
+            return False
+        
         # If no directory is specified, use the directory of the first file
         if not files_dir and self.files:
             files_dir = str(Path(self.files[0]).parent)
@@ -148,15 +154,42 @@ class SRASubmission:
                     aspera_path = "ascp"
             
             logger.info(f"Using Aspera client at: {aspera_path}")
-            logger.info(f"Uploading files with Aspera from {files_dir}")
             
-            # Construct the Aspera command for uploading all files
-            # Use proper quoting to handle paths with spaces
-            cmd = f'"{aspera_path}" -i "{key_path}" -QT -l100m -k1 -d "{files_dir}" {upload_destination}'
+            # Create a temporary directory to store a mapping of files to upload
+            import tempfile
+            import shutil
+            
+            # Create a temporary directory for the submission
+            temp_dir = tempfile.mkdtemp(prefix="sra_submission_")
+            logger.info(f"Created temporary directory for submission: {temp_dir}")
+            
+            # Create symbolic links or copy files to the temporary directory
+            # This ensures we only upload the files specified in metadata
+            print(f"\nPreparing {len(self.files)} files for upload...")
+            
+            for i, file_path in enumerate(self.files):
+                file_name = os.path.basename(file_path)
+                target_path = os.path.join(temp_dir, file_name)
+                
+                try:
+                    # Try to create a symbolic link first (more efficient)
+                    os.symlink(os.path.abspath(file_path), target_path)
+                    logger.info(f"Created symlink for {file_name}")
+                except (OSError, AttributeError):
+                    # If symlink fails (e.g., on Windows), copy the file
+                    shutil.copy2(file_path, target_path)
+                    logger.info(f"Copied {file_name} to temporary directory")
+                
+                # Show progress
+                if i % 10 == 0 or i == len(self.files) - 1:
+                    print(f"  Processed {i+1}/{len(self.files)} files...")
+            
+            # Construct the Aspera command to upload the temporary directory
+            cmd = f'"{aspera_path}" -i "{key_path}" -QT -l100m -k1 -d "{temp_dir}" {upload_destination}'
             
             # Log the command
             logger.info(f"Running command: {cmd}")
-            print(f"\nStarting Aspera upload from {files_dir}...")
+            print(f"\nStarting Aspera upload of {len(self.files)} files...")
             print(f"This may take a while depending on the size of your files.")
             
             # Execute the command using os.system()
@@ -167,13 +200,13 @@ class SRASubmission:
                 print("\nFile upload completed successfully!")
                 
                 # Create an empty submit.ready file
-                ready_file = os.path.join(files_dir, "submit.ready")
+                ready_file = os.path.join(temp_dir, "submit.ready")
                 with open(ready_file, "w") as f:
                     f.write("    ")
                 
                 # Determine the destination directory name
-                files_dir_name = os.path.basename(os.path.normpath(files_dir))
-                upload_destination_with_dir = f"{upload_destination}/{files_dir_name}"
+                temp_dir_name = os.path.basename(os.path.normpath(temp_dir))
+                upload_destination_with_dir = f"{upload_destination}/{temp_dir_name}"
                 
                 # Upload the submit.ready file to signal completion
                 print("\nUploading submit.ready file to complete submission...")
@@ -200,12 +233,21 @@ class SRASubmission:
                 print("  macOS: ~/Applications/Aspera Connect.app/Contents/Resources/ascp")
                 print("  Windows: C:/Program Files/Aspera/Aspera Connect/bin/ascp.exe")
                 return False
-                
+                    
         except Exception as e:
             logger.error(f"Error during Aspera upload: {str(e)}")
             print(f"\nError during Aspera upload: {str(e)}")
             return False
+        finally:
+            # Clean up the temporary directory
+            if 'temp_dir' in locals():
+                try:
+                    shutil.rmtree(temp_dir)
+                    logger.info(f"Removed temporary directory: {temp_dir}")
+                except Exception as e:
+                    logger.warning(f"Could not remove temporary directory {temp_dir}: {str(e)}")
 
+                    
     def authenticate(self):
         """Authenticate with NCBI SRA using API key or username/password."""
         if 'api_key' in self.config:
