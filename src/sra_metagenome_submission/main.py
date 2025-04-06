@@ -91,7 +91,7 @@ class SRASubmission:
             logger.error(f"Failed to load configuration: {str(e)}")
             sys.exit(1)
 
-    def upload_files_with_aspera(self, files_dir=None, key_path=None, upload_destination=None):
+    def upload_files_with_aspera(self, files_dir=None, key_path=None, upload_destination=None, aspera_path=None):
         """
         Upload files using Aspera command line.
         
@@ -99,6 +99,7 @@ class SRASubmission:
             files_dir: Directory containing files to upload (defaults to directory of first file)
             key_path: Path to Aspera key file (required)
             upload_destination: NCBI upload destination (required)
+            aspera_path: Full path to the Aspera Connect (ascp) executable
         
         Returns:
             bool: True if upload successful, False otherwise
@@ -121,10 +122,37 @@ class SRASubmission:
             return False
         
         try:
+            # If aspera_path is not provided, try to find it in common locations
+            if not aspera_path:
+                possible_paths = [
+                    "~/.aspera/connect/bin/ascp",                          # Linux/Unix default
+                    "~/Applications/Aspera Connect.app/Contents/Resources/ascp",  # macOS
+                    "C:/Program Files/Aspera/Aspera Connect/bin/ascp.exe",  # Windows
+                    "/Applications/Aspera Connect.app/Contents/Resources/ascp",   # macOS alternate
+                    # Add the ascp command directly in case it's in PATH
+                    "ascp"
+                ]
+                
+                # Expand user paths and check if they exist
+                for path in possible_paths:
+                    expanded_path = os.path.expanduser(path)
+                    if os.path.exists(expanded_path):
+                        aspera_path = expanded_path
+                        logger.info(f"Found Aspera client at: {aspera_path}")
+                        break
+                
+                if not aspera_path:
+                    logger.warning("Could not automatically find Aspera Connect client (ascp)")
+                    print("\nWarning: Could not automatically find Aspera Connect client (ascp).")
+                    print("Trying 'ascp' command directly, which may fail if not in your PATH.")
+                    aspera_path = "ascp"
+            
+            logger.info(f"Using Aspera client at: {aspera_path}")
             logger.info(f"Uploading files with Aspera from {files_dir}")
             
             # Construct the Aspera command for uploading all files
-            cmd = f"ascp -i {key_path} -QT -l100m -k1 -d {files_dir} {upload_destination}"
+            # Use proper quoting to handle paths with spaces
+            cmd = f'"{aspera_path}" -i "{key_path}" -QT -l100m -k1 -d "{files_dir}" {upload_destination}'
             
             # Log the command
             logger.info(f"Running command: {cmd}")
@@ -149,7 +177,7 @@ class SRASubmission:
                 
                 # Upload the submit.ready file to signal completion
                 print("\nUploading submit.ready file to complete submission...")
-                submit_cmd = f"ascp -i {key_path} -QT {ready_file} {upload_destination_with_dir}"
+                submit_cmd = f'"{aspera_path}" -i "{key_path}" -QT "{ready_file}" {upload_destination_with_dir}'
                 logger.info(f"Running command: {submit_cmd}")
                 
                 submit_return_code = os.system(submit_cmd)
@@ -166,6 +194,11 @@ class SRASubmission:
             else:
                 logger.error(f"Aspera upload failed with return code: {return_code}")
                 print(f"\nAspera upload failed with return code: {return_code}")
+                print("If you haven't specified the full path to ascp, try using --aspera-path")
+                print("Common locations are:")
+                print("  Linux: ~/.aspera/connect/bin/ascp")
+                print("  macOS: ~/Applications/Aspera Connect.app/Contents/Resources/ascp")
+                print("  Windows: C:/Program Files/Aspera/Aspera Connect/bin/ascp.exe")
                 return False
                 
         except Exception as e:
@@ -628,6 +661,7 @@ def main():
     parser.add_argument('--auto-pair', action='store_true', help='Automatically detect paired-end files')
     # Add command-line arguments for Aspera
     parser.add_argument('--aspera-key', help='Path to Aspera key file')
+    parser.add_argument('--aspera-path', help='Full path to the Aspera Connect (ascp) executable')
     parser.add_argument('--upload-destination', help='NCBI upload destination (e.g., subasp@upload.ncbi.nlm.nih.gov:uploads/your_folder)')
     
     args = parser.parse_args()
@@ -702,7 +736,7 @@ def main():
                 sys.exit(0)
         
         # Use Aspera to upload files
-        if submission.upload_files_with_aspera(args.files, key_path, upload_destination):
+        if submission.upload_files_with_aspera(args.files, key_path, upload_destination, args.aspera_path):
             print("\nFiles uploaded successfully!")
             print("\nTo complete your submission:")
             print("1. Log into NCBI Submission Portal: https://submit.ncbi.nlm.nih.gov/")
