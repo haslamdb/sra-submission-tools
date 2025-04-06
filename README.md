@@ -4,7 +4,7 @@ A Python package to automate the submission of metagenomic data to NCBI's Sequen
 
 ## Overview
 
-Submission of raw sequence files to the SRA database is a pain. 
+Submission of raw sequence files to the SRA database is a pain. Metadata file formatting requirements are unforgiving. Navigating the project and sample submission process is complex for first time users. 
 
 This package provides tools to make preparation and submission of metagenomic sequence data to the SRA database somewhat less painful. It helps with:
 
@@ -12,7 +12,11 @@ This package provides tools to make preparation and submission of metagenomic se
 - Organizing sequence files according to SRA requirements
 - Automating the submission process via the NCBI Submission Portal API
 - Verifying files and metadata before submission
-- Detecting paired-end sequencing files automatically
+
+- This workflow uses aspera 
+
+
+
 
 ## Table of Contents
 
@@ -42,12 +46,6 @@ cd sra-metagenome-submission
 pip install -e .
 ```
 
-### Using pip
-
-```bash
-# Install directly using pip
-pip install sra-metagenome-submission
-```
 
 ### From Source
 
@@ -76,49 +74,33 @@ python sra_submission.py --config config.json --metadata test_metadata.csv --fil
 sra-submit --config config.json --metadata test_metadata.csv --files /path/to/sequence/files --output submission_package --submit
 ```
 
-## Understanding the SRA Submission Process
-
 
 ### NCBI Submission Process Overview
 
-The SRA submission process involves several steps:
+### First-time upload requirements
+   - **Note:** Subsequent uploads will reuse your aspera.openssh key and submission destination `subasp@upload.ncbi.nlm.nih.gov:uploads/your_username_XYZ123`
 
-1. **Registration**:
-   - Create an NCBI account if you don't have one
-   - Register your BioProject (provides an umbrella for your submissions)
-   - Register your BioSamples (describes the source of your DNA/RNA)
+1. **Create NCBI Account**:
+   - Go to [NCBI](https://www.ncbi.nlm.nih.gov/)
+   - Click "Log in" and then "Register" if you don't have an account
 
-2. **Data Preparation**:
-   - Organize sequence files (FASTQ, BAM, etc.)
-   - Prepare metadata files
-
-3. **Submission**:
-   - Upload files to SRA
-   - Provide experiment and run metadata
-   - Submit and track your submission
-
-## SRA Submission Process
-
-### Prerequisites
-
-Before submitting metagenomic data to SRA, you need to complete several setup steps:
-
-1. **Install Aspera Connect**:
+2. **Install Aspera Connect**:
    - Download the Aspera Connect installer from [IBM's website](https://www.ibm.com/products/aspera/downloads#cds)
    - For Linux users, this will download a bash script that you need to run to complete the installation
-   - Verify installation by running `ascp --version` in your terminal
-   - On Linux you may need to add an alias to your ~/.bashrc   (e.g. alias ascp='/home/your-username/.aspera/connect/bin/ascp')
+   - The filepath to aspc (__e.g.__ /home/david/.aspera/connect/bin/ascp)has to be provided at runtime (see example commands below) 
 
-2. **Obtain Aspera Key File**:
+3. **Obtain Aspera Key File**:
    - Download the `aspera.openssh` key file from NCBI: [https://submit.ncbi.nlm.nih.gov/preload/aspera_key/](https://submit.ncbi.nlm.nih.gov/preload/aspera_key/)
    - **Important**: Copy and paste the downloaded file from your downloads folder to a secure location. Do not open and save it as a text file, as this would corrupt the file format.
    - Make note of the path to this key file as you'll need it for the submission process
 
-3. **Request a Preload Folder**:
-   - Log into your NCBI account at [https://submit.ncbi.nlm.nih.gov/](https://submit.ncbi.nlm.nih.gov/)
-   - Request a preload folder for your submission
+4. **Request a Preload Folder**:
+   - Navigate to SRA submission start page [https://submit.ncbi.nlm.nih.gov/subs/sra/](https://submit.ncbi.nlm.nih.gov/subs/sra/)
+   - Click "New Submission"
+   - Request a personal account folder to pre-upload your sequence data files (for the first time users) by clicking on the button "Request preload folder" (more instructions here: [https://www.ncbi.nlm.nih.gov/sra/docs/submitportal/](https://www.ncbi.nlm.nih.gov/sra/docs/submitportal/) 
    - You will receive an upload destination path in the format: `subasp@upload.ncbi.nlm.nih.gov:uploads/your_username_XYZ123`
-   - Save this destination path for use in the submission process
+   - Save this destination path for use in all subsequent submission processes
+   - The destination path is not the same as a preload folder. Each upload will generate a preload folder at the destination path
 
 
 
@@ -126,37 +108,15 @@ Before submitting metagenomic data to SRA, you need to complete several setup st
 
 The submission process is split into two main steps:
 
-1. **Prepare the Submission Package**:
+1. **Prepare and Submit a Submission Package**:
    ```bash
    sra-submit --config config.json --metadata your_metadata.csv --files /path/to/sequence/files --output submission_package
+   ```
 
-### Manual Submission Steps
+2. **Associate BioProject with the Preload Folder**:
+- See below
 
-If you prefer to submit manually instead of using our automation tool, follow these steps:
-
-1. **Create NCBI Account**:
-   - Go to [NCBI](https://www.ncbi.nlm.nih.gov/)
-   - Click "Log in" and then "Register" if you don't have an account
-
-2. **Register BioProject**:
-   - Go to [BioProject Submission Portal](https://submit.ncbi.nlm.nih.gov/subs/bioproject/)
-   - Click "New Submission"
-   - Fill out the required information about your project
-
-3. **Register BioSamples**:
-   - Go to [BioSample Submission Portal](https://submit.ncbi.nlm.nih.gov/subs/biosample/)
-   - Click "New Submission"
-   - Choose the appropriate sample type and attributes
-   - For metagenomes, include environmental metadata (MIxS standards)
-
-4. **Submit SRA Data**:
-   - Go to [SRA Submission Portal](https://submit.ncbi.nlm.nih.gov/subs/sra/)
-   - Click "New Submission"
-   - Link to your BioProject and BioSamples
-   - Upload sequence files or provide FTP links
-   - Fill out metadata for each experiment and run
-
-5. **Track Submission Status**:
+**Track Submission Status**:
    - Monitor your submission at [NCBI Submission Portal](https://submit.ncbi.nlm.nih.gov/)
    - Address any validation errors or issues
    - Receive accession numbers once submission is accepted
