@@ -111,6 +111,7 @@ sra-submit --config config.json --metadata test_metadata.csv --files /path/to/se
    - You can provide this path using the `--aspera-key` parameter
 
 4. **Obtain Upload Destination Path**:
+   - The destination path will be your personal staging ground for uploaded files for this and subsequent submissions
    - Navigate to SRA submission start page [https://submit.ncbi.nlm.nih.gov/subs/sra/](https://submit.ncbi.nlm.nih.gov/subs/sra/)
    - Click "New Submission"
    - Request a personal account folder to pre-upload your sequence data files (for first-time users) by clicking on the button "Request preload folder" 
