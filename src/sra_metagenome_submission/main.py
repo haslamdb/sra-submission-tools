@@ -42,15 +42,29 @@ except ImportError:
         print("Error: sra_utils module not found. Please ensure sra_utils.py is in the same directory.")
         sys.exit(1)
 
-# Set up logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler("sra_submission.log"),
-        logging.StreamHandler()
-    ]
-)
+# Set up logging with dynamic log file name
+def setup_logging(submission_name=None):
+    """Set up logging with a timestamped filename and optional submission name."""
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    if submission_name:
+        log_filename = f"sra_submission_{submission_name}_{timestamp}.log"
+    else:
+        log_filename = f"sra_submission_{timestamp}.log"
+    
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        handlers=[
+            logging.FileHandler(log_filename),
+            logging.StreamHandler()
+        ]
+    )
+    logger = logging.getLogger(__name__)
+    logger.info(f"Logging to {log_filename}")
+    return log_filename
+
+# Initialize logging with default timestamp
+log_filename = setup_logging()
 logger = logging.getLogger(__name__)
 
 class SRASubmission:
@@ -193,6 +207,34 @@ class SRASubmission:
             temp_dir = tempfile.mkdtemp(prefix="sra_submission_")
             logger.info(f"Created temporary directory for submission: {temp_dir}")
             
+            # Update log filename to include the submission folder name
+            temp_dir_name = os.path.basename(os.path.normpath(temp_dir))
+            global log_filename
+            
+            # If log file exists, create a new one with the temp directory name
+            if os.path.exists(log_filename):
+                timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+                new_log = f"sra_submission_{temp_dir_name}_{timestamp}.log"
+                
+                # Copy existing log content to the new file
+                with open(log_filename, 'r') as source:
+                    content = source.read()
+                with open(new_log, 'w') as target:
+                    target.write(content)
+                
+                # Update the logging configuration to use the new file
+                for handler in logging.root.handlers[:]:
+                    if isinstance(handler, logging.FileHandler):
+                        handler.close()
+                        logging.root.removeHandler(handler)
+                
+                file_handler = logging.FileHandler(new_log)
+                file_handler.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'))
+                logging.root.addHandler(file_handler)
+                
+                log_filename = new_log
+                logger.info(f"Log file renamed to include submission ID: {log_filename}")
+            
             # Create symbolic links or copy files to the temporary directory
             print(f"\nPreparing {len(self.files)} files for upload...")
             
@@ -318,8 +360,15 @@ def main():
     parser.add_argument('--aspera-key', help='Path to Aspera key file')
     parser.add_argument('--aspera-path', help='Full path to the Aspera Connect (ascp) executable')
     parser.add_argument('--upload-destination', help='NCBI upload destination (e.g., subasp@upload.ncbi.nlm.nih.gov:uploads/your_folder)')
+    parser.add_argument('--submission-name', help='Custom name for this submission (used in log filename)')
     
     args = parser.parse_args()
+    
+    # Re-initialize logging with submission name if provided
+    if args.submission_name:
+        global log_filename
+        log_filename = setup_logging(args.submission_name)
+        logger.info(f"Using submission name: {args.submission_name}")
     
     # Initialize submission object
     submission = SRASubmission(args.config)

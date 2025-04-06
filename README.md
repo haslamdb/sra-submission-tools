@@ -77,8 +77,7 @@ sra-submit --config config.json --metadata test_metadata.csv --files /path/to/se
 
 ### NCBI Submission Process Overview
 
-### First-time upload requirements
-   - **Note:** Subsequent uploads will reuse your aspera.openssh key and submission destination `subasp@upload.ncbi.nlm.nih.gov:uploads/your_username_XYZ123`
+### Extra steps required with first-time upload
 
 1. **Create NCBI Account**:
    - Go to [NCBI](https://www.ncbi.nlm.nih.gov/)
@@ -94,14 +93,16 @@ sra-submit --config config.json --metadata test_metadata.csv --files /path/to/se
    - **Important**: Copy and paste the downloaded file from your downloads folder to a secure location. Do not open and save it as a text file, as this would corrupt the file format.
    - Make note of the path to this key file as you'll need it for the submission process
 
-4. **Request a Preload Folder**:
+4. **Obtain Upload Destination Path**:
    - Navigate to SRA submission start page [https://submit.ncbi.nlm.nih.gov/subs/sra/](https://submit.ncbi.nlm.nih.gov/subs/sra/)
    - Click "New Submission"
-   - Request a personal account folder to pre-upload your sequence data files (for the first time users) by clicking on the button "Request preload folder" (more instructions here: [https://www.ncbi.nlm.nih.gov/sra/docs/submitportal/](https://www.ncbi.nlm.nih.gov/sra/docs/submitportal/) 
+   - Request a personal account folder to pre-upload your sequence data files (for the first time users) by clicking on the button "Request preload folder" 
+      - more instructions here: [https://www.ncbi.nlm.nih.gov/sra/docs/submitportal/](https://www.ncbi.nlm.nih.gov/sra/docs/submitportal/) 
    - You will receive an upload destination path in the format: `subasp@upload.ncbi.nlm.nih.gov:uploads/your_username_XYZ123`
    - Save this destination path for use in all subsequent submission processes
-   - The destination path is not the same as a preload folder. Each upload will generate a preload folder at the destination path
+   - The destination path is not quite the same as a preload folder. Each upload will generate a preload folder at the destination path
 
+   - **Note:** Subsequent uploads will reuse your aspera.openssh key and submission destination `subasp@upload.ncbi.nlm.nih.gov:uploads/your_username_XYZ123`
 
 
 ### Running the Submission Process
@@ -132,7 +133,7 @@ The submission process is split into two main steps:
 
 ## Using the Scripts
 
-Our toolset includes scripts to streamline the SRA submission process, reducing manual steps and potential errors.
+this toolset includes scripts to streamline the SRA submission process, reducing manual steps and potential errors.
 
 ### Main Script: `sra_submission.py`
 
