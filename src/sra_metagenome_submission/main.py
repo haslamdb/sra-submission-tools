@@ -205,7 +205,7 @@ def upload_files_with_aspera(self, files_dir=None, key_path=None, upload_destina
     try:
         logger.info(f"Uploading files with Aspera from {files_dir}")
         
-        # Construct the Aspera command
+        # Construct the Aspera command for uploading all files
         cmd = f"ascp -i {key_path} -QT -l100m -k1 -d {files_dir} {upload_destination}"
         
         # Log the command
@@ -217,9 +217,34 @@ def upload_files_with_aspera(self, files_dir=None, key_path=None, upload_destina
         return_code = os.system(cmd)
         
         if return_code == 0:
-            logger.info("Aspera upload completed successfully")
-            print("\nAspera upload completed successfully!")
-            return True
+            logger.info("File upload completed successfully")
+            print("\nFile upload completed successfully!")
+            
+            # Create an empty submit.ready file
+            ready_file = os.path.join(files_dir, "submit.ready")
+            with open(ready_file, "w") as f:
+                f.write("    ")
+            
+            # Determine the destination directory name
+            files_dir_name = os.path.basename(os.path.normpath(files_dir))
+            upload_destination_with_dir = f"{upload_destination}/{files_dir_name}"
+            
+            # Upload the submit.ready file to signal completion
+            print("\nUploading submit.ready file to complete submission...")
+            submit_cmd = f"ascp -i {key_path} -QT {ready_file} {upload_destination_with_dir}"
+            logger.info(f"Running command: {submit_cmd}")
+            
+            submit_return_code = os.system(submit_cmd)
+            
+            if submit_return_code == 0:
+                logger.info("Submit.ready file uploaded successfully")
+                print("\nSubmission completed successfully!")
+                return True
+            else:
+                logger.error(f"Failed to upload submit.ready file: {submit_return_code}")
+                print("\nWarning: Files were uploaded but the submission marker failed.")
+                print("Please contact NCBI SRA support for assistance.")
+                return False
         else:
             logger.error(f"Aspera upload failed with return code: {return_code}")
             print(f"\nAspera upload failed with return code: {return_code}")
@@ -229,7 +254,6 @@ def upload_files_with_aspera(self, files_dir=None, key_path=None, upload_destina
         logger.error(f"Error during Aspera upload: {str(e)}")
         print(f"\nError during Aspera upload: {str(e)}")
         return False
-
 
 
     def authenticate(self):
