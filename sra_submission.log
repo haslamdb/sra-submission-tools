@@ -125,3 +125,7 @@
 2025-04-05 17:52:00,183 - sra_metagenome_submission.main - INFO - Running command: /home/david/.aspera/connect/bin/ascp -i aspera.openssh -QT -l100m -k1 -d /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/ subasp@upload.ncbi.nlm.nih.gov:uploads/dbhaslam_gmail.com_QFq0F7SG
 2025-04-05 21:57:52,623 - sra_metagenome_submission.main - INFO - Loaded configuration from dbh_config.json
 2025-04-05 21:58:47,069 - sra_metagenome_submission.main - INFO - Loaded configuration from dbh_config.json
+2025-04-05 22:03:28,229 - sra_metagenome_submission.main - INFO - Loaded configuration from dbh_config.json
+2025-04-05 22:03:28,237 - sra_metagenome_submission.main - INFO - Loaded metadata from metadata_files/hellman_metadata.csv
+2025-04-05 22:03:28,237 - sra_metagenome_submission.main - INFO - Metadata validation successful
+2025-04-05 22:03:28,239 - sra_metagenome_submission.main - INFO - Found 2 sequence files from metadata
