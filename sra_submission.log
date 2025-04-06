@@ -140,3 +140,30 @@
 2025-04-05 22:07:23,210 - sra_metagenome_submission.main - INFO - Uploading files with Aspera from /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/
 2025-04-05 22:07:23,210 - sra_metagenome_submission.main - INFO - Running command: ascp -i aspera.openssh -QT -l100m -k1 -d /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/ subasp@upload.ncbi.nlm.nih.gov:uploads/dbhaslam_gmail.com_QFq0F7SG
 2025-04-05 22:07:23,212 - sra_metagenome_submission.main - ERROR - Aspera upload failed with return code: 32512
+2025-04-05 22:12:53,495 - sra_metagenome_submission.main - INFO - Loaded configuration from dbh_config.json
+2025-04-05 22:12:53,504 - sra_metagenome_submission.main - INFO - Loaded metadata from metadata_files/hellman_metadata.csv
+2025-04-05 22:12:53,504 - sra_metagenome_submission.main - INFO - Metadata validation successful
+2025-04-05 22:12:53,504 - sra_metagenome_submission.main - WARNING - Could not find 2 files mentioned in metadata:
+2025-04-05 22:12:53,504 - sra_metagenome_submission.main - WARNING -   - /path/to/files/A10Jenny02_R1.fastq.gz
+2025-04-05 22:12:53,504 - sra_metagenome_submission.main - WARNING -   - /path/to/files/A10Jenny02_R2.fastq.gz
+2025-04-05 22:12:53,505 - sra_metagenome_submission.main - WARNING - No files found from metadata information
+2025-04-05 22:13:05,710 - sra_metagenome_submission.main - INFO - All 0 sequence files verified
+2025-04-05 22:13:05,711 - sra_metagenome_submission.main - INFO - Created submission package in sra_submission
+2025-04-05 22:13:05,711 - sra_metagenome_submission.main - INFO - Submission XML: sra_submission/submission.xml
+2025-04-05 22:13:05,712 - sra_metagenome_submission.main - INFO - Metadata TSV: sra_submission/metadata.tsv
+2025-04-05 22:13:05,712 - sra_metagenome_submission.main - INFO - Using Aspera client at: /home/david/.aspera/connect/bin/ascp
+2025-04-05 22:13:05,712 - sra_metagenome_submission.main - INFO - Uploading files with Aspera from /path/to/files/
+2025-04-05 22:13:05,712 - sra_metagenome_submission.main - INFO - Running command: "/home/david/.aspera/connect/bin/ascp" -i "aspera.openssh" -QT -l100m -k1 -d "/path/to/files/" subasp@upload.ncbi.nlm.nih.gov:uploads/username
+2025-04-05 22:13:08,055 - sra_metagenome_submission.main - ERROR - Aspera upload failed with return code: 256
+2025-04-05 22:18:20,325 - sra_metagenome_submission.main - INFO - Loaded configuration from dbh_config.json
+2025-04-05 22:18:20,334 - sra_metagenome_submission.main - INFO - Loaded metadata from metadata_files/hellman_metadata.csv
+2025-04-05 22:18:20,334 - sra_metagenome_submission.main - INFO - Metadata validation successful
+2025-04-05 22:18:20,335 - sra_metagenome_submission.main - INFO - Found 2 sequence files from metadata
+2025-04-05 22:18:20,335 - sra_metagenome_submission.main - INFO - All 2 sequence files verified
+2025-04-05 22:18:20,336 - sra_metagenome_submission.main - INFO - Created submission package in sra_submission
+2025-04-05 22:18:20,336 - sra_metagenome_submission.main - INFO - Submission XML: sra_submission/submission.xml
+2025-04-05 22:18:20,336 - sra_metagenome_submission.main - INFO - Metadata TSV: sra_submission/metadata.tsv
+2025-04-05 22:18:20,336 - sra_metagenome_submission.main - INFO - Using Aspera client at: /home/david/.aspera/connect/bin/ascp
+2025-04-05 22:18:20,336 - sra_metagenome_submission.main - INFO - Uploading files with Aspera from /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/
+2025-04-05 22:18:20,336 - sra_metagenome_submission.main - INFO - Running command: "/home/david/.aspera/connect/bin/ascp" -i "aspera.openssh" -QT -l100m -k1 -d "/media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/" subasp@upload.ncbi.nlm.nih.gov:uploads/dbhaslam_gmail.com_QFq0F7SG
+2025-04-05 22:18:41,203 - sra_metagenome_submission.main - ERROR - Aspera upload failed with return code: 2
