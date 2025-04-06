@@ -401,43 +401,100 @@ def upload_files_with_aspera(self, files_dir=None, key_path=None, upload_destina
         logger.info("Metadata validation successful")
         return True
     
-    def collect_sequence_files(self, file_dir=None):
-        """Collect sequence files for submission with enhanced file handling."""
-        if file_dir:
-            # Use the collect_fastq_files utility for enhanced file detection
-            fastq_files = collect_fastq_files(file_dir)
+def collect_sequence_files(self, file_dir=None):
+    """Collect sequence files for submission, only including files mentioned in metadata."""
+    if not hasattr(self, 'metadata') or not self.metadata:
+        logger.warning("No metadata available for file filtering")
+        return
+        
+    # Check if we have filename information in the metadata
+    filename_keys = ['filename', 'filename2', 'filepath', 'filepath2', 'file1', 'file2']
+    available_keys = [key for key in filename_keys if key in self.metadata and self.metadata[key]]
+    
+    if not available_keys:
+        logger.warning("No filename information found in metadata")
+        return
+    
+    self.files = []
+    file_count = 0
+    missing_files = []
+    
+    # Process file entries from metadata
+    for key in available_keys:
+        filename = self.metadata[key]
+        if not filename or pd.isna(filename):
+            continue
             
-            if not fastq_files:
-                logger.warning(f"No FASTQ files found in {file_dir}")
-            else:
-                # Detect paired files
-                file_pairs = detect_file_pairs(fastq_files)
-                
-                # Flatten the pairs into a list of files
-                self.files = []
-                for file1, file2 in file_pairs:
-                    self.files.append(file1)
-                    if file2:
-                        self.files.append(file2)
-                
-                logger.info(f"Found {len(self.files)} sequence files in {file_dir}")
-                
-                # Ask if user wants to build metadata from files
-                if not hasattr(self, 'metadata') or not self.metadata:
-                    print(f"\nFound {len(file_pairs)} sample(s) in {file_dir}.")
-                    print("Would you like to build metadata from these files? [y/N]")
-                    response = input("> ").strip().lower()
-                    if response == 'y':
-                        # Build metadata from file pairs
-                        sra_df = build_sample_metadata(
-                            file_pairs, 
-                            config_file=self.config_file if hasattr(self, 'config_file') else None
-                        )
-                        if len(sra_df) > 0:
-                            self.metadata = sra_df.iloc[0].to_dict()
-                            logger.info("Built metadata from sequence files")
+        # Handle both absolute and relative paths
+        if os.path.isabs(filename):
+            file_path = filename
+        elif file_dir:
+            file_path = os.path.join(file_dir, filename)
         else:
-            # Interactive file collection
+            file_path = filename
+            
+        # Check if file exists
+        if os.path.exists(file_path):
+            self.files.append(file_path)
+            file_count += 1
+        else:
+            missing_files.append(file_path)
+    
+    if missing_files:
+        logger.warning(f"Could not find {len(missing_files)} files mentioned in metadata:")
+        for file in missing_files[:5]:  # Show first 5 missing files
+            logger.warning(f"  - {file}")
+        if len(missing_files) > 5:
+            logger.warning(f"  ... and {len(missing_files) - 5} more")
+            
+        print(f"\nWarning: {len(missing_files)} files mentioned in metadata are missing.")
+        print("You may need to check file paths in your metadata file.")
+        
+    if file_count > 0:
+        logger.info(f"Found {file_count} sequence files from metadata")
+    else:
+        logger.warning("No files found from metadata information")
+        
+        # If no files found from metadata, offer to scan directory as fallback
+        if file_dir:
+            print("\nNo files found using metadata information.")
+            print("Would you like to scan the directory for FASTQ files? [y/N]")
+            response = input("> ").strip().lower()
+            if response == 'y':
+                # Use the collect_fastq_files utility for file detection
+                fastq_files = collect_fastq_files(file_dir)
+                
+                if not fastq_files:
+                    logger.warning(f"No FASTQ files found in {file_dir}")
+                else:
+                    # Detect paired files
+                    file_pairs = detect_file_pairs(fastq_files)
+                    
+                    # Flatten the pairs into a list of files
+                    self.files = []
+                    for file1, file2 in file_pairs:
+                        self.files.append(file1)
+                        if file2:
+                            self.files.append(file2)
+                    
+                    logger.info(f"Found {len(self.files)} sequence files in {file_dir}")
+                    
+                    # Ask if user wants to build metadata from files
+                    if not self.metadata:
+                        print(f"\nFound {len(file_pairs)} sample(s) in {file_dir}.")
+                        print("Would you like to build metadata from these files? [y/N]")
+                        response = input("> ").strip().lower()
+                        if response == 'y':
+                            # Build metadata from file pairs
+                            sra_df = build_sample_metadata(
+                                file_pairs, 
+                                config_file=self.config_file if hasattr(self, 'config_file') else None
+                            )
+                            if len(sra_df) > 0:
+                                self.metadata = sra_df.iloc[0].to_dict()
+                                logger.info("Built metadata from sequence files")
+        else:
+            # Interactive file collection as fallback
             print("\n=== Sequence Files ===")
             print("Enter file paths (one per line, empty line to finish):")
             while True:
@@ -450,7 +507,8 @@ def upload_files_with_aspera(self, files_dir=None, key_path=None, upload_destina
                     logger.warning(f"File not found: {file_path}")
             
             logger.info(f"Added {len(self.files)} sequence files")
-    
+            
+                
     def verify_sequence_files(self):
         """Verify that all sequence files exist."""
         missing_files = []
