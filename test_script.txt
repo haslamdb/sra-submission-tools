@@ -6,8 +6,11 @@ sra-submit --config dbh_config.json --metadata metadata_files/hellman_metadata.c
 
 sra-submit --config dbh_config.json --metadata metadata_files/michele_metadata.csv --files /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/ --submit --aspera-path /home/david/.aspera/connect/bin/ascp --aspera-key aspera.openssh --upload-destination subasp@upload.ncbi.nlm.nih.gov:uploads/dbhaslam_gmail.com_QFq0F7SG --submission-name michele
 
+sra-submit --config dbh_config.json --metadata metadata_files/viromics_metadata.csv --files /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/ --submit --aspera-path /home/david/.aspera/connect/bin/ascp --aspera-key aspera.openssh --upload-destination subasp@upload.ncbi.nlm.nih.gov:uploads/dbhaslam_gmail.com_QFq0F7SG --submission-name viromics
 
 
+
+# script usage
 python -m sra_metagenome_submission.main \
   --config dbh_config.json \
   --metadata metadata_files/hellman_metadata.csv \
@@ -15,4 +18,5 @@ python -m sra_metagenome_submission.main \
   --submit \
   --aspera-path /home/david/.aspera/connect/bin/ascp \
   --aspera-key aspera.openssh \
-  --upload-destination subasp@upload.ncbi.nlm.nih.gov:uploads/dbhaslam_gmail.com_QFq0F7SG
+  --upload-destination subasp@upload.ncbi.nlm.nih.gov:uploads/dbhaslam_gmail.com_QFq0F7SG \
+  --submission-name hellman
