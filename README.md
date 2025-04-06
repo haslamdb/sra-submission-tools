@@ -248,7 +248,7 @@ Example `config.json`:
     "library_source": "METAGENOMIC",
     "library_selection": "RANDOM",
     "platform": "ILLUMINA",
-    "instrument_model": "Illumina MiSeq"
+    "instrument_model": "Illumina NovaSeq X"
   },
   "contact": {
     "name": "Your Name",
