@@ -96,7 +96,9 @@ sra-submit --config config.json --metadata test_metadata.csv --files /path/to/se
    - For Linux users, this will download a bash script that you will run to complete the installation
      ```bash
      wget https://d3gcli72yxqn2z.cloudfront.net/downloads/connect/latest/bin/ibm-aspera-connect_4.2.13.820_linux_x86_64.tar.gz
+     
      tar -xzf ibm-aspera-connect_4.2.13.820_linux_x86_64.tar.gz
+     
      ./ibm-aspera-connect_4.2.13.820_linux_x86_64.sh
      ```
    - Make note of the filepath to ascp (e.g., `/home/username/.aspera/connect/bin/ascp`) as it will be needed during each submission process
