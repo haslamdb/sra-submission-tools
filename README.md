@@ -93,9 +93,16 @@ sra-submit --config config.json --metadata test_metadata.csv --files /path/to/se
 
 2. **Install Aspera Connect**:
    - Download the Aspera Connect installer from [IBM's website](https://www.ibm.com/products/aspera/downloads#cds)
-   - For Linux users, this will download a bash script that you need to run to complete the installation
-   - The filepath to ascp (e.g., `/home/username/.aspera/connect/bin/ascp`) will be needed during the submission process
-   - You can provide this path using the `--aspera-path` parameter
+   - For Linux users, this will download a bash script that you will run to complete the installation
+     ```bash
+     wget https://d3gcli72yxqn2z.cloudfront.net/downloads/connect/latest/bin/ibm-aspera-connect_4.2.13.820_linux_x86_64.tar.gz
+     
+     tar -xzf ibm-aspera-connect_4.2.13.820_linux_x86_64.tar.gz
+     
+     ./ibm-aspera-connect_4.2.13.820_linux_x86_64.sh
+     ```
+   - Make note of the filepath to ascp (e.g., `/home/username/.aspera/connect/bin/ascp`) as it will be needed during each submission process
+   - You can provide this path using the `--aspera-path` parameter or add to the config.json file created below
 
 3. **Obtain Aspera Key File**:
    - Download the `aspera.openssh` key file from NCBI: [https://submit.ncbi.nlm.nih.gov/preload/aspera_key/](https://submit.ncbi.nlm.nih.gov/preload/aspera_key/)
@@ -104,6 +111,7 @@ sra-submit --config config.json --metadata test_metadata.csv --files /path/to/se
    - You can provide this path using the `--aspera-key` parameter
 
 4. **Obtain Upload Destination Path**:
+   - The destination path will be your personal staging ground for uploaded files for this and subsequent submissions
    - Navigate to SRA submission start page [https://submit.ncbi.nlm.nih.gov/subs/sra/](https://submit.ncbi.nlm.nih.gov/subs/sra/)
    - Click "New Submission"
    - Request a personal account folder to pre-upload your sequence data files (for first-time users) by clicking on the button "Request preload folder" 
