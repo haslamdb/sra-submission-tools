@@ -76,6 +76,7 @@ class SRASubmission:
         self.metadata = {}
         self.files = []
         self.session_token = None
+        self.config_file = config_file  # Store config_file path for later use
         
         if config_file:
             self.load_config(config_file)
@@ -90,89 +91,6 @@ class SRASubmission:
             logger.error(f"Failed to load configuration: {str(e)}")
             sys.exit(1)
 
-
-## The previous implementation used subprocess.run() to execute the ascp command
-## However, subprocess doesn't automatically recognize shell aliases or use the full PATH environment
-## So a direct path to the ascp executable is needed even if it's accessible from the shell
-## Switching to os.system() allows the command to use the shell environment where ascp is available
-
-    # def upload_files_with_aspera(self, files_dir=None, key_path=None, upload_destination=None):
-    #     """
-    #     Upload files using Aspera command line.
-        
-    #     Args:
-    #         files_dir: Directory containing files to upload (defaults to directory of first file)
-    #         key_path: Path to Aspera key file (required)
-    #         upload_destination: NCBI upload destination (required)
-        
-    #     Returns:
-    #         bool: True if upload successful, False otherwise
-    #     """
-    #     import subprocess
-    #     from pathlib import Path
-        
-    #     # Validate required parameters
-    #     if not key_path:
-    #         logger.error("Aspera key file path is required")
-    #         return False
-        
-    #     if not upload_destination:
-    #         logger.error("NCBI upload destination is required")
-    #         return False
-        
-    #     # If no directory is specified, use the directory of the first file
-    #     if not files_dir and self.files:
-    #         files_dir = str(Path(self.files[0]).parent)
-        
-    #     if not files_dir:
-    #         logger.error("Files directory is required")
-    #         return False
-        
-    #     try:
-    #         logger.info(f"Uploading files with Aspera from {files_dir}")
-            
-    #         # Construct Aspera command
-    #         aspera_cmd = [
-    #             "/home/your username/.aspera/connect/bin/ascp",
-    #             "-i", key_path,
-    #             "-QT",
-    #             "-l100m",
-    #             "-k1",
-    #             "-d",
-    #             files_dir,
-    #             upload_destination
-    #         ]
-            
-    #         # Execute Aspera command
-    #         logger.info(f"Running command: {' '.join(aspera_cmd)}")
-    #         print(f"\nStarting Aspera upload from {files_dir}...")
-    #         print(f"This may take a while depending on the size of your files.")
-            
-    #         process = subprocess.run(
-    #             aspera_cmd,
-    #             capture_output=True,
-    #             text=True,
-    #             check=True
-    #         )
-            
-    #         logger.info("Aspera upload completed successfully")
-    #         print("\nAspera upload completed successfully!")
-    #         return True
-        
-    #     except subprocess.CalledProcessError as e:
-    #         logger.error(f"Aspera upload failed: {e}")
-    #         logger.error(f"Stderr: {e.stderr}")
-    #         print(f"\nAspera upload failed: {e}")
-    #         print(f"Error details: {e.stderr}")
-    #         return False
-    #     except FileNotFoundError:
-    #         logger.error("Aspera command 'ascp' not found. Please install Aspera Connect.")
-    #         print("\nError: Aspera command 'ascp' not found.")
-    #         print("Please install Aspera Connect from: https://downloads.asperasoft.com/connect2/")
-    #         return False
-
-
-    # this command ususes os.system to submit the aspc command
     def upload_files_with_aspera(self, files_dir=None, key_path=None, upload_destination=None):
         """
         Upload files using Aspera command line.
@@ -254,7 +172,6 @@ class SRASubmission:
             logger.error(f"Error during Aspera upload: {str(e)}")
             print(f"\nError during Aspera upload: {str(e)}")
             return False
-
 
     def authenticate(self):
         """Authenticate with NCBI SRA using API key or username/password."""
@@ -508,191 +425,190 @@ class SRASubmission:
                 
                 logger.info(f"Added {len(self.files)} sequence files")
 
-
-        def verify_sequence_files(self):
-            """Verify that all sequence files exist."""
-            missing_files = []
-            
-            for file_path in self.files:
-                if not os.path.exists(file_path):
-                    missing_files.append(file_path)
-            
-            if missing_files:
-                logger.error(f"Missing {len(missing_files)} sequence files:")
-                for file in missing_files[:10]:  # Show first 10 missing files
-                    logger.error(f"  - {file}")
-                if len(missing_files) > 10:
-                    logger.error(f"  ... and {len(missing_files) - 10} more")
-                
-                print(f"\nWarning: {len(missing_files)} sequence files are missing.")
-                print("Would you like to continue anyway? [y/N]")
-                response = input("> ").strip().lower()
-                
-                return response == 'y'
-            
-            logger.info(f"All {len(self.files)} sequence files verified")
-            return True
+    def verify_sequence_files(self):
+        """Verify that all sequence files exist."""
+        missing_files = []
         
-        def upload_files(self):
-            """Upload sequence files to NCBI SRA."""
-            if not self.session_token:
-                logger.error("Not authenticated. Call authenticate() first")
-                return False
-            
-            headers = {"Authorization": f"Bearer {self.session_token}"}
-            
-            for file_path in self.files:
-                try:
-                    file_name = os.path.basename(file_path)
-                    logger.info(f"Uploading {file_name}...")
-                    
-                    with open(file_path, 'rb') as f:
-                        files = {'file': (file_name, f)}
-                        response = requests.post(
-                            NCBI_UPLOAD_URL,
-                            headers=headers,
-                            files=files
-                        )
-                        response.raise_for_status()
-                    
-                    logger.info(f"Successfully uploaded {file_name}")
-                except Exception as e:
-                    logger.error(f"Failed to upload {file_name}: {str(e)}")
-                    return False
-            
-            return True
+        for file_path in self.files:
+            if not os.path.exists(file_path):
+                missing_files.append(file_path)
         
-        def submit(self, submission_xml_path):
-            """Submit the prepared package to NCBI SRA."""
-            if not self.session_token:
-                logger.error("Not authenticated. Call authenticate() first")
-                return False
+        if missing_files:
+            logger.error(f"Missing {len(missing_files)} sequence files:")
+            for file in missing_files[:10]:  # Show first 10 missing files
+                logger.error(f"  - {file}")
+            if len(missing_files) > 10:
+                logger.error(f"  ... and {len(missing_files) - 10} more")
             
+            print(f"\nWarning: {len(missing_files)} sequence files are missing.")
+            print("Would you like to continue anyway? [y/N]")
+            response = input("> ").strip().lower()
+            
+            return response == 'y'
+        
+        logger.info(f"All {len(self.files)} sequence files verified")
+        return True
+    
+    def upload_files(self):
+        """Upload sequence files to NCBI SRA."""
+        if not self.session_token:
+            logger.error("Not authenticated. Call authenticate() first")
+            return False
+        
+        headers = {"Authorization": f"Bearer {self.session_token}"}
+        
+        for file_path in self.files:
             try:
-                logger.info("Submitting to NCBI SRA...")
+                file_name = os.path.basename(file_path)
+                logger.info(f"Uploading {file_name}...")
                 
-                headers = {"Authorization": f"Bearer {self.session_token}"}
-                
-                with open(submission_xml_path, 'rb') as f:
-                    files = {'submission_xml': f}
+                with open(file_path, 'rb') as f:
+                    files = {'file': (file_name, f)}
                     response = requests.post(
-                        NCBI_SUBMIT_URL,
+                        NCBI_UPLOAD_URL,
                         headers=headers,
                         files=files
                     )
                     response.raise_for_status()
                 
-                result = response.json()
-                if result.get('status') == 'success':
-                    logger.info(f"Submission successful! Submission ID: {result.get('submission_id')}")
-                    return True
-                else:
-                    logger.error(f"Submission failed: {result.get('message', 'Unknown error')}")
-                    return False
-                    
+                logger.info(f"Successfully uploaded {file_name}")
             except Exception as e:
-                logger.error(f"Failed to submit: {str(e)}")
+                logger.error(f"Failed to upload {file_name}: {str(e)}")
                 return False
         
-        def prepare_submission_package(self, output_dir):
-            """Prepare the XML submission package."""
-            os.makedirs(output_dir, exist_ok=True)
+        return True
+    
+    def submit(self, submission_xml_path):
+        """Submit the prepared package to NCBI SRA."""
+        if not self.session_token:
+            logger.error("Not authenticated. Call authenticate() first")
+            return False
+        
+        try:
+            logger.info("Submitting to NCBI SRA...")
             
-            # Create submission XML
-            submission = ET.Element("Submission")
+            headers = {"Authorization": f"Bearer {self.session_token}"}
             
-            # BioProject section
-            bioproject = ET.SubElement(submission, "BioProject")
-            if self.metadata.get('bioproject_id'):
-                bioproject.set("accession", self.metadata['bioproject_id'])
+            with open(submission_xml_path, 'rb') as f:
+                files = {'submission_xml': f}
+                response = requests.post(
+                    NCBI_SUBMIT_URL,
+                    headers=headers,
+                    files=files
+                )
+                response.raise_for_status()
+            
+            result = response.json()
+            if result.get('status') == 'success':
+                logger.info(f"Submission successful! Submission ID: {result.get('submission_id')}")
+                return True
             else:
-                project = ET.SubElement(bioproject, "Project")
-                title = ET.SubElement(project, "Title")
-                title.text = self.metadata.get('project_title', 'Metagenomic Project')
-                description = ET.SubElement(project, "Description")
-                description.text = self.metadata.get('project_description', '')
-            
-            # BioSample section
-            biosample = ET.SubElement(submission, "BioSample")
-            sample_attributes = ET.SubElement(biosample, "Attributes")
-            
-            # Add basic attributes
-            for key, label in [
-                ("sample_source", "sample_source"),
-                ("collection_date", "collection_date"),
-                ("geo_loc_name", "geo_loc_name"),
-                ("lat_lon", "lat_lon")
-            ]:
-                if self.metadata.get(key):
+                logger.error(f"Submission failed: {result.get('message', 'Unknown error')}")
+                return False
+                
+        except Exception as e:
+            logger.error(f"Failed to submit: {str(e)}")
+            return False
+    
+    def prepare_submission_package(self, output_dir):
+        """Prepare the XML submission package."""
+        os.makedirs(output_dir, exist_ok=True)
+        
+        # Create submission XML
+        submission = ET.Element("Submission")
+        
+        # BioProject section
+        bioproject = ET.SubElement(submission, "BioProject")
+        if self.metadata.get('bioproject_id'):
+            bioproject.set("accession", self.metadata['bioproject_id'])
+        else:
+            project = ET.SubElement(bioproject, "Project")
+            title = ET.SubElement(project, "Title")
+            title.text = self.metadata.get('project_title', 'Metagenomic Project')
+            description = ET.SubElement(project, "Description")
+            description.text = self.metadata.get('project_description', '')
+        
+        # BioSample section
+        biosample = ET.SubElement(submission, "BioSample")
+        sample_attributes = ET.SubElement(biosample, "Attributes")
+        
+        # Add basic attributes
+        for key, label in [
+            ("sample_source", "sample_source"),
+            ("collection_date", "collection_date"),
+            ("geo_loc_name", "geo_loc_name"),
+            ("lat_lon", "lat_lon")
+        ]:
+            if self.metadata.get(key):
+                attr = ET.SubElement(sample_attributes, "Attribute")
+                attr.set("name", label)
+                attr.text = self.metadata[key]
+        
+        # Add environment-specific attributes
+        if 'environment_metadata' in self.metadata:
+            for key, value in self.metadata['environment_metadata'].items():
+                if value:
                     attr = ET.SubElement(sample_attributes, "Attribute")
-                    attr.set("name", label)
-                    attr.text = self.metadata[key]
+                    attr.set("name", key)
+                    attr.text = value
+        
+        # SRA section
+        sra = ET.SubElement(submission, "SRA")
+        
+        # Library descriptors
+        library_descriptor = ET.SubElement(sra, "LibraryDescriptor")
+        for key, label in [
+            ("library_strategy", "LIBRARY_STRATEGY"),
+            ("library_source", "LIBRARY_SOURCE"),
+            ("library_selection", "LIBRARY_SELECTION")
+        ]:
+            element = ET.SubElement(library_descriptor, label)
+            element.text = self.metadata.get(key, '')
+        
+        # Platform
+        platform_elem = ET.SubElement(sra, "Platform")
+        platform_type = ET.SubElement(platform_elem, self.metadata.get('platform', 'ILLUMINA'))
+        model = ET.SubElement(platform_type, "INSTRUMENT_MODEL")
+        model.text = self.metadata.get('instrument_model', '')
+        
+        # Files
+        files_elem = ET.SubElement(sra, "Files")
+        for file_path in self.files:
+            file_elem = ET.SubElement(files_elem, "File")
+            file_elem.set("name", os.path.basename(file_path))
+            file_elem.set("type", "fastq")
             
-            # Add environment-specific attributes
-            if 'environment_metadata' in self.metadata:
-                for key, value in self.metadata['environment_metadata'].items():
-                    if value:
-                        attr = ET.SubElement(sample_attributes, "Attribute")
-                        attr.set("name", key)
-                        attr.text = value
+            # Try to determine paired-end info from filename
+            if re.search(r'_R?1[_\.]', os.path.basename(file_path)):
+                file_elem.set("read", "1")
+            elif re.search(r'_R?2[_\.]', os.path.basename(file_path)):
+                file_elem.set("read", "2")
+        
+        # Write to XML file
+        submission_xml_path = os.path.join(output_dir, "submission.xml")
+        tree = ET.ElementTree(submission)
+        tree.write(submission_xml_path, encoding="UTF-8", xml_declaration=True)
+        
+        # Generate metadata TSV file
+        metadata_path = os.path.join(output_dir, "metadata.tsv")
+        with open(metadata_path, 'w') as f:
+            # Write header
+            f.write("\t".join(self.metadata.keys()) + "\n")
             
-            # SRA section
-            sra = ET.SubElement(submission, "SRA")
-            
-            # Library descriptors
-            library_descriptor = ET.SubElement(sra, "LibraryDescriptor")
-            for key, label in [
-                ("library_strategy", "LIBRARY_STRATEGY"),
-                ("library_source", "LIBRARY_SOURCE"),
-                ("library_selection", "LIBRARY_SELECTION")
-            ]:
-                element = ET.SubElement(library_descriptor, label)
-                element.text = self.metadata.get(key, '')
-            
-            # Platform
-            platform_elem = ET.SubElement(sra, "Platform")
-            platform_type = ET.SubElement(platform_elem, self.metadata.get('platform', 'ILLUMINA'))
-            model = ET.SubElement(platform_type, "INSTRUMENT_MODEL")
-            model.text = self.metadata.get('instrument_model', '')
-            
-            # Files
-            files_elem = ET.SubElement(sra, "Files")
-            for file_path in self.files:
-                file_elem = ET.SubElement(files_elem, "File")
-                file_elem.set("name", os.path.basename(file_path))
-                file_elem.set("type", "fastq")
-                
-                # Try to determine paired-end info from filename
-                if re.search(r'_R?1[_\.]', os.path.basename(file_path)):
-                    file_elem.set("read", "1")
-                elif re.search(r'_R?2[_\.]', os.path.basename(file_path)):
-                    file_elem.set("read", "2")
-            
-            # Write to XML file
-            submission_xml_path = os.path.join(output_dir, "submission.xml")
-            tree = ET.ElementTree(submission)
-            tree.write(submission_xml_path, encoding="UTF-8", xml_declaration=True)
-            
-            # Generate metadata TSV file
-            metadata_path = os.path.join(output_dir, "metadata.tsv")
-            with open(metadata_path, 'w') as f:
-                # Write header
-                f.write("\t".join(self.metadata.keys()) + "\n")
-                
-                # Write values
-                values = []
-                for key in self.metadata.keys():
-                    if key == 'environment_metadata' and isinstance(self.metadata[key], dict):
-                        values.append(json.dumps(self.metadata[key]))
-                    else:
-                        values.append(str(self.metadata.get(key, '')))
-                f.write("\t".join(values) + "\n")
-            
-            logger.info(f"Created submission package in {output_dir}")
-            logger.info(f"Submission XML: {submission_xml_path}")
-            logger.info(f"Metadata TSV: {metadata_path}")
-            
-            return submission_xml_path
+            # Write values
+            values = []
+            for key in self.metadata.keys():
+                if key == 'environment_metadata' and isinstance(self.metadata[key], dict):
+                    values.append(json.dumps(self.metadata[key]))
+                else:
+                    values.append(str(self.metadata.get(key, '')))
+            f.write("\t".join(values) + "\n")
+        
+        logger.info(f"Created submission package in {output_dir}")
+        logger.info(f"Submission XML: {submission_xml_path}")
+        logger.info(f"Metadata TSV: {metadata_path}")
+        
+        return submission_xml_path
     
 def main():
     """Main entry point for the SRA submission tool."""
