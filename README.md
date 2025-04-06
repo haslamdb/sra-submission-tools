@@ -4,7 +4,7 @@ A Python package to automate the submission of metagenomic data to NCBI's Sequen
 
 ## Overview
 
-Submission of raw sequence files to the SRA database can be a pain. Navigating the project and sample submission process is complex for first time users and metadata file formatting requirements are unforgiving. 
+Submission of raw sequence files to the SRA database can be a pain. Navigating the submission process is complex for first time users and metadata file formatting requirements are unforgiving. 
 
 This package provides tools to make preparation and submission of metagenomic sequence data to the SRA database somewhat less painful. It helps with:
 
