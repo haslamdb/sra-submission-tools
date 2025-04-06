@@ -83,7 +83,7 @@ sra-submit --config config.json --metadata test_metadata.csv --files /path/to/se
 sra-submit --config config.json --metadata test_metadata.csv --files /path/to/sequence/files --output submission_package --submit --submission-name my_project_name
 ```
 
-## Understanding the SRA Submission Process
+## The SRA Submission Process
 
 ### First-Time Setup
 
@@ -115,11 +115,11 @@ sra-submit --config config.json --metadata test_metadata.csv --files /path/to/se
    - **Note:** Subsequent uploads will reuse your aspera.openssh key and submission destination `subasp@upload.ncbi.nlm.nih.gov:uploads/your_username_XYZ123`
 
 
-### Complete Submission Process
+### Processess for Each Submission
 
-The submission process is split into two main steps:
+After the first-time setup steps above, the first and all subsequent submission processes will follow the two main steps below: 
 
-1. **Prepare and Upload Files**:
+1. **Prepare and Upload Files using this Workflow**:
    ```bash
    sra-submit --config config.json --metadata your_metadata.csv --files /path/to/sequence/files --output submission_package --submit --submission-name my_project_name --aspera-key /path/to/aspera.openssh --upload-destination subasp@upload.ncbi.nlm.nih.gov:uploads/your_username_XYZ123
    ```
@@ -130,7 +130,7 @@ The submission process is split into two main steps:
    - Labels your log files for better organization
    - Helps with tracking multiple submissions
 
-2. **Associate BioProject with the Preload Folder**:
+2. **Associate BioProject with the Preload Folder on Submission Portal**:
    After successfully uploading your files, you'll need to associate them with your BioProject:
    
    - Log into [NCBI Submission Portal](https://submit.ncbi.nlm.nih.gov/)
