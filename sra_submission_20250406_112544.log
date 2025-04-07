@@ -1,0 +1,15 @@
+2025-04-06 11:25:44,176 - sra_metagenome_submission.main - INFO - Logging to sra_submission_20250406_112544.log
+2025-04-06 11:25:44,177 - sra_metagenome_submission.main - INFO - Logging to sra_submission_viromics_20250406_112544.log
+2025-04-06 11:25:44,177 - sra_metagenome_submission.main - INFO - Using submission name: viromics
+2025-04-06 11:25:44,178 - sra_metagenome_submission.main - INFO - Loaded configuration from dbh_config.json
+2025-04-06 11:25:44,186 - sra_metagenome_submission.main - INFO - Loaded metadata from metadata_files/viromics_metadata.csv with 357 samples
+2025-04-06 11:25:44,522 - sra_metagenome_submission.main - WARNING - Could not find 6 files mentioned in metadata:
+2025-04-06 11:25:44,522 - sra_metagenome_submission.main - WARNING -   - /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/RMS_39_5_RNA_R1.fastq.gz
+2025-04-06 11:25:44,522 - sra_metagenome_submission.main - WARNING -   - /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/RMS_39_5_RNA_R2.fastq.gz
+2025-04-06 11:25:44,522 - sra_metagenome_submission.main - WARNING -   - /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/RMS_42_1_RNA_R1.fastq.gz
+2025-04-06 11:25:44,523 - sra_metagenome_submission.main - WARNING -   - /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/RMS_42_1_RNA_R2.fastq.gz
+2025-04-06 11:25:44,523 - sra_metagenome_submission.main - WARNING -   - /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/RMS_42_3_RNA_R1.fastq.gz
+2025-04-06 11:25:44,523 - sra_metagenome_submission.main - WARNING -   ... and 1 more
+2025-04-06 11:25:44,523 - sra_metagenome_submission.main - INFO - Found 708 unique sequence files from metadata
+2025-04-06 11:25:44,523 - sra_metagenome_submission.main - INFO - Using Aspera client at: /home/david/.aspera/connect/bin/ascp
+2025-04-06 11:25:44,524 - sra_metagenome_submission.main - INFO - Created temporary directory for submission: /tmp/sra_submission_xrc1yyer

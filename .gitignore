@@ -4,3 +4,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 *.pyc
+src/*.pyc
+
+# Python bytecode files
+__pycache__/
+*.py[cod]
+*$py.class

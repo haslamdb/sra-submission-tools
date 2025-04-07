@@ -210,3 +210,5 @@
 2025-04-06 00:44:45,445 - sra_metagenome_submission.main - INFO - Using Aspera client at: /home/david/.aspera/connect/bin/ascp
 2025-04-06 00:44:45,445 - sra_metagenome_submission.main - INFO - Created temporary directory for submission: /tmp/sra_submission_ddxrtsdf
 2025-04-06 00:44:45,473 - sra_metagenome_submission.main - INFO - Running command: "/home/david/.aspera/connect/bin/ascp" -i "aspera.openssh" -QT -l100m -k1 -d "/tmp/sra_submission_ddxrtsdf" subasp@upload.ncbi.nlm.nih.gov:uploads/dbhaslam_gmail.com_QFq0F7SG
+2025-04-06 21:32:04,052 - sra_metagenome_submission.main - ERROR - Aspera upload failed with return code: 256
+2025-04-06 21:32:04,086 - sra_metagenome_submission.main - INFO - Removed temporary directory: /tmp/sra_submission_ddxrtsdf
