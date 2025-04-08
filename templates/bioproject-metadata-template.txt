@@ -1,0 +1,2 @@
+bioproject_id	project_title	project_description	sample_source	collection_date	geo_loc_name	lat_lon	library_strategy	library_source	library_selection	platform	instrument_model	env_biome	env_feature	env_material	depth	altitude	host	host_tissue	isolation_source
+PRJXXXXX	Marine Metagenome Project	Characterization of microbial communities in coastal waters	environmental	7/15/2023	USA:California	36.9513 N 122.0733 W	WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000	marine biome	coastal water	sea water	10	0			
