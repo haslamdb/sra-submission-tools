@@ -1,17 +1,20 @@
 {
   "api_key": "88b128f50cfee48403047a848be00e63a408",
   "default_values": {
+    "organism": "Homo sapiens",
     "library_strategy": "WGS",
     "library_source": "METAGENOMIC",
     "library_selection": "RANDOM",
+    "library_layout": "single",
     "platform": "ILLUMINA",
-    "instrument_model": "Illumina HiSeq",
-    "project_title": "Hellman IBD Study"
+    "instrument_model": "Illumina NovaSeq 6000",
+    "project_title": "Metagenomics Study",
+    "project_description": "Metagenomics of human gut"
   },
   "contact": {
     "name": "David Haslam",
     "email": "david.haslam@cchmc.org",
-    "organization": "Cincinnati Chilren's Hospital"
+    "organization": "MGML: Cincinnati Children's Hospital"
   }
 }
 

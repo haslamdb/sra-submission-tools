@@ -1,13 +1,13 @@
 {
   "username": "haslamdb@gmail.com",
   "password": "your_ncbi_password",
-  "api_key": "88b128f50cfee48403047a848be00e63a408",
+  "api_key": "your_ncbi_api_key",
   "default_values": {
     "library_strategy": "WGS",
     "library_source": "METAGENOMIC",
     "library_selection": "RANDOM",
     "platform": "ILLUMINA",
-    "instrument_model": "Illumina MiSeq"
+    "instrument_model": "Illumina NovaSeq 6000"
   },
   "contact": {
     "name": "Your Name",
