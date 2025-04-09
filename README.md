@@ -43,8 +43,8 @@ pipx install git+https://github.com/yourusername/sra-metagenome-submission.git
 # The sra-submit command should now be available in your PATH
 sra-submit --help
 ```
-
-### Using Conda
+### Other Options
+## Using Conda
 
 ```bash
 # Create and activate a conda environment with required dependencies
@@ -59,7 +59,7 @@ cd sra-metagenome-submission
 pip install -e .
 ```
 
-### From Source
+## From Source
 
 ```bash
 # Clone the repository
@@ -70,7 +70,7 @@ cd sra-metagenome-submission
 pip install .
 ```
 
-## Quick Start
+### Quick Start
 
 ```bash
 # Using pipx-installed command-line tool
@@ -84,7 +84,7 @@ sra-submit --config config.json --metadata sample-metadata.txt --bioproject-meta
 sra-validate --config config.json --sample-metadata sample-metadata.txt --bioproject-metadata bioproject-metadata.txt
 ```
 
-## The SRA Submission Process
+## The SRA Submission Process : First-Time Setup and Subsequent Submision Steps
 
 ### First-Time Setup
 
