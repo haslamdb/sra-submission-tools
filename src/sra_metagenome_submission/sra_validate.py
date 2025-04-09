@@ -766,6 +766,15 @@ def main():
             logger.error(f"Error validating bioproject metadata: {str(e)}")
             print(f"Error validating bioproject metadata: {str(e)}")
             sys.exit(1)
+
+    # set default output location
+    if not args.output_sample_metadata and not args.output_dir:
+        default_output_dir = "validated_metadata"
+        os.makedirs(default_output_dir, exist_ok=True)
+        args.output_dir = default_output_dir
+        logger.info(f"No output location specified, using default: {default_output_dir}")
+        print(f"No output location specified, using default: {default_output_dir}")
+
     
     # Cross-validate if both metadata files are provided
     if sample_df is not None and bioproject_df is not None:
