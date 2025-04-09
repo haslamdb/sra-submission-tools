@@ -119,7 +119,7 @@ pip install .
 
 After completing the first-time setup, follow these steps for each submission:
 
-1. **Configure Default Settings in config.json (Optional but recommene)**:
+1. **Configure Default Settings in config.json (Optional but recommended)**:
    - Modify `config.json` with your information and defaults for required fields
    - This will save time by automatically filling in common fields across samples
 
