@@ -13,6 +13,14 @@ sra-validate --config dbh_config.json --sample-metadata metadata_files/NICU-samp
 sra-submit --config dbh_config.json --sample-metadata validated_metadata/validated-NICU-sample-metadata.txt --files /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/ --submit --aspera-path /home/david/.aspera/connect/bin/ascp --aspera-key aspera.openssh --upload-destination subasp@upload.ncbi.nlm.nih.gov:uploads/dbhaslam_gmail.com_QFq0F7SG --submission-name NICU
 
 
+
+sra-validate --config my_config.json --sample-metadata metadata_files/project1-sample-metadata.txt --bioproject-metadata metadata_files/project1-bioproject-metadata.txt
+
+sra-submit --config my_config.json --sample-metadata validated_metadata/validated-project1-sample-metadata.txt --files /path/to/files --aspera-path /home/username/.aspera/connect/bin/ascp --aspera-key aspera.openssh --upload-destination subasp@upload.ncbi.nlm.nih.gov:uploads/user_email.com_ABC123X --submission-name project1 --submit
+
+
+
+
 ###########  TODO
 
 

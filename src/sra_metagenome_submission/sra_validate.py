@@ -99,6 +99,7 @@ DEFAULT_VALUES = {
     'organism': 'Homo sapiens',
     'geo_loc_name': 'United States: Ohio: Cincinnati',
     'lat_lon': '39.10 N 84.51 W',
+    'collection_date': 'not collected',  # New default for collection_date
     
     # Sample metadata defaults
     'title': 'metagenomics project',
@@ -310,6 +311,32 @@ def validate_lat_lon(lat_lon):
     
     return lat_lon
 
+def check_duplicate_sample_names(df, df_type="metadata"):
+    """
+    Check for duplicate sample names in the dataframe.
+    
+    Args:
+        df (pd.DataFrame): DataFrame to check for duplicates
+        df_type (str): Type of metadata for logging purposes
+    
+    Returns:
+        list: List of duplicate sample names
+    """
+    if 'sample_name' not in df.columns:
+        logger.warning(f"No sample_name column found in {df_type} dataframe")
+        return []
+    
+    # Count occurrences of each sample name
+    sample_counts = df['sample_name'].value_counts()
+    
+    # Get duplicate sample names (count > 1)
+    duplicates = sample_counts[sample_counts > 1].index.tolist()
+    
+    if duplicates:
+        logger.warning(f"Found {len(duplicates)} duplicate sample names in {df_type}: {', '.join(duplicates)}")
+    
+    return duplicates
+
 def validate_sample_metadata(df, config=None):
     """
     Validate sample metadata and fix common issues.
@@ -330,6 +357,11 @@ def validate_sample_metadata(df, config=None):
         default_values = config['default_values']
     else:
         default_values = DEFAULT_VALUES
+    
+    # Check for duplicate sample names
+    duplicates = check_duplicate_sample_names(validated_df, "sample metadata")
+    if duplicates:
+        logger.warning(f"Duplicate sample names detected in sample metadata. Please review and fix: {', '.join(duplicates)}")
     
     # Fill missing required fields with defaults
     required_fields = [
@@ -416,10 +448,15 @@ def validate_bioproject_metadata(df, config=None):
     else:
         default_values = DEFAULT_VALUES
     
+    # Check for duplicate sample names
+    duplicates = check_duplicate_sample_names(validated_df, "bioproject metadata")
+    if duplicates:
+        logger.warning(f"Duplicate sample names detected in bioproject metadata. Please review and fix: {', '.join(duplicates)}")
+    
     # Fill missing required fields with defaults
     required_fields = [
         'library_strategy', 'library_source', 'library_selection',
-        'platform', 'instrument_model'
+        'platform', 'instrument_model', 'collection_date' 
     ]
     
     for field in required_fields:
@@ -433,8 +470,7 @@ def validate_bioproject_metadata(df, config=None):
     essential_columns = [
         'bioproject_id', 'project_title', 'project_description', 'sample_source',
         'collection_date', 'geo_loc_name', 'lat_lon', 'library_strategy',
-        'library_source', 'library_selection', 'platform', 'instrument_model',
-        'env_biome', 'env_feature', 'env_material'
+        'library_source', 'library_selection', 'platform', 'instrument_model'
     ]
     
     for col in essential_columns:
@@ -455,7 +491,16 @@ def validate_bioproject_metadata(df, config=None):
     
     # Validate date formats
     if 'collection_date' in validated_df.columns:
-        validated_df['collection_date'] = validated_df['collection_date'].apply(validate_date_format)
+        # First fill any empty collection_date with default value
+        mask = validated_df['collection_date'].isnull() | (validated_df['collection_date'].astype(str) == '')
+        if mask.any():
+            validated_df.loc[mask, 'collection_date'] = default_values['collection_date']
+            logger.info(f"Applied default value '{default_values['collection_date']}' to {mask.sum()} empty cells in 'collection_date'")
+        
+        # Then validate the format of non-empty dates
+        validated_df['collection_date'] = validated_df['collection_date'].apply(
+            lambda x: validate_date_format(x) if x != default_values['collection_date'] else x
+        )
         
     # Validate geographic location format
     if 'geo_loc_name' in validated_df.columns:
@@ -611,6 +656,17 @@ def validate_and_fix_metadata(bioproject_file, sample_file, config_file=None, ou
             issues.append(f"Removed {empty_samples.sum()} rows with empty sample_name from sample metadata")
             sample_df = sample_df[~empty_samples].reset_index(drop=True)
     
+    # Check for duplicate sample names
+    if not bioproject_df.empty and 'sample_name' in bioproject_df.columns:
+        duplicates = check_duplicate_sample_names(bioproject_df, "bioproject metadata")
+        if duplicates:
+            issues.append(f"Found duplicate sample names in bioproject metadata: {', '.join(duplicates)}")
+    
+    if not sample_df.empty and 'sample_name' in sample_df.columns:
+        duplicates = check_duplicate_sample_names(sample_df, "sample metadata")
+        if duplicates:
+            issues.append(f"Found duplicate sample names in sample metadata: {', '.join(duplicates)}")
+    
     # Validate and fix metadata
     if not bioproject_df.empty:
         bioproject_df = validate_bioproject_metadata(bioproject_df, config)
@@ -655,36 +711,6 @@ def validate_and_fix_metadata(bioproject_file, sample_file, config_file=None, ou
     
     return bioproject_df, sample_df, issues
 
-def load_instrument_models_from_excel(excel_file):
-    """
-    Load instrument model options from an Excel file.
-    
-    Args:
-        excel_file (str): Path to Excel file with instrument models
-        
-    Returns:
-        list: List of valid instrument model options
-    """
-    try:
-        df = pd.read_excel(excel_file)
-        
-        # Assuming the Excel has a column named 'instrument_model'
-        if 'instrument_model' in df.columns:
-            models = df['instrument_model'].dropna().tolist()
-            return models
-        else:
-            # Try to guess the column - take the first column that has 'instrument' or 'model' in the name
-            for col in df.columns:
-                if 'instrument' in col.lower() or 'model' in col.lower():
-                    models = df[col].dropna().tolist()
-                    return models
-            
-            # If still not found, just take the first column
-            models = df.iloc[:, 0].dropna().tolist()
-            return models
-    except Exception as e:
-        logger.warning(f"Failed to load instrument models from Excel: {str(e)}")
-        return VALID_OPTIONS['instrument_model']  # Return the default list
 
 def main():
     """Main entry point for the SRA validation tool."""
@@ -745,6 +771,15 @@ def main():
             logger.info(f"Loaded sample metadata from {args.sample_metadata}")
             print(f"Loaded sample metadata from {args.sample_metadata}")
             
+            # Check for duplicates in sample metadata
+            duplicates = check_duplicate_sample_names(sample_df, "sample metadata")
+            if duplicates:
+                print(f"\nWARNING: Found {len(duplicates)} duplicate sample names in sample metadata.")
+                if len(duplicates) <= 10:
+                    print(f"Duplicate samples: {', '.join(duplicates)}")
+                else:
+                    print(f"First 10 duplicate samples: {', '.join(duplicates[:10])}, ...")
+            
             # Validate
             sample_df = validate_sample_metadata(sample_df, config)
             logger.info("Validated sample metadata")
@@ -777,6 +812,21 @@ def main():
             bioproject_df = load_metadata_file(args.bioproject_metadata)
             logger.info(f"Loaded bioproject metadata from {args.bioproject_metadata}")
             print(f"Loaded bioproject metadata from {args.bioproject_metadata}")
+            
+            # Check for duplicates in bioproject metadata
+            duplicates = check_duplicate_sample_names(bioproject_df, "bioproject metadata")
+            if duplicates:
+                print(f"\nWARNING: Found {len(duplicates)} duplicate sample names in bioproject metadata.")
+                if len(duplicates) <= 10:
+                    print(f"Duplicate samples: {', '.join(duplicates)}")
+                else:
+                    print(f"First 10 duplicate samples: {', '.join(duplicates[:10])}, ...")
+            
+            # Check for empty collection_date fields
+            if 'collection_date' in bioproject_df.columns:
+                empty_dates = bioproject_df['collection_date'].isnull() | (bioproject_df['collection_date'].astype(str) == '')
+                if empty_dates.any():
+                    print(f"\nNOTE: Found {empty_dates.sum()} empty collection_date fields. Will set to default '{DEFAULT_VALUES['collection_date']}'")
             
             # Validate
             bioproject_df = validate_bioproject_metadata(bioproject_df, config)
