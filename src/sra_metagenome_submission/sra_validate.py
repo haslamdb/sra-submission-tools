@@ -17,10 +17,13 @@ from pathlib import Path
 from datetime import datetime
 
 # Set up logging
-def setup_logging():
-    """Set up logging with a timestamped filename."""
+def setup_logging(validation_name=None):
+    """Set up logging with a timestamped filename and optional validation name."""
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    log_filename = f"sra_validation_{timestamp}.log"
+    if validation_name:
+        log_filename = f"sra_validation_{validation_name}_{timestamp}.log"
+    else:
+        log_filename = f"sra_validation_{timestamp}.log"
     
     logging.basicConfig(
         level=logging.INFO,
@@ -512,6 +515,11 @@ def save_metadata_file(df, output_path):
         output_path (str): Path to save the file
     """
     try:
+        # Create directory if it doesn't exist
+        output_dir = os.path.dirname(output_path)
+        if output_dir and not os.path.exists(output_dir):
+            os.makedirs(output_dir, exist_ok=True)
+            
         file_ext = os.path.splitext(output_path)[1].lower()
         
         if file_ext == '.txt':
@@ -667,3 +675,132 @@ def load_instrument_models_from_excel(excel_file):
     except Exception as e:
         logger.warning(f"Failed to load instrument models from Excel: {str(e)}")
         return VALID_OPTIONS['instrument_model']  # Return the default list
+
+def main():
+    """Main entry point for the SRA validation tool."""
+    # Parse command-line arguments
+    parser = argparse.ArgumentParser(
+        description="SRA Metadata Validation Tool"
+    )
+    
+    parser.add_argument('--config', help='Path to configuration JSON file')
+    parser.add_argument('--sample-metadata', help='Path to sample metadata file (tab-delimited TXT or Excel)')
+    parser.add_argument('--bioproject-metadata', help='Path to bioproject metadata file (tab-delimited TXT or Excel)')
+    parser.add_argument('--output-sample-metadata', help='Path to save validated sample metadata')
+    parser.add_argument('--output-bioproject-metadata', help='Path to save validated bioproject metadata')
+    parser.add_argument('--output-dir', help='Directory to save validated files')
+    parser.add_argument('--validation-name', help='Custom name for this validation (used in log filename)')
+    
+    args = parser.parse_args()
+    
+    # Re-initialize logging with validation name if provided
+    if args.validation_name:
+        setup_logging(args.validation_name)
+        logger.info(f"Using validation name: {args.validation_name}")
+    
+    # Load config if provided
+    config = None
+    if args.config:
+        config = load_config(args.config)
+    
+    # Check if required parameters are provided
+    if not args.sample_metadata and not args.bioproject_metadata:
+        parser.print_help()
+        print("\nError: At least one of --sample-metadata or --bioproject-metadata must be specified.")
+        sys.exit(1)
+    
+    # Validate sample metadata if provided
+    sample_df = None
+    if args.sample_metadata:
+        try:
+            sample_df = load_metadata_file(args.sample_metadata)
+            logger.info(f"Loaded sample metadata from {args.sample_metadata}")
+            print(f"Loaded sample metadata from {args.sample_metadata}")
+            
+            # Validate
+            sample_df = validate_sample_metadata(sample_df, config)
+            logger.info("Validated sample metadata")
+            print("Validated sample metadata")
+            
+            # Save if output path is specified
+            if args.output_sample_metadata:
+                save_metadata_file(sample_df, args.output_sample_metadata)
+                logger.info(f"Saved validated sample metadata to {args.output_sample_metadata}")
+                print(f"Saved validated sample metadata to {args.output_sample_metadata}")
+            elif args.output_dir:
+                output_path = os.path.join(args.output_dir, "validated_sample_metadata.txt")
+                save_metadata_file(sample_df, output_path)
+                logger.info(f"Saved validated sample metadata to {output_path}")
+                print(f"Saved validated sample metadata to {output_path}")
+            
+        except Exception as e:
+            logger.error(f"Error validating sample metadata: {str(e)}")
+            print(f"Error validating sample metadata: {str(e)}")
+            sys.exit(1)
+    
+    # Validate bioproject metadata if provided
+    bioproject_df = None
+    if args.bioproject_metadata:
+        try:
+            bioproject_df = load_metadata_file(args.bioproject_metadata)
+            logger.info(f"Loaded bioproject metadata from {args.bioproject_metadata}")
+            print(f"Loaded bioproject metadata from {args.bioproject_metadata}")
+            
+            # Validate
+            bioproject_df = validate_bioproject_metadata(bioproject_df, config)
+            logger.info("Validated bioproject metadata")
+            print("Validated bioproject metadata")
+            
+            # Save if output path is specified
+            if args.output_bioproject_metadata:
+                save_metadata_file(bioproject_df, args.output_bioproject_metadata)
+                logger.info(f"Saved validated bioproject metadata to {args.output_bioproject_metadata}")
+                print(f"Saved validated bioproject metadata to {args.output_bioproject_metadata}")
+            elif args.output_dir:
+                output_path = os.path.join(args.output_dir, "validated_bioproject_metadata.txt")
+                save_metadata_file(bioproject_df, output_path)
+                logger.info(f"Saved validated bioproject metadata to {output_path}")
+                print(f"Saved validated bioproject metadata to {output_path}")
+            
+        except Exception as e:
+            logger.error(f"Error validating bioproject metadata: {str(e)}")
+            print(f"Error validating bioproject metadata: {str(e)}")
+            sys.exit(1)
+    
+    # Cross-validate if both metadata files are provided
+    if sample_df is not None and bioproject_df is not None:
+        print("\nPerforming cross-validation between sample and bioproject metadata:")
+        
+        if 'sample_name' in bioproject_df.columns and 'sample_name' in sample_df.columns:
+            bioproject_samples = set(bioproject_df['sample_name'].dropna().tolist())
+            sample_metadata_samples = set(sample_df['sample_name'].dropna().tolist())
+            
+            # Check for samples in sample metadata but not in bioproject
+            missing_in_bioproject = sample_metadata_samples - bioproject_samples
+            if missing_in_bioproject:
+                message = f"Warning: {len(missing_in_bioproject)} samples in sample metadata but missing in bioproject"
+                logger.warning(message)
+                print(message)
+                if len(missing_in_bioproject) <= 10:
+                    print(f"  Missing samples: {', '.join(missing_in_bioproject)}")
+                else:
+                    print(f"  First 10 missing samples: {', '.join(list(missing_in_bioproject)[:10])}, ...")
+            
+            # Check for samples in bioproject but not in sample metadata
+            missing_in_sample_metadata = bioproject_samples - sample_metadata_samples
+            if missing_in_sample_metadata:
+                message = f"Warning: {len(missing_in_sample_metadata)} samples in bioproject but missing in sample metadata"
+                logger.warning(message)
+                print(message)
+                if len(missing_in_sample_metadata) <= 10:
+                    print(f"  Missing samples: {', '.join(missing_in_sample_metadata)}")
+                else:
+                    print(f"  First 10 missing samples: {', '.join(list(missing_in_sample_metadata)[:10])}, ...")
+            
+            if not missing_in_bioproject and not missing_in_sample_metadata:
+                print("All samples are consistent between both metadata files.")
+    
+    print("\nValidation completed successfully.")
+    
+if __name__ == "__main__":
+    main()

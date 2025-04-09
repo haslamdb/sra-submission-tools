@@ -33,6 +33,7 @@ dependencies = [
 
 [project.scripts]
 sra-submit = "sra_metagenome_submission.main:main"
+sra-validate = "sra_metagenome_submission.sra_validate:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/sra_metagenome_submission"]
