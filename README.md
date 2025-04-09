@@ -69,7 +69,9 @@ cd sra-metagenome-submission
 pip install .
 ```
 
-## Quick Start for Experienced Users
+## Quick Start
+
+###1. On your terminal do the following two steps
 
 ```bash
 ## check, modify, and save validated metadata files
@@ -78,17 +80,19 @@ sra-validate --config my_config.json --sample-metadata metadata_files/project1-s
 # use validated-sample-metadata to upload files via aspera: Note the temp folder name, which you will select at step 7 below
 sra-submit --config my_config.json --sample-metadata validated_metadata/validated-project1-sample-metadata.txt --files /path/to/files --aspera-path /home/username/.aspera/connect/bin/ascp --aspera-key aspera.openssh --upload-destination subasp@upload.ncbi.nlm.nih.gov:uploads/user_email.com_ABC123X --submission-name project1 --submit
 
-# go to [SRA Files Upload via Aspera](https://submit.ncbi.nlm.nih.gov/subs/sra/#files_upload_aspera_cmd)
-# manually enter information at **Steps 1-4** 
-# at **Step 5**, upload validated-bioproject-metadata.txt file
-# when file upload is complete, continue with **Steps 6 and 7**, selecting the temp folder location of uploaded files
-# complete **Step 8**: Review and Submit
-
 ```
 
+###2. Go to [SRA Files Upload via Aspera](https://submit.ncbi.nlm.nih.gov/subs/sra/#files_upload_aspera_cmd)
+
+- **Steps 1-4** : enter user information as requested 
+- **Step 5** : upload validated-bioproject-metadata.txt file
+- **Wait until file upload complete**
+- **Steps 6 and 7**, enter requested information and select the temp folder location provided during file upload
+- **Step 8**: Review and Submit
 
 
-## The SRA Submission Process : First-Time Setup and Subsequent Submision Steps
+
+## Detailed Instructions : First-Time Setup and Subsequent Submision Steps
 
 ### First-Time Setup
 
