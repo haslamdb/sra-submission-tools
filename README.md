@@ -42,8 +42,8 @@ pipx install git+https://github.com/yourusername/sra-metagenome-submission.git
 sra-submit --help
 ```
 
-### Other Options
-## Using Conda
+## Other Options
+### Using Conda
 
 ```bash
 # Create and activate a conda environment with required dependencies
@@ -58,7 +58,7 @@ cd sra-metagenome-submission
 pip install -e .
 ```
 
-## From Source
+### From Source
 
 ```bash
 # Clone the repository
@@ -69,7 +69,7 @@ cd sra-metagenome-submission
 pip install .
 ```
 
-### Quick Start for Experienced Users ###
+## Quick Start for Experienced Users
 
 ```bash
 ## check, modify, and save validated metadata files
@@ -78,11 +78,11 @@ sra-validate --config my_config.json --sample-metadata metadata_files/project1-s
 # use validated-sample-metadata to upload files via aspera: Note the temp folder name, which you will select at step 7 below
 sra-submit --config my_config.json --sample-metadata validated_metadata/validated-project1-sample-metadata.txt --files /path/to/files --aspera-path /home/username/.aspera/connect/bin/ascp --aspera-key aspera.openssh --upload-destination subasp@upload.ncbi.nlm.nih.gov:uploads/user_email.com_ABC123X --submission-name project1 --submit
 
-# go to https://submit.ncbi.nlm.nih.gov/subs/sra/#files_upload_aspera_cmd
-# manually enter information at *Steps 1-4* 
-# at *Step 5*, upload validated-bioproject-metadata.txt file
-# when file upload is complete, continue with *Steps 6 and 7*, selecting the temp folder location of uploaded files
-# complete *Step 8*: Review and Submit
+# go to [SRA Files Upload via Aspera](https://submit.ncbi.nlm.nih.gov/subs/sra/#files_upload_aspera_cmd)
+# manually enter information at **Steps 1-4** 
+# at **Step 5**, upload validated-bioproject-metadata.txt file
+# when file upload is complete, continue with **Steps 6 and 7**, selecting the temp folder location of uploaded files
+# complete **Step 8**: Review and Submit
 
 ```
 
