@@ -42,8 +42,8 @@ pipx install git+https://github.com/yourusername/sra-metagenome-submission.git
 sra-submit --help
 ```
 
-## Other Options
-### Using Conda
+### Other Options
+#### Using Conda
 
 ```bash
 # Create and activate a conda environment with required dependencies
@@ -58,7 +58,7 @@ cd sra-metagenome-submission
 pip install -e .
 ```
 
-### From Source
+#### From Source
 
 ```bash
 # Clone the repository
