@@ -16,9 +16,9 @@ Submission of raw sequence files to the SRA database can be confusing and frustr
 ## Table of Contents
 
 - [Installation](#installation)
-- [Quick Start](#quick-start)
 - [Understanding the SRA Submission Process](#understanding-the-sra-submission-process)
 - [Using the Scripts](#using-the-scripts)
+- [Quick Start](#quick-start)
 - [Configuration](#configuration)
 - [Metadata Requirements](#metadata-requirements)
 - [Troubleshooting](#troubleshooting)
@@ -67,20 +67,6 @@ cd sra-metagenome-submission
 
 # Install using pip with pyproject.toml
 pip install .
-```
-
-### Quick Start
-
-```bash
-# Using pipx-installed command-line tool
-sra-submit --config config.json --metadata sample-metadata.txt --bioproject-metadata bioproject-metadata.txt --files /path/to/sequence/files --output submission_package
-
-# Or, if using conda environment
-conda activate sra-tools
-sra-submit --config config.json --metadata sample-metadata.txt --bioproject-metadata bioproject-metadata.txt --files /path/to/sequence/files --output submission_package
-
-# Validate metadata files
-sra-validate --config config.json --sample-metadata sample-metadata.txt --bioproject-metadata bioproject-metadata.txt
 ```
 
 ## The SRA Submission Process : First-Time Setup and Subsequent Submision Steps
@@ -190,6 +176,21 @@ After completing your submission:
 - SRA Submission: https://submit.ncbi.nlm.nih.gov/subs/sra/
 
 ## Using the Scripts
+
+### Quick Start
+
+```bash
+# Using pipx-installed command-line tool
+sra-submit --config config.json --metadata sample-metadata.txt --bioproject-metadata bioproject-metadata.txt --files /path/to/sequence/files --output submission_package
+
+# Or, if using conda environment
+conda activate sra-tools
+sra-submit --config config.json --metadata sample-metadata.txt --bioproject-metadata bioproject-metadata.txt --files /path/to/sequence/files --output submission_package
+
+# Validate metadata files
+sra-validate --config config.json --sample-metadata sample-metadata.txt --bioproject-metadata bioproject-metadata.txt
+```
+
 
 This toolset includes scripts to streamline the SRA submission process, reducing manual steps and potential errors.
 
