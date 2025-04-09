@@ -1,0 +1,387 @@
+sample_name	sample_title	bioproject_accession	organism	host	isolation_source	collection_date	geo_loc_name	lat_lon	ref_biomaterial	rel_to_oxygen	samp_collect_device	samp_mat_process	samp_size	source_material_id	description
+N01_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N01_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N01_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N01_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N01_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N01_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N02_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N02_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N02_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N02_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N02_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N02_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N03_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N03_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N03_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N03_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N04_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N04_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N04_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N04_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N04_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N04_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N05_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N05_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N05_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N05_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N05_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N05_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N06_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N06_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N06_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N07_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N07_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N07_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N07_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N07_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N07_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N08_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N08_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N08_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N08_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N08_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N08_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N09_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N09_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N09_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N09_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N09_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N09_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N10_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N10_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N10_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N10_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N10_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N10_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N11_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N11_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N11_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N11_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N11_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N11_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N12_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N12_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N12_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N13_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N13_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N13_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N13_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N13_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N13_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N14_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N14_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N14_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N14_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N14_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N14_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N15_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N15_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N15_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N15_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N15_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N15_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N16_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N16_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N16_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N16_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N16_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N16_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N17_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N17_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N17_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N17_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N17_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N17_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N18_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N18_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N18_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N18_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N18_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N18_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N19_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N19_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N19_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N19_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N19_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N19_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N20_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N20_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N20_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N20_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N20_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N20_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N21_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N21_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N21_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N21_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N21_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N21_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N22_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N22_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N22_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N22_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N22_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N22_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N23_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N23_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N23_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N23_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N24_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N24_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N24_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N24_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N24_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N25_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N25_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N25_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N25_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N25_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N25_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N26_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N27_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N27_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N27_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N27_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N27_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N28_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N28_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N28_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N28_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N28_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N28_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N29_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N29_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N29_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N29_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N29_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N29_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N30_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N30_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N30_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N30_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N30_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N31_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N31_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N31_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N31_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N31_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N31_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N32_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N32_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N32_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N32_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N32_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N33_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N33_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N33_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N33_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N33_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N34_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N34_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N34_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N34_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N34_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N34_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N35_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N35_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N35_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N35_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N35_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N35_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N36_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N36_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N36_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N36_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N36_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N36_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N37_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N37_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N37_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N37_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N38_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N38_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N38_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N38_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N38_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N38_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N54_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N54_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N54_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N54_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N54_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N54_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N55_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N55_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N55_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N55_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N55_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N55_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N56_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N56_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N56_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N56_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N56_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N56_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N57_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N57_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N57_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N57_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N57_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N57_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N58_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N58_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N58_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N58_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N58_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N58_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N59_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N59_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N59_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N59_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N59_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N59_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N60_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N60_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N60_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N60_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N60_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N60_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N61_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N61_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N61_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N61_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N61_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N61_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N62_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N62_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N62_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N62_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N62_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N62_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N63_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N63_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N63_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N63_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N63_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N63_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N64_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N64_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N64_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N64_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N64_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N64_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N65_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N65_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N65_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N65_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N65_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N65_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N66_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N66_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N66_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N66_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N66_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N66_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N67_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N67_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N67_1_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N67_2_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N67_2_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N67_2_4			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N68_1_2			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N68_1_3			metagenome	Homo sapiens	stool		"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+N68_1_4															
+N68_2_2															
+N68_2_3															
+N68_2_4															
+N39_1_2															
+N39_1_3															
+N39_1_4															
+N39_2_4															
+N39_2_2															
+N39_2_3															
+N40_1_2															
+N40_1_3															
+N40_1_4															
+N40_2_4															
+N40_2_2															
+N40_2_3															
+N41_1_2															
+N41_1_3															
+N41_1_4															
+N41_2_4															
+N41_2_2															
+N41_2_3															
+N42_1_2															
+N42_1_3															
+N42_1_4															
+N42_2_2															
+N42_2_3															
+N42_2_4															
+N43_1_2															
+N43_1_3															
+N43_1_4															
+N43_2_2															
+N43_2_3															
+N43_2_4															
+N44_1_2															
+N44_1_3															
+N44_1_4															
+N44_2_2															
+N44_2_3															
+N44_2_4															
+N45_1_2															
+N45_1_3															
+N45_1_4															
+N45_2_2															
+N45_2_3															
+N45_2_4															
+N46_1_2															
+N46_1_3															
+N46_1_4															
+N46_2_2															
+N46_2_3															
+N46_2_4															
+N47_1_2															
+N47_1_3															
+N47_1_4															
+N47_2_2															
+N47_2_3															
+N47_2_4															
+N48_1_2															
+N48_1_3															
+N48_1_4															
+N48_2_2															
+N48_2_3															
+N48_2_4															
+N49_1_2															
+N49_1_3															
+N49_1_4															
+N49_2_2															
+N49_2_3															
+N49_2_4															
+N50_1_2															
+N50_1_3															
+N50_1_4															
+N50_2_2															
+N50_2_3															
+N50_2_4															
+N51_1_2															
+N51_1_3															
+N51_1_4															
+N51_2_2															
+N51_2_3															
+N51_2_4															
+N52_1_2															
+N52_1_3															
+N52_1_4															
+N52_2_2															
+N52_2_3															
+N52_2_4															
+N53_1_2															
+N53_1_3															
+N53_1_4															
+N53_2_2															
+N53_2_3															
+N53_2_4															

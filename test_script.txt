@@ -1,30 +1,26 @@
 
-# Submit to SRA (requires authentication)
+
+Hellman:
+sra-validate --config dbh_config.json --sample-metadata metadata_files/hellman-sample-metadata.txt --bioproject-metadata metadata_files/hellman-bioproject-metadata.txt
+
+sra-submit --config dbh_config.json --sample-metadata validated_metadata/validated-hellman-sample-metadata.txt --files /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/ --submit --aspera-path /home/david/.aspera/connect/bin/ascp --aspera-key aspera.openssh --upload-destination subasp@upload.ncbi.nlm.nih.gov:uploads/dbhaslam_gmail.com_QFq0F7SG --submission-name hellman
 
 
-sra-submit --config dbh_config.json --metadata metadata_files/hellman_metadata.csv --files /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/ --submit --aspera-path /home/david/.aspera/connect/bin/ascp --aspera-key aspera.openssh --upload-destination subasp@upload.ncbi.nlm.nih.gov:uploads/dbhaslam_gmail.com_QFq0F7SG --submission-name hellman #temp path sra_submission_uuqfg69d"
+NICU
+
+sra-validate --config dbh_config.json --sample-metadata metadata_files/NICU-sample-metadata.txt --bioproject-metadata metadata_files/NICU-bioproject-metadata.txt
+
+sra-submit --config dbh_config.json --sample-metadata validated_metadata/validated-NICU-sample-metadata.txt --files /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/ --submit --aspera-path /home/david/.aspera/connect/bin/ascp --aspera-key aspera.openssh --upload-destination subasp@upload.ncbi.nlm.nih.gov:uploads/dbhaslam_gmail.com_QFq0F7SG --submission-name NICU
+
+
+###########  TODO
+
+
+############ Completed:
+
 
 #complete#sra-submit --config dbh_config.json --metadata metadata_files/michele_metadata.csv --files /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/ --submit --aspera-path /home/david/.aspera/connect/bin/ascp --aspera-key aspera.openssh --upload-destination subasp@upload.ncbi.nlm.nih.gov:uploads/dbhaslam_gmail.com_QFq0F7SG --submission-name michele
 
 #compete#sra-submit --config dbh_config.json --metadata metadata_files/viromics_metadata.csv --files /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/ --submit --aspera-path /home/david/.aspera/connect/bin/ascp --aspera-key aspera.openssh --upload-destination subasp@upload.ncbi.nlm.nih.gov:uploads/dbhaslam_gmail.com_QFq0F7SG --submission-name viromics# temp submission sra_submission_2qrgs7l4"   sra_submission_2qrgs7l4
 
-sra-submit --config dbh_config.json --metadata metadata_files/NICU_metadata_20211201.csv --files /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/ --submit --aspera-path /home/david/.aspera/connect/bin/ascp --aspera-key aspera.openssh --upload-destination subasp@upload.ncbi.nlm.nih.gov:uploads/dbhaslam_gmail.com_QFq0F7SG --submission-name NICU  # temp submission sra_submission_ilqczrlv"
-
-Validate metadata:
-sra-validate --config dbh_config.json --sample-metadata metadata_files/hellman-sample-metadata.txt --bioproject-metadata metadata_files/hellman-bioproject-metadata.txt
-
-# script usage
-python -m sra_metagenome_submission.main \
-  --config dbh_config.json \
-  --metadata metadata_files/hellman_metadata.csv \
-  --files /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/ \
-  --submit \
-  --aspera-path /home/david/.aspera/connect/bin/ascp \
-  --aspera-key aspera.openssh \
-  --upload-destination subasp@upload.ncbi.nlm.nih.gov:uploads/dbhaslam_gmail.com_QFq0F7SG \
-  --submission-name hellman
-
-
-
-TODO
 
