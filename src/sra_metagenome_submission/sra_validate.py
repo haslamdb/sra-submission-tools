@@ -34,7 +34,103 @@ def setup_logging():
     logger.info(f"Logging to {log_filename}")
     return logger
 
-logger = setup_logging()
+logger = logging.getLogger(__name__)
+
+# Define the valid options for constrained fields
+VALID_OPTIONS = {
+    'library_strategy': [
+        'WGA', 'WGS', 'WXS', 'RNA-Seq', 'miRNA-Seq', 'WCS', 'CLONE', 'POOLCLONE', 
+        'AMPLICON', 'CLONEEND', 'FINISHING', 'ChIP-Seq', 'MNase-Seq', 
+        'DNase-Hypersensitivity', 'Bisulfite-Seq', 'Tn-Seq', 'EST', 'FL-cDNA', 
+        'CTS', 'MRE-Seq', 'MeDIP-Seq', 'MBD-Seq', 'Synthetic-Long-Read', 
+        'ATAC-seq', 'ChIA-PET', 'FAIRE-seq', 'Hi-C', 'ncRNA-Seq', 'RAD-Seq', 
+        'RIP-Seq', 'SELEX', 'ssRNA-seq', 'Targeted-Capture', 
+        'Tethered Chromatin Conformation Capture', 'DIP-Seq', 'GBS', 
+        'Inverse rRNA', 'NOMe-Seq', 'Ribo-seq', 'VALIDATION', 'OTHER'
+    ],
+    'library_source': [
+        'GENOMIC', 'TRANSCRIPTOMIC', 'METAGENOMIC', 'METATRANSCRIPTOMIC', 
+        'SYNTHETIC', 'VIRAL RNA', 'GENOMIC SINGLE CELL', 'TRANSCRIPTOMIC SINGLE CELL', 'OTHER'
+    ],
+    'library_selection': [
+        'RANDOM', 'PCR', 'RANDOM PCR', 'RT-PCR', 'HMPR', 'MF', 'CF-S', 'CF-M', 
+        'CF-H', 'CF-T', 'MDA', 'MSLL', 'cDNA', 'ChIP', 'MNase', 'DNAse', 
+        'Hybrid Selection', 'Reduced Representation', 'Restriction Digest', 
+        '5-methylcytidine antibody', 'MBD2 protein methyl-CpG binding domain', 
+        'CAGE', 'RACE', 'size fractionation', 'Padlock probes capture method', 
+        'other', 'unspecified', 'cDNA_oligo_dT', 'cDNA_randomPriming', 
+        'Inverse rRNA', 'Oligo-dT', 'PolyA', 'repeat fractionation'
+    ],
+    'library_layout': ['paired', 'single'],
+    'platform': [
+        'ABI_SOLID', 'BGISEQ', 'CAPILLARY', 'COMPLETE_GENOMICS', 'DNBSEQ', 
+        'ELEMENT', 'GENAPSYS', 'GENEMIND', 'HELICOS', 'ILLUMINA', 'ION_TORRENT', 
+        'OXFORD_NANOPORE', 'PACBIO_SMRT', 'TAPESTRI', 'ULTIMA', 'VELA_DIAGNOSTICS'
+    ],
+    'filetype': [
+        'fastq', 'bam', 'srf', 'sff', 'PacBio_HDF5', 'CompleteGenomics_native', 
+        'OxfordNanopore_native'
+    ]
+}
+
+# Add common instrument models
+VALID_OPTIONS['instrument_model'] = [
+    # Illumina
+    'Illumina NovaSeq X', 'Illumina NovaSeq 6000', 'Illumina HiSeq X', 'Illumina HiSeq 2500',
+    'Illumina HiSeq 2000', 'Illumina HiSeq 1500', 'Illumina HiSeq 1000', 'Illumina MiSeq',
+    'Illumina MiniSeq', 'Illumina NextSeq 500', 'Illumina NextSeq 550', 'Illumina NextSeq 1000',
+    'Illumina NextSeq 2000', 'Illumina iSeq 100',
+    # Oxford Nanopore
+    'MinION', 'GridION', 'PromethION',
+    # PacBio
+    'PacBio RS', 'PacBio RS II', 'PacBio Sequel', 'PacBio Sequel II', 'PacBio Revio',
+    # Ion Torrent
+    'Ion Torrent PGM', 'Ion Torrent S5', 'Ion Torrent S5 XL', 'Ion Torrent Genexus',
+    # Others
+    'unspecified'
+]
+
+# Define default values for required fields
+DEFAULT_VALUES = {
+    # Bioproject metadata defaults
+    'organism': 'Homo sapiens',
+    'geo_loc_name': 'United States: Ohio: Cincinnati',
+    'lat_lon': '39.10 N 84.51 W',
+    
+    # Sample metadata defaults
+    'title': 'metagenomics project',
+    'library_strategy': 'WGS',
+    'library_source': 'METAGENOMIC',
+    'library_selection': 'RANDOM',
+    'library_layout': 'paired',
+    'platform': 'ILLUMINA',
+    'instrument_model': 'Illumina NovaSeq X',
+    'filetype': 'fastq'
+}
+
+def load_custom_defaults(config_file=None):
+    """
+    Load custom default values from a configuration file.
+    
+    Args:
+        config_file (str): Path to the configuration file
+        
+    Returns:
+        dict: Custom default values merged with system defaults
+    """
+    defaults = DEFAULT_VALUES.copy()
+    
+    if config_file and os.path.exists(config_file):
+        try:
+            with open(config_file, 'r') as f:
+                config = json.load(f)
+                if 'default_values' in config:
+                    defaults.update(config['default_values'])
+                    logger.info(f"Loaded custom defaults from {config_file}")
+        except Exception as e:
+            logger.warning(f"Failed to load custom defaults from {config_file}: {str(e)}")
+    
+    return defaults
 
 def validate_date_format(date_str):
     """
@@ -229,6 +325,8 @@ def validate_sample_metadata(df, config=None):
     default_values = {}
     if config and 'default_values' in config:
         default_values = config['default_values']
+    else:
+        default_values = DEFAULT_VALUES
     
     # Fill missing required fields with defaults
     required_fields = [
@@ -250,7 +348,10 @@ def validate_sample_metadata(df, config=None):
     
     for col in essential_columns:
         if col not in validated_df.columns:
-            validated_df[col] = ""
+            if col in default_values:
+                validated_df[col] = default_values[col]
+            else:
+                validated_df[col] = ""
     
     # Validate library_layout (must be "single" or "paired")
     if 'library_layout' in validated_df.columns:
@@ -261,6 +362,15 @@ def validate_sample_metadata(df, config=None):
             else x
         )
     
+    # Validate constrained fields against valid options
+    for field, valid_options in VALID_OPTIONS.items():
+        if field in validated_df.columns:
+            for idx, value in enumerate(validated_df[field]):
+                if pd.notna(value) and value != "" and value not in valid_options:
+                    logger.warning(f"Invalid {field} value: '{value}'. Will use default if available.")
+                    if field in default_values:
+                        validated_df.at[idx, field] = default_values[field]
+    
     # Validate filenames - ensure they exist and match sample names
     if 'filename' in validated_df.columns and 'filename2' in validated_df.columns:
         # Matching library_layout with filenames
@@ -269,6 +379,13 @@ def validate_sample_metadata(df, config=None):
                 logger.warning(f"Sample {row['sample_name']} is marked as paired but missing second filename")
             if row['library_layout'] == 'single' and not (pd.isna(row['filename2']) or row['filename2'] == ''):
                 logger.warning(f"Sample {row['sample_name']} is marked as single but has a second filename")
+    
+    # Set library_ID to sample_name if empty
+    if 'library_ID' in validated_df.columns and 'sample_name' in validated_df.columns:
+        mask = validated_df['library_ID'].isnull() | (validated_df['library_ID'] == "")
+        if mask.any():
+            validated_df.loc[mask, 'library_ID'] = validated_df.loc[mask, 'sample_name']
+            logger.info(f"Set library_ID to sample_name for {mask.sum()} samples")
     
     return validated_df
 
@@ -290,6 +407,8 @@ def validate_bioproject_metadata(df, config=None):
     default_values = {}
     if config and 'default_values' in config:
         default_values = config['default_values']
+    else:
+        default_values = DEFAULT_VALUES
     
     # Fill missing required fields with defaults
     required_fields = [
@@ -311,7 +430,19 @@ def validate_bioproject_metadata(df, config=None):
     
     for col in essential_columns:
         if col not in validated_df.columns:
-            validated_df[col] = ""
+            if col in default_values:
+                validated_df[col] = default_values[col]
+            else:
+                validated_df[col] = ""
+    
+    # Validate constrained fields against valid options
+    for field, valid_options in VALID_OPTIONS.items():
+        if field in validated_df.columns:
+            for idx, value in enumerate(validated_df[field]):
+                if pd.notna(value) and value != "" and value not in valid_options:
+                    logger.warning(f"Invalid {field} value: '{value}'. Will use default if available.")
+                    if field in default_values:
+                        validated_df.at[idx, field] = default_values[field]
     
     # Validate date formats
     if 'collection_date' in validated_df.columns:
@@ -338,6 +469,10 @@ def validate_bioproject_metadata(df, config=None):
             if row['sample_source'] == 'host-associated':
                 if 'host' in validated_df.columns and (pd.isna(row['host']) or row['host'] == ''):
                     logger.warning(f"Sample source is host-associated but 'host' field is empty")
+    
+    # Add file_number column if not present
+    if 'file_number' not in validated_df.columns:
+        validated_df['file_number'] = range(1, len(validated_df) + 1)
     
     return validated_df
 
@@ -412,53 +547,123 @@ def load_config(config_file):
         logger.error(f"Error loading configuration file: {str(e)}")
         return {}
 
-def main():
-    """Main function for validating metadata files."""
-    parser = argparse.ArgumentParser(description="SRA Metadata Validation Tool")
+def validate_and_fix_metadata(bioproject_file, sample_file, config_file=None, output_dir=None):
+    """
+    Validate and fix bioproject and sample metadata files.
     
-    parser.add_argument('--config', help='Path to configuration JSON file')
-    parser.add_argument('--sample-metadata', required=True, help='Path to sample metadata file (tab-delimited TXT or Excel)')
-    parser.add_argument('--bioproject-metadata', required=True, help='Path to bioproject metadata file (tab-delimited TXT or Excel)')
-    parser.add_argument('--output-sample-metadata', help='Path to save validated sample metadata')
-    parser.add_argument('--output-bioproject-metadata', help='Path to save validated bioproject metadata')
-    
-    args = parser.parse_args()
+    Args:
+        bioproject_file (str): Path to bioproject metadata file
+        sample_file (str): Path to sample metadata file
+        config_file (str): Path to configuration file with defaults
+        output_dir (str): Directory to save validated files
+        
+    Returns:
+        tuple: (bioproject_df, sample_df, list_of_issues)
+    """
+    # Initialize issues list
+    issues = []
     
     # Load config if provided
     config = None
-    if args.config:
-        config = load_config(args.config)
+    if config_file:
+        config = load_config(config_file)
     
     # Load metadata files
-    print(f"Loading sample metadata from {args.sample_metadata}")
-    sample_df = load_metadata_file(args.sample_metadata)
+    try:
+        bioproject_df = load_metadata_file(bioproject_file)
+        logger.info(f"Loaded bioproject metadata from {bioproject_file}")
+    except Exception as e:
+        issues.append(f"Failed to load bioproject metadata file: {str(e)}")
+        bioproject_df = pd.DataFrame()
     
-    print(f"Loading bioproject metadata from {args.bioproject_metadata}")
-    bioproject_df = load_metadata_file(args.bioproject_metadata)
+    try:
+        sample_df = load_metadata_file(sample_file)
+        logger.info(f"Loaded sample metadata from {sample_file}")
+    except Exception as e:
+        issues.append(f"Failed to load sample metadata file: {str(e)}")
+        sample_df = pd.DataFrame()
     
-    # Validate metadata
-    print("Validating sample metadata...")
-    validated_sample_df = validate_sample_metadata(sample_df, config)
+    # Remove rows with no sample_name in either file
+    if not bioproject_df.empty and 'sample_name' in bioproject_df.columns:
+        empty_samples = bioproject_df['sample_name'].isnull() | (bioproject_df['sample_name'] == "")
+        if empty_samples.any():
+            issues.append(f"Removed {empty_samples.sum()} rows with empty sample_name from bioproject metadata")
+            bioproject_df = bioproject_df[~empty_samples].reset_index(drop=True)
     
-    print("Validating bioproject metadata...")
-    validated_bioproject_df = validate_bioproject_metadata(bioproject_df, config)
+    if not sample_df.empty and 'sample_name' in sample_df.columns:
+        empty_samples = sample_df['sample_name'].isnull() | (sample_df['sample_name'] == "")
+        if empty_samples.any():
+            issues.append(f"Removed {empty_samples.sum()} rows with empty sample_name from sample metadata")
+            sample_df = sample_df[~empty_samples].reset_index(drop=True)
     
-    # Determine output paths
-    sample_output = args.output_sample_metadata if args.output_sample_metadata else args.sample_metadata.rsplit('.', 1)[0] + '_validated.' + args.sample_metadata.rsplit('.', 1)[1]
-    bioproject_output = args.output_bioproject_metadata if args.output_bioproject_metadata else args.bioproject_metadata.rsplit('.', 1)[0] + '_validated.' + args.bioproject_metadata.rsplit('.', 1)[1]
+    # Validate and fix metadata
+    if not bioproject_df.empty:
+        bioproject_df = validate_bioproject_metadata(bioproject_df, config)
+        issues.append("Validated bioproject metadata")
     
-    # Save validated metadata
-    print(f"Saving validated sample metadata to {sample_output}")
-    save_metadata_file(validated_sample_df, sample_output)
+    if not sample_df.empty:
+        sample_df = validate_sample_metadata(sample_df, config)
+        issues.append("Validated sample metadata")
     
-    print(f"Saving validated bioproject metadata to {bioproject_output}")
-    save_metadata_file(validated_bioproject_df, bioproject_output)
+    # Cross-validate samples between files
+    if not bioproject_df.empty and not sample_df.empty:
+        if 'sample_name' in bioproject_df.columns and 'sample_name' in sample_df.columns:
+            bioproject_samples = set(bioproject_df['sample_name'].dropna().tolist())
+            sample_metadata_samples = set(sample_df['sample_name'].dropna().tolist())
+            
+            # Check for samples in sample metadata but not in bioproject
+            missing_in_bioproject = sample_metadata_samples - bioproject_samples
+            if missing_in_bioproject:
+                issues.append(f"Samples in sample metadata but missing in bioproject: {', '.join(missing_in_bioproject)}")
+            
+            # Check for samples in bioproject but not in sample metadata
+            missing_in_sample_metadata = bioproject_samples - sample_metadata_samples
+            if missing_in_sample_metadata:
+                issues.append(f"Samples in bioproject but missing in sample metadata: {', '.join(missing_in_sample_metadata)}")
     
-    print("\nValidation complete!")
-    print(f"Validated sample metadata saved to: {sample_output}")
-    print(f"Validated bioproject metadata saved to: {bioproject_output}")
-    print("\nPlease review the log file for any warnings or issues that need attention.")
-    print("Use these validated files for your SRA submission.")
+    # Save validated files if requested
+    if output_dir:
+        os.makedirs(output_dir, exist_ok=True)
+        
+        if not bioproject_df.empty:
+            output_bioproject = os.path.join(output_dir, "validated_bioproject.txt")
+            save_metadata_file(bioproject_df, output_bioproject)
+            issues.append(f"Saved validated bioproject metadata to {output_bioproject}")
+        
+        if not sample_df.empty:
+            output_sample = os.path.join(output_dir, "validated_sample.txt")
+            save_metadata_file(sample_df, output_sample)
+            issues.append(f"Saved validated sample metadata to {output_sample}")
+    
+    return bioproject_df, sample_df, issues
 
-if __name__ == "__main__":
-    main()
+def load_instrument_models_from_excel(excel_file):
+    """
+    Load instrument model options from an Excel file.
+    
+    Args:
+        excel_file (str): Path to Excel file with instrument models
+        
+    Returns:
+        list: List of valid instrument model options
+    """
+    try:
+        df = pd.read_excel(excel_file)
+        
+        # Assuming the Excel has a column named 'instrument_model'
+        if 'instrument_model' in df.columns:
+            models = df['instrument_model'].dropna().tolist()
+            return models
+        else:
+            # Try to guess the column - take the first column that has 'instrument' or 'model' in the name
+            for col in df.columns:
+                if 'instrument' in col.lower() or 'model' in col.lower():
+                    models = df[col].dropna().tolist()
+                    return models
+            
+            # If still not found, just take the first column
+            models = df.iloc[:, 0].dropna().tolist()
+            return models
+    except Exception as e:
+        logger.warning(f"Failed to load instrument models from Excel: {str(e)}")
+        return VALID_OPTIONS['instrument_model']  # Return the default list
