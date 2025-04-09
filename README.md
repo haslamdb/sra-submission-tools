@@ -43,6 +43,7 @@ pipx install git+https://github.com/yourusername/sra-metagenome-submission.git
 # The sra-submit command should now be available in your PATH
 sra-submit --help
 ```
+
 ### Other Options
 ## Using Conda
 
@@ -128,7 +129,7 @@ sra-validate --config config.json --sample-metadata sample-metadata.txt --biopro
    - Save this destination path for use in all subsequent submission processes
    - You can provide this path using the `--upload-destination` parameter
 
-   - **Note:** Subsequent uploads will reuse your aspera.openssh key and submission destination `subasp@upload.ncbi.nlm.nih.gov:uploads/your_username_XYZ123`
+   - **Note:** Subsequent uploads will reuse your aspera.openssh key and submission destination
 
 ### Processes for Each Submission
 
