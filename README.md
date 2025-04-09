@@ -101,7 +101,7 @@ sra-validate --config config.json --sample-metadata sample-metadata.txt --biopro
 
 3. **Install Aspera Connect**:
    - Download the Aspera Connect installer from [IBM's website](https://www.ibm.com/products/aspera/downloads#cds)
-   - For Linux users, this will download a bash script that you will run to complete the installation
+   - For Linux users, this will download a bash script that you will run to complete the installation as follows:
      ```bash
      wget https://d3gcli72yxqn2z.cloudfront.net/downloads/connect/latest/bin/ibm-aspera-connect_4.2.13.820_linux_x86_64.tar.gz
      
