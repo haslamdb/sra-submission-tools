@@ -280,11 +280,15 @@ Example `config.json`:
   "password": "your_ncbi_password",
   "api_key": "your_ncbi_api_key",
   "default_values": {
+   "organism": "Homo sapiens",
     "library_strategy": "WGS",
     "library_source": "METAGENOMIC",
     "library_selection": "RANDOM",
+    "library_layout": "single",
     "platform": "ILLUMINA",
-    "instrument_model": "Illumina MiSeq"
+    "instrument_model": "Illumina NovaSeq 6000",
+    "project_title": "Metagenomics Study",
+    "project_description": "Metagenomics of human gut"
   },
   "contact": {
     "name": "Your Name",
