@@ -1,6 +1,6 @@
 # SRA Metagenomic Data Submission Tool
 
-A Python package to automate metadata preparation and submission of metagenomic data to NCBI's Sequence Read Archive (SRA).
+A comprehensive Python package to automate metadata preparation, validation, and submission of metagenomic data to NCBI's Sequence Read Archive (SRA).
 
 ## Overview
 
