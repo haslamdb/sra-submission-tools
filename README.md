@@ -92,7 +92,14 @@ sra-validate --config config.json --sample-metadata sample-metadata.txt --biopro
    - Go to [NCBI](https://www.ncbi.nlm.nih.gov/)
    - Click "Log in" and then "Register" if you don't have an account
 
-2. **Install Aspera Connect**:
+2. **Generate NCBI API Key**:
+   - Sign in to your NCBI account
+   - Access your account settings by clicking on your username in the top right corner of any NCBI page
+   - Scroll down to the "API Key Management" section
+   - Click "Create an API Key" button to generate your key
+   - Save this key for use in your config.json configuration file
+
+3. **Install Aspera Connect**:
    - Download the Aspera Connect installer from [IBM's website](https://www.ibm.com/products/aspera/downloads#cds)
    - For Linux users, this will download a bash script that you will run to complete the installation
      ```bash
@@ -105,13 +112,13 @@ sra-validate --config config.json --sample-metadata sample-metadata.txt --biopro
    - Make note of the filepath to ascp (e.g., `/home/username/.aspera/connect/bin/ascp`) as it will be needed during each submission process
    - You can provide this path using the `--aspera-path` parameter or add to the config.json file created below
 
-3. **Obtain Aspera Key File**:
+4. **Obtain Aspera Key File**:
    - Download the `aspera.openssh` key file from NCBI: [https://submit.ncbi.nlm.nih.gov/preload/aspera_key/](https://submit.ncbi.nlm.nih.gov/preload/aspera_key/)
    - **Important**: Copy and paste the downloaded file from your downloads folder to a secure location. Do not open and save it as a text file, as this would corrupt the file format.
    - Make note of the path to this key file as you'll need it for the submission process
    - You can provide this path using the `--aspera-key` parameter
 
-4. **Obtain Upload Destination Path**:
+5. **Obtain Upload Destination Path**:
    - The destination path will be your personal staging ground for uploaded files for this and subsequent submissions
    - Navigate to SRA submission start page [https://submit.ncbi.nlm.nih.gov/subs/sra/](https://submit.ncbi.nlm.nih.gov/subs/sra/)
    - Click "New Submission"
