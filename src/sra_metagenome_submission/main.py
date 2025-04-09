@@ -27,6 +27,12 @@ try:
         collect_fastq_files,
         build_sample_metadata
     )
+    from sra_metagenome_submission.sra_validate import (
+        validate_sample_metadata,
+        validate_bioproject_metadata,
+        load_metadata_file,
+        save_metadata_file
+    )
 except ImportError:
     # If not installed, try local import
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -38,8 +44,14 @@ except ImportError:
             collect_fastq_files,
             build_sample_metadata
         )
+        from sra_validate import (
+            validate_sample_metadata,
+            validate_bioproject_metadata,
+            load_metadata_file,
+            save_metadata_file
+        )
     except ImportError:
-        print("Error: sra_utils module not found. Please ensure sra_utils.py is in the same directory.")
+        print("Error: required modules not found. Please ensure sra_utils.py and sra_validate.py are in the same directory.")
         sys.exit(1)
 
 # Set up logging with dynamic log file name
@@ -73,7 +85,8 @@ class SRASubmission:
     def __init__(self, config_file=None):
         """Initialize the submission class with configuration settings."""
         self.config = {}
-        self.metadata_df = None
+        self.sample_metadata_df = None
+        self.bioproject_metadata_df = None
         self.files = []
         
         if config_file:
@@ -89,35 +102,50 @@ class SRASubmission:
             logger.error(f"Failed to load configuration: {str(e)}")
             sys.exit(1)
 
-    def load_metadata(self, metadata_file):
-        """Load metadata from a CSV or Excel file."""
+    def load_sample_metadata(self, metadata_file):
+        """Load sample metadata from a tab-delimited TXT or Excel file."""
         try:
-            # Use the prepare_metadata utility for processing
-            self.metadata_df = prepare_metadata(metadata_file, config_file=self.config.get('defaults', {}))
+            self.sample_metadata_df = load_metadata_file(metadata_file)
+            self.sample_metadata_df = validate_sample_metadata(self.sample_metadata_df, self.config)
             
-            if len(self.metadata_df) > 0:
-                logger.info(f"Loaded metadata from {metadata_file} with {len(self.metadata_df)} samples")
+            if len(self.sample_metadata_df) > 0:
+                logger.info(f"Loaded sample metadata from {metadata_file} with {len(self.sample_metadata_df)} samples")
             else:
-                logger.error("Metadata file is empty")
+                logger.error("Sample metadata file is empty")
                 sys.exit(1)
         except Exception as e:
-            logger.error(f"Failed to load metadata from file: {str(e)}")
+            logger.error(f"Failed to load sample metadata: {str(e)}")
             sys.exit(1)
             
-        return len(self.metadata_df)
+        return len(self.sample_metadata_df)
+    
+    def load_bioproject_metadata(self, metadata_file):
+        """Load bioproject metadata from a tab-delimited TXT or Excel file."""
+        try:
+            self.bioproject_metadata_df = load_metadata_file(metadata_file)
+            self.bioproject_metadata_df = validate_bioproject_metadata(self.bioproject_metadata_df, self.config)
+            
+            if len(self.bioproject_metadata_df) > 0:
+                logger.info(f"Loaded bioproject metadata from {metadata_file}")
+            else:
+                logger.error("Bioproject metadata file is empty")
+                sys.exit(1)
+        except Exception as e:
+            logger.error(f"Failed to load bioproject metadata: {str(e)}")
+            sys.exit(1)
     
     def collect_sequence_files(self, file_dir=None):
         """Collect sequence files for submission, only including files mentioned in metadata."""
-        if self.metadata_df is None or len(self.metadata_df) == 0:
-            logger.error("No metadata available for file filtering")
+        if self.sample_metadata_df is None or len(self.sample_metadata_df) == 0:
+            logger.error("No sample metadata available for file filtering")
             return 0
         
         # Define filename columns to check
         filename_keys = ['filename', 'filename2', 'filepath', 'filepath2', 'file1', 'file2']
-        available_keys = [key for key in filename_keys if key in self.metadata_df.columns]
+        available_keys = [key for key in filename_keys if key in self.sample_metadata_df.columns]
         
         if not available_keys:
-            logger.warning("No filename columns found in metadata")
+            logger.warning("No filename columns found in sample metadata")
             return 0
         
         self.files = []
@@ -125,7 +153,7 @@ class SRASubmission:
         missing_files = []
         
         # Process each row in the metadata DataFrame
-        for idx, row in self.metadata_df.iterrows():
+        for idx, row in self.sample_metadata_df.iterrows():
             for key in available_keys:
                 filename = row.get(key)
                 if filename is None or pd.isna(filename) or str(filename).strip() == "":
@@ -152,7 +180,7 @@ class SRASubmission:
         
         # Handle missing files reporting
         if missing_files:
-            logger.warning(f"Could not find {len(missing_files)} files mentioned in metadata:")
+            logger.warning(f"Could not find {len(missing_files)} files mentioned in sample metadata:")
             for file in missing_files[:5]:  # Show first 5 missing files
                 logger.warning(f"  - {file}")
             if len(missing_files) > 5:
@@ -168,6 +196,75 @@ class SRASubmission:
             logger.warning("No files found from metadata information")
             
         return file_count
+    
+    def generate_template_metadata(self, file_dir, output_dir):
+        """
+        Generate template metadata files from a directory of sequence files.
+        
+        Args:
+            file_dir (str): Directory containing sequence files
+            output_dir (str): Directory to save template files
+        
+        Returns:
+            tuple: (sample_metadata_path, bioproject_metadata_path)
+        """
+        try:
+            # Create output directory if it doesn't exist
+            os.makedirs(output_dir, exist_ok=True)
+            
+            # Collect FASTQ files
+            fastq_files = collect_fastq_files(file_dir, recursive=True)
+            if not fastq_files:
+                logger.error(f"No FASTQ files found in {file_dir}")
+                return None, None
+            
+            logger.info(f"Found {len(fastq_files)} FASTQ files")
+            
+            # Detect paired files
+            file_pairs = detect_file_pairs(fastq_files)
+            logger.info(f"Detected {len(file_pairs)} file pairs/singles")
+            
+            # Build sample metadata
+            sample_df = build_sample_metadata(file_pairs, self.config)
+            
+            # Create bioproject template with one row
+            bioproject_columns = [
+                'bioproject_id', 'project_title', 'project_description', 
+                'sample_source', 'collection_date', 'geo_loc_name', 
+                'lat_lon', 'library_strategy', 'library_source', 
+                'library_selection', 'platform', 'instrument_model',
+                'env_biome', 'env_feature', 'env_material',
+                'depth', 'altitude', 'host', 'host_tissue', 'isolation_source'
+            ]
+            
+            # Fill in defaults from config where available
+            bioproject_data = {col: [''] for col in bioproject_columns}
+            if self.config and 'default_values' in self.config:
+                for col in bioproject_columns:
+                    if col in self.config['default_values']:
+                        bioproject_data[col] = [self.config['default_values'][col]]
+            
+            bioproject_df = pd.DataFrame(bioproject_data)
+            
+            # Save template files
+            sample_output_path = os.path.join(output_dir, 'sample-metadata-template.txt')
+            bioproject_output_path = os.path.join(output_dir, 'bioproject-metadata-template.txt')
+            
+            save_metadata_file(sample_df, sample_output_path)
+            save_metadata_file(bioproject_df, bioproject_output_path)
+            
+            logger.info(f"Generated template files in {output_dir}")
+            print(f"\nGenerated template metadata files:")
+            print(f"  - Sample metadata: {sample_output_path}")
+            print(f"  - Bioproject metadata: {bioproject_output_path}")
+            print("\nPlease fill in the required fields before submission.")
+            
+            return sample_output_path, bioproject_output_path
+            
+        except Exception as e:
+            logger.error(f"Error generating template metadata: {str(e)}")
+            print(f"\nError generating template metadata: {str(e)}")
+            return None, None
     
     def upload_files_with_aspera(self, key_path=None, upload_destination=None, aspera_path=None):
         """
@@ -292,7 +389,7 @@ class SRASubmission:
                     print("\nTo complete your submission:")
                     print("1. Log into NCBI Submission Portal: https://submit.ncbi.nlm.nih.gov/")
                     print("2. Select 'New Submission' and choose 'Sequence Read Archive (SRA)'")
-                    print("3. Follow the prompts to associate your uploaded files with your metadata")
+                    print("3. Follow the steps as outlined in the README.md document to associate your files with your metadata")
                     return True
                 else:
                     logger.error(f"Failed to upload submit.ready file: {submit_return_code}")
@@ -354,8 +451,12 @@ def main():
     )
     
     parser.add_argument('--config', help='Path to configuration JSON file')
-    parser.add_argument('--metadata', required=True, help='Path to metadata CSV or Excel file')
+    parser.add_argument('--sample-metadata', help='Path to sample metadata file (tab-delimited TXT or Excel)')
+    parser.add_argument('--bioproject-metadata', help='Path to bioproject metadata file (tab-delimited TXT or Excel)')
     parser.add_argument('--files', help='Directory containing sequence files')
+    parser.add_argument('--output', default='sra_submission', help='Directory to store output files')
+    parser.add_argument('--generate-templates', action='store_true', help='Generate template metadata files from sequence files')
+    parser.add_argument('--validate-only', action='store_true', help='Only validate files and metadata without preparing submission')
     parser.add_argument('--submit', action='store_true', help='Submit to SRA after preparing')
     parser.add_argument('--aspera-key', help='Path to Aspera key file')
     parser.add_argument('--aspera-path', help='Full path to the Aspera Connect (ascp) executable')
@@ -373,16 +474,38 @@ def main():
     # Initialize submission object
     submission = SRASubmission(args.config)
     
-    # Load and process metadata
-    num_samples = submission.load_metadata(args.metadata)
-    print(f"Loaded {num_samples} samples from metadata file")
+    # Handle template generation
+    if args.generate_templates:
+        if not args.files:
+            print("Error: --files parameter is required with --generate-templates")
+            sys.exit(1)
+        
+        output_dir = args.output
+        submission.generate_template_metadata(args.files, output_dir)
+        sys.exit(0)
+    
+    # Handle metadata loading
+    if args.sample_metadata:
+        num_samples = submission.load_sample_metadata(args.sample_metadata)
+        print(f"Loaded {num_samples} samples from sample metadata file")
+    
+    if args.bioproject_metadata:
+        submission.load_bioproject_metadata(args.bioproject_metadata)
+        print("Loaded bioproject metadata file")
+    
+    # If validate-only, exit after validation
+    if args.validate_only:
+        print("\nMetadata validation completed.")
+        print("No errors found. Your metadata files are ready for submission.")
+        sys.exit(0)
     
     # Collect sequence files
-    num_files = submission.collect_sequence_files(args.files)
-    
-    if num_files == 0:
-        print("No files found for upload. Please check your metadata file and file paths.")
-        sys.exit(1)
+    if args.files and (submission.sample_metadata_df is not None):
+        num_files = submission.collect_sequence_files(args.files)
+        
+        if num_files == 0:
+            print("No files found for upload. Please check your metadata file and file paths.")
+            sys.exit(1)
     
     # Submit if requested
     if args.submit:
@@ -408,7 +531,10 @@ def main():
         
         # Use Aspera to upload files
         if submission.upload_files_with_aspera(key_path, upload_destination, args.aspera_path):
-            print("\nSubmission process completed.")
+            print("\nFile upload process completed.")
+            print("\nNext steps:")
+            print("1. Go to https://submit.ncbi.nlm.nih.gov/subs/sra/ and click 'New Submission'")
+            print("2. Follow the steps in the README.md to complete your submission with your validated metadata files")
         else:
             print("File upload failed. See log file for details.")
             sys.exit(1)

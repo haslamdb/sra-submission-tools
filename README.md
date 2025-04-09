@@ -9,8 +9,9 @@ Submission of raw sequence files to the SRA database can be a pain, especially f
 This package provides tools to make preparation and submission of metagenomic sequence data to the SRA database somewhat less painful. It helps with:
 
 - Creating required metadata files in the correct format
+- Validating metadata against SRA requirements
 - Organizing sequence files according to SRA requirements
-- Automating the submission process via the NCBI Submission Portal API
+- Automating the submission process via the NCBI Submission Portal
 - Verifying files and metadata before submission
 - Handling file uploads using IBM Aspera Connect
 
@@ -73,14 +74,14 @@ pip install .
 
 ```bash
 # Using pipx-installed command-line tool
-sra-submit --config config.json --metadata test_metadata.csv --files /path/to/sequence/files --output submission_package
+sra-submit --config config.json --metadata sample-metadata.txt --bioproject-metadata bioproject-metadata.txt --files /path/to/sequence/files --output submission_package
 
 # Or, if using conda environment
 conda activate sra-tools
-sra-submit --config config.json --metadata test_metadata.csv --files /path/to/sequence/files --output submission_package
+sra-submit --config config.json --metadata sample-metadata.txt --bioproject-metadata bioproject-metadata.txt --files /path/to/sequence/files --output submission_package
 
-# Submit to SRA (requires authentication)
-sra-submit --config config.json --metadata test_metadata.csv --files /path/to/sequence/files --output submission_package --submit --submission-name my_project_name
+# Validate metadata files
+sra-validate --config config.json --sample-metadata sample-metadata.txt --bioproject-metadata bioproject-metadata.txt
 ```
 
 ## The SRA Submission Process
@@ -122,40 +123,53 @@ sra-submit --config config.json --metadata test_metadata.csv --files /path/to/se
 
    - **Note:** Subsequent uploads will reuse your aspera.openssh key and submission destination `subasp@upload.ncbi.nlm.nih.gov:uploads/your_username_XYZ123`
 
+### Processes for Each Submission
 
-### Processess for Each Submission
+After completing the first-time setup, follow these steps for each submission:
 
-After the first-time setup steps above, the first and all subsequent submission processes will follow the two main steps below: 
+1. **Optional: Configure Default Settings**:
+   - Modify `config.json` with your information and defaults for required fields
+   - This will save time by automatically filling in common fields across samples
 
-1. **Prepare and Upload Files using this Workflow**:
+2. **Generate Metadata Files**:
+   - Create draft versions of two required metadata files:
+     - `sample-metadata.txt` (or `.xlsx`) - Contains information about each sample and its files
+     - `bioproject-metadata.txt` (or `.xlsx`) - Contains project-level information
+   - Minimal input is a list of sample names and matching file names
+   - Other values will be filled in using defaults from `config.json` or through runtime prompts
+
+3. **Validate Metadata Files**:
    ```bash
-   sra-submit --config config.json --metadata your_metadata.csv --files /path/to/sequence/files --output submission_package --submit --submission-name my_project_name --aspera-key /path/to/aspera.openssh --upload-destination subasp@upload.ncbi.nlm.nih.gov:uploads/your_username_XYZ123
+   sra-validate --config config.json --sample-metadata sample-metadata.txt --bioproject-metadata bioproject-metadata.txt
    ```
-   
-   The `--submission-name` parameter is optional but recommended as it:
-   - Creates a descriptive name for your submission folder
-   - Makes it easier to identify your submission in NCBI's system
-   - Labels your log files for better organization
-   - Helps with tracking multiple submissions
+   - This ensures your metadata meets SRA requirements
+   - Fixes common formatting issues (dates, geographic coordinates, etc.)
+   - Produces validated versions of both metadata files
 
-2. **Associate BioProject with the Preload Folder on Submission Portal**:
-   After successfully uploading your files, you'll need to associate them with your BioProject:
-   
-   - Log into [NCBI Submission Portal](https://submit.ncbi.nlm.nih.gov/)
-   - Select "New Submission" and choose "Sequence Read Archive (SRA)"
-   - Follow the submission wizard steps:
-     - Select your BioProject ID (create one if needed)
-     - Select your preload folder from the dropdown list
-     - The system will automatically detect your uploaded files
-     - Complete the submission wizard by providing any additional required metadata
-     - The system will validate your submission and assign SRA accession numbers
-
-   This second step must be done through NCBI's web interface as it requires interactive validation and confirmation of your submission metadata.
+4. **Submit through the NCBI Portal**:
+   - Go to https://submit.ncbi.nlm.nih.gov/subs/sra/ and click "New Submission"
+   - Follow these steps in the submission wizard:
+     1. **Submitter**: Fill in your contact information
+     2. **General Info**: Use default answers (No) for all questions
+     3. **SRA Metadata**: 
+        - Fill in Project Title and Information
+        - Add Grants information if appropriate
+        - Use default answers (No) for remaining questions
+     4. **Select Biosample Type**: Choose "**Metagenome or environmental"
+     5. **Biosample Attributes**: 
+        - Select "Upload a file using Excel or text format (tab-delimited) that includes the attributes for each of your BioSamples"
+        - Click "Choose File" and select your validated bioproject-metadata file
+     6. **SRA Metadata**: Upload your validated sample-metadata file
+     7. **Files**: 
+        - Select the sample-metadata file
+        - Verify as directed
+        - Select "Automatically complete submission"
+     8. **Review and Submit**: Verify all information is correct, then submit
 
 ### Track Submission Status
 
-After completing both steps:
-   - Monitor your submission at [NCBI Submission Portal](https://submit.ncbi.nlm.nih.gov/)
+After completing your submission:
+   - Monitor the status at [NCBI Submission Portal](https://submit.ncbi.nlm.nih.gov/)
    - Address any validation errors or issues
    - Receive accession numbers once submission is accepted
    - Note that processing can take several days to complete
@@ -171,9 +185,24 @@ After completing both steps:
 
 ## Using the Scripts
 
-this toolset includes scripts to streamline the SRA submission process, reducing manual steps and potential errors.
+This toolset includes scripts to streamline the SRA submission process, reducing manual steps and potential errors.
 
-### Main Script: `sra_submission.py`
+### Metadata Validation Script: `sra_validate.py`
+
+This script validates your metadata files against SRA requirements and fixes common formatting issues.
+
+```bash
+# Basic usage
+sra-validate --sample-metadata sample-metadata.txt --bioproject-metadata bioproject-metadata.txt
+
+# With configuration file
+sra-validate --config config.json --sample-metadata sample-metadata.txt --bioproject-metadata bioproject-metadata.txt
+
+# Output validated files to specific locations
+sra-validate --sample-metadata sample-metadata.txt --bioproject-metadata bioproject-metadata.txt --output-sample-metadata validated-sample-metadata.txt --output-bioproject-metadata validated-bioproject-metadata.txt
+```
+
+### Main Submission Script: `sra_submission.py`
 
 This is the primary script for preparing and submitting metagenomic data to SRA.
 
@@ -181,37 +210,27 @@ This is the primary script for preparing and submitting metagenomic data to SRA.
 # Basic usage with interactive prompts
 sra-submit --output submission_package
 
-# Using metadata file and auto-detecting sequence files
-sra-submit --metadata metadata.csv --files /path/to/fastq_files --output submission_package
+# Using metadata files and auto-detecting sequence files
+sra-submit --sample-metadata sample-metadata.txt --bioproject-metadata bioproject-metadata.txt --files /path/to/fastq_files --output submission_package
 
-# Full submission with authentication
-sra-submit --config config.json --metadata metadata.csv --files /path/to/fastq_files --output submission_package --submit --submission-name my_project_name
-
-# Prepare SRA-compatible metadata from your existing metadata file
-sra-submit --config config.json --metadata your_metadata.csv --prepare-metadata sra_metadata.csv
-
-# Verify that all sequence files exist
-sra-submit --config config.json --metadata sra_metadata.csv --files /path/to/sequence/files --verify-only
+# Generate template metadata files from existing sequence files
+sra-submit --files /path/to/fastq_files --generate-templates --output templates
 ```
 
 ### Command-line Arguments
 
 - `--config`: Path to JSON configuration file with authentication and defaults
-- `--metadata`: Path to CSV/Excel file containing sample metadata
+- `--sample-metadata`: Path to tab-delimited TXT or Excel file containing sample metadata
+- `--bioproject-metadata`: Path to tab-delimited TXT or Excel file containing bioproject metadata
 - `--files`: Directory containing sequence files (will auto-detect FASTQ/FQ/FASTQ.GZ files)
 - `--output`: Directory to store generated submission files (default: sra_submission)
-- `--submit`: Flag to submit data to SRA (requires authentication)
-- `--submission-name`: Provide a descriptive name for your submission (used in log files and NCBI folder names)
-- `--aspera-key`: Path to your Aspera key file (required for submission)
-- `--aspera-path`: Full path to the Aspera Connect (ascp) executable
-- `--upload-destination`: NCBI upload destination (e.g., subasp@upload.ncbi.nlm.nih.gov:uploads/your_username_XYZ123)
-- `--prepare-metadata`: Prepare SRA-compatible metadata from input file and save to specified output file
-- `--verify-only`: Only verify files without creating submission package
+- `--generate-templates`: Generate template metadata files from detected sequence files
+- `--validate-only`: Only validate files and metadata without creating submission package
 - `--auto-pair`: Automatically detect paired-end files
 
 ### Interactive Mode
 
-If you run the script without specifying a metadata file, it will enter interactive mode to collect required information:
+If you run the script without specifying metadata files, it will enter interactive mode to collect required information:
 
 1. **BioProject Information**:
    - BioProject ID (if existing)
@@ -238,25 +257,26 @@ If you run the script without specifying a metadata file, it will enter interact
 
 The script generates the following in your output directory:
 
-- `submission.xml`: XML file formatted for SRA submission
-- `metadata.tsv`: Tab-separated file containing all metadata
-- Log files with details of the submission process
+- Validated metadata files
+- Log files with details of the validation and submission process
 
 ## Configuration
 
-Create a JSON configuration file to store authentication credentials and default values.
+Create a JSON configuration file to store credentials and default values.
 
 Example `config.json`:
 
 ```json
 {
+  "username": "your_ncbi_username",
+  "password": "your_ncbi_password",
   "api_key": "your_ncbi_api_key",
   "default_values": {
     "library_strategy": "WGS",
     "library_source": "METAGENOMIC",
     "library_selection": "RANDOM",
     "platform": "ILLUMINA",
-    "instrument_model": "Illumina NovaSeq X"
+    "instrument_model": "Illumina MiSeq"
   },
   "contact": {
     "name": "Your Name",
@@ -283,7 +303,7 @@ SRA submissions require specific metadata depending on the sample type. For meta
 
 #### Environmental Sample Fields (MIxS Standards)
 
-- Sample collection date (YYYY-MM-DD)
+- Sample collection date (supported formats include "DD-Mmm-YYYY", "Mmm-YYYY", "YYYY" or ISO 8601 standard "YYYY-mm-dd", "YYYY-mm", "YYYY-mm-ddThh:mm:ss"; e.g., 30-Oct-1990, Oct-1990, 1990, 1990-10-30, 1990-10, 21-Oct-1952/15-Feb-1953, 2015-10-11T17:53:03Z)
 - Geographic location (country:region)
 - Latitude and longitude (decimal degrees)
 - Environmental biome
@@ -298,56 +318,47 @@ SRA submissions require specific metadata depending on the sample type. For meta
 - Host tissue
 - Isolation source
 
-### Example Metadata CSV
+### Example Bioproject Metadata File (tab-separated)
 
-```csv
-bioproject_id,project_title,project_description,sample_source,collection_date,geo_loc_name,lat_lon,library_strategy,library_source,library_selection,platform,instrument_model,env_biome,env_feature,env_material,depth,altitude,host,host_tissue,isolation_source
-PRJXXXXX,Marine Metagenome Project,Characterization of microbial communities in coastal waters,environmental,2023-07-15,USA:California,36.9513 N 122.0733 W,WGS,METAGENOMIC,RANDOM,ILLUMINA,Illumina NovaSeq 6000,marine biome,coastal water,sea water,10,0,,,
+```
+bioproject_id	project_title	project_description	sample_source	collection_date	geo_loc_name	lat_lon	library_strategy	library_source	library_selection	platform	instrument_model	env_biome	env_feature	env_material	depth	altitude	host	host_tissue	isolation_source
+PRJXXXXX	Marine Metagenome Project	Characterization of microbial communities in coastal waters	environmental	2023-07-15	USA:California	36.9513 N 122.0733 W	WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000	marine biome	coastal water	sea water	10	0			
 ```
 
-### Using the Submission Name Parameter
+### Example Sample Metadata File (tab-separated)
 
-The `--submission-name` parameter offers several benefits:
-
-1. **Organizationally** - Creates a descriptive folder name in your NCBI submission account, making it easier to identify your submission among multiple projects
-2. **Traceability** - Creates dedicated log files with your submission name, which is helpful for troubleshooting or tracking
-3. **Clarity** - Improves communication with NCBI support if you need to reference a specific submission
-4. **Reusability** - Makes it easier to identify files for potential reuse in future submissions
-
-Example usage:
-```bash
-sra-submit --config config.json --metadata my_samples.csv --files /data/fastq_files --submit --submission-name coral_microbiome_may2023
 ```
-
-This will create both a log file and submission folder labeled with `coral_microbiome_may2023` for easy identification.
+sample_name	library_ID	title	library_strategy	library_source	library_selection	library_layout	platform	instrument_model	design_description	filetype	filename	filename2
+Sample1	Lib1	Marine sample 1	WGS	METAGENOMIC	RANDOM	paired	ILLUMINA	Illumina MiSeq	Metagenomic sequencing	fastq	Sample1_R1.fastq.gz	Sample1_R2.fastq.gz
+Sample2	Lib2	Marine sample 2	WGS	METAGENOMIC	RANDOM	paired	ILLUMINA	Illumina MiSeq	Metagenomic sequencing	fastq	Sample2_R1.fastq.gz	Sample2_R2.fastq.gz
+```
 
 ## Python API
 
 You can also use the package as a Python library:
 
 ```python
-from sra_submission import SRASubmission
-from sra_utils import prepare_metadata, verify_files
+from sra_metagenome_submission import SRASubmission, validate_metadata
+from sra_metagenome_submission.sra_utils import prepare_metadata, verify_files
 
-# Prepare metadata
-sra_df = prepare_metadata("your_metadata.csv", "sra_metadata.csv", "config.json")
+# Validate metadata
+validated_sample_df, validated_bioproject_df = validate_metadata(
+    "sample-metadata.txt", 
+    "bioproject-metadata.txt", 
+    "config.json"
+)
 
 # Initialize submission
 submission = SRASubmission("config.json")
 
 # Collect metadata and files
-submission.collect_metadata_from_file("sra_metadata.csv")
+submission.collect_metadata(validated_sample_df, validated_bioproject_df)
 submission.collect_sequence_files("/path/to/sequence/files")
 
 # Verify files
 if submission.verify_sequence_files():
     # Prepare submission package
-    submission_xml_path = submission.prepare_submission_package("submission_package")
-    
-    # Submit to SRA
-    submission.authenticate()
-    if submission.upload_files():
-        submission.submit(submission_xml_path)
+    submission.prepare_submission_package("submission_package")
 ```
 
 ## Development
@@ -365,6 +376,7 @@ sra-metagenome-submission/
 │   └── sra_metagenome_submission/
 │       ├── __init__.py    # Package initialization
 │       ├── sra_submission.py  # Main submission script
+│       ├── sra_validate.py    # Metadata validation script
 │       ├── sra_utils.py   # Utility functions
 │       └── _version.py    # Version information
 ```
@@ -386,33 +398,35 @@ pip install -e .
 
 ### Common Submission Errors
 
-1. **Missing Required Metadata**:
+1. **Metadata Format Issues**:
+   - Ensure metadata files are tab-separated text files (.txt) or Excel files (.xlsx)
+   - CSV files are not accepted
+   - Use the validation script to check for and fix formatting issues
+
+2. **Date Format Problems**:
+   - Collection dates must be in one of these formats:
+     - "DD-Mmm-YYYY" (e.g., 30-Oct-1990)
+     - "Mmm-YYYY" (e.g., Oct-1990)
+     - "YYYY" (e.g., 1990)
+     - ISO 8601: "YYYY-mm-dd" (e.g., 1990-10-30)
+     - ISO 8601: "YYYY-mm" (e.g., 1990-10)
+     - Range: "DD-Mmm-YYYY/DD-Mmm-YYYY" (e.g., 21-Oct-1952/15-Feb-1953)
+     - With time: "YYYY-mm-ddThh:mm:ssZ" (e.g., 2015-10-11T17:53:03Z)
+   - The validation script will automatically convert valid dates to ISO format
+
+3. **Missing Required Metadata**:
    - Ensure all required fields are completed
-   - Pay attention to format (dates as YYYY-MM-DD, lat/lon as decimal degrees)
+   - Pay attention to format (geographic coordinates, etc.)
 
-2. **Authentication Issues**:
-   - Verify your NCBI API key in the config.json file
-   - Check your network connection
-   - Ensure your Aspera key file is valid and not corrupted
-
-3. **File Format Problems**:
+4. **File Format Problems**:
    - SRA accepts FASTQ, BAM, and SFF formats
    - Ensure files are properly compressed if using gzip
    - File names should not contain spaces or special characters
 
-4. **Validation Errors**:
+5. **Validation Errors**:
    - Read error messages carefully
    - Address each issue before resubmitting
-
-5. **BioProject Association Issues**:
-   - If your preload folder isn't showing up in the web interface, wait up to 30 minutes for NCBI's system to register it
-   - Ensure you've completed the file upload step successfully before attempting to associate with a BioProject
-   - Check that the submit.ready file was uploaded correctly (this signals to NCBI that your upload is complete)
-
-6. **Aspera Connection Problems**:
-   - Ensure your firewall allows Aspera's ports (typically 33001)
-   - Verify you're using the correct path to the ascp executable 
-   - Check that the aspera.openssh key file has not been corrupted (don't open it with text editors)
+   - Use the validation script to check your metadata before submission
 
 ### Getting Help
 

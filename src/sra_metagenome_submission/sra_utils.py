@@ -21,7 +21,7 @@ def prepare_metadata(input_file, output_file=None, config_file=None):
     Prepare SRA-compatible metadata from different input formats.
     
     Args:
-        input_file (str): Path to input metadata file (CSV or Excel)
+        input_file (str): Path to input metadata file (tab-delimited TXT or Excel)
         output_file (str, optional): Path to save the processed metadata file
         config_file (str, optional): Path to configuration file with default values
     
@@ -30,12 +30,16 @@ def prepare_metadata(input_file, output_file=None, config_file=None):
     """
     try:
         # Load input metadata file
-        if input_file.endswith('.csv'):
-            df = pd.read_csv(input_file)
-        elif input_file.endswith(('.xls', '.xlsx')):
+        file_ext = os.path.splitext(input_file)[1].lower()
+        
+        if file_ext == '.txt':
+            # Load as tab-delimited
+            df = pd.read_csv(input_file, sep='\t')
+        elif file_ext in ['.xlsx', '.xls']:
+            # Load Excel file
             df = pd.read_excel(input_file)
         else:
-            raise ValueError(f"Unsupported file format: {input_file}")
+            raise ValueError(f"Unsupported file format: {file_ext}. Only tab-delimited .txt or Excel .xlsx/.xls files are supported.")
         
         # Load configuration if provided
         default_values = {}
@@ -128,7 +132,17 @@ def prepare_metadata(input_file, output_file=None, config_file=None):
             output_dir = os.path.dirname(output_file)
             if output_dir and not os.path.exists(output_dir):
                 os.makedirs(output_dir, exist_ok=True)
-            sra_df.to_csv(output_file, index=False)
+            
+            # Save based on file extension
+            file_ext = os.path.splitext(output_file)[1].lower()
+            if file_ext == '.txt':
+                sra_df.to_csv(output_file, sep='\t', index=False)
+            elif file_ext in ['.xlsx', '.xls']:
+                sra_df.to_excel(output_file, index=False)
+            else:
+                # Default to tab-delimited if unknown extension
+                sra_df.to_csv(output_file, sep='\t', index=False)
+                
             logger.info(f"Processed metadata saved to {output_file}")
         
         return sra_df
@@ -305,7 +319,12 @@ def build_sample_metadata(file_pairs, config_file=None):
     # Load default values from config
     default_values = {}
     contact = {}
-    if config_file and os.path.exists(config_file):
+    if isinstance(config_file, dict):
+        # If config_file is already a dict (not a filepath)
+        config = config_file
+        default_values = config.get('default_values', {})
+        contact = config.get('contact', {})
+    elif config_file and os.path.exists(config_file):
         with open(config_file, 'r') as f:
             config = json.load(f)
             default_values = config.get('default_values', {})
@@ -322,12 +341,15 @@ def build_sample_metadata(file_pairs, config_file=None):
         # Create sample entry
         sample = {
             'sample_name': sample_name,
+            'library_ID': f"Lib_{sample_name}",
             'title': f"Metagenome from {sample_name}",
             'filename': file1_name,
             'filename2': os.path.basename(file2) if file2 else "",
             'filepath': file1,
             'filepath2': file2 if file2 else "",
             'library_layout': 'paired' if file2 else 'single',
+            'design_description': "Metagenomic sequencing",
+            'filetype': 'fastq'
         }
         
         # Add default values
