@@ -1,0 +1,4 @@
+2025-04-09 07:29:21,889 - sra_metagenome_submission.main - INFO - Logging to sra_submission_20250409_072921.log
+2025-04-09 07:29:21,890 - sra_metagenome_submission.main - INFO - Logging to sra_submission_hellman_20250409_072921.log
+2025-04-09 07:29:21,890 - sra_metagenome_submission.main - INFO - Using submission name: hellman
+2025-04-09 07:29:21,891 - sra_metagenome_submission.main - ERROR - Failed to load configuration: [Errno 2] No such file or directory: 'dbh_config.json'
