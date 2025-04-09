@@ -135,7 +135,7 @@ sra-validate --config config.json --sample-metadata sample-metadata.txt --biopro
 
 After completing the first-time setup, follow these steps for each submission:
 
-1. **Optional: Configure Default Settings**:
+1. **Configure Default Settings in config.json (Optional but recommene)**:
    - Modify `config.json` with your information and defaults for required fields
    - This will save time by automatically filling in common fields across samples
 
