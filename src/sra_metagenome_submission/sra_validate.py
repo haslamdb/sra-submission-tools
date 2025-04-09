@@ -82,7 +82,7 @@ VALID_OPTIONS['instrument_model'] = [
     'Illumina NovaSeq X', 'Illumina NovaSeq 6000', 'Illumina HiSeq X', 'Illumina HiSeq 2500',
     'Illumina HiSeq 2000', 'Illumina HiSeq 1500', 'Illumina HiSeq 1000', 'Illumina MiSeq',
     'Illumina MiniSeq', 'Illumina NextSeq 500', 'Illumina NextSeq 550', 'Illumina NextSeq 1000',
-    'Illumina NextSeq 2000', 'Illumina iSeq 100',
+    'Illumina NextSeq 2000', 'Illumina iSeq 100', 'NextSeq 500',  # Added NextSeq 500 without "Illumina" prefix
     # Oxford Nanopore
     'MinION', 'GridION', 'PromethION',
     # PacBio
@@ -702,12 +702,30 @@ def main():
     config = None
     if args.config:
         config = load_config(args.config)
+        # Add custom instrument models to valid options
+        if config and 'default_values' in config and 'instrument_model' in config['default_values']:
+            custom_instrument = config['default_values']['instrument_model']
+            if custom_instrument and custom_instrument not in VALID_OPTIONS['instrument_model']:
+                VALID_OPTIONS['instrument_model'].append(custom_instrument)
+                logger.info(f"Added custom instrument model from config: {custom_instrument}")
+    
+    # Set default output location if none provided
+    if not args.output_sample_metadata and not args.output_bioproject_metadata and not args.output_dir:
+        default_output_dir = "validated_metadata"
+        os.makedirs(default_output_dir, exist_ok=True)
+        args.output_dir = default_output_dir
+        logger.info(f"No output location specified, using default: {default_output_dir}")
+        print(f"No output location specified, using default: {default_output_dir}")
     
     # Check if required parameters are provided
     if not args.sample_metadata and not args.bioproject_metadata:
         parser.print_help()
         print("\nError: At least one of --sample-metadata or --bioproject-metadata must be specified.")
         sys.exit(1)
+    
+    # Track whether files were saved
+    sample_saved = False
+    bioproject_saved = False
     
     # Validate sample metadata if provided
     sample_df = None
@@ -727,11 +745,13 @@ def main():
                 save_metadata_file(sample_df, args.output_sample_metadata)
                 logger.info(f"Saved validated sample metadata to {args.output_sample_metadata}")
                 print(f"Saved validated sample metadata to {args.output_sample_metadata}")
+                sample_saved = True
             elif args.output_dir:
                 output_path = os.path.join(args.output_dir, "validated_sample_metadata.txt")
                 save_metadata_file(sample_df, output_path)
                 logger.info(f"Saved validated sample metadata to {output_path}")
                 print(f"Saved validated sample metadata to {output_path}")
+                sample_saved = True
             
         except Exception as e:
             logger.error(f"Error validating sample metadata: {str(e)}")
@@ -756,25 +776,31 @@ def main():
                 save_metadata_file(bioproject_df, args.output_bioproject_metadata)
                 logger.info(f"Saved validated bioproject metadata to {args.output_bioproject_metadata}")
                 print(f"Saved validated bioproject metadata to {args.output_bioproject_metadata}")
+                bioproject_saved = True
             elif args.output_dir:
                 output_path = os.path.join(args.output_dir, "validated_bioproject_metadata.txt")
                 save_metadata_file(bioproject_df, output_path)
                 logger.info(f"Saved validated bioproject metadata to {output_path}")
                 print(f"Saved validated bioproject metadata to {output_path}")
+                bioproject_saved = True
             
         except Exception as e:
             logger.error(f"Error validating bioproject metadata: {str(e)}")
             print(f"Error validating bioproject metadata: {str(e)}")
             sys.exit(1)
-
-    # set default output location
-    if not args.output_sample_metadata and not args.output_dir:
-        default_output_dir = "validated_metadata"
-        os.makedirs(default_output_dir, exist_ok=True)
-        args.output_dir = default_output_dir
-        logger.info(f"No output location specified, using default: {default_output_dir}")
-        print(f"No output location specified, using default: {default_output_dir}")
-
+    
+    # Make sure files are saved if they weren't already
+    if sample_df is not None and not sample_saved:
+        output_path = os.path.join(args.output_dir, "validated_sample_metadata.txt")
+        save_metadata_file(sample_df, output_path)
+        logger.info(f"Saved validated sample metadata to {output_path}")
+        print(f"Saved validated sample metadata to {output_path}")
+    
+    if bioproject_df is not None and not bioproject_saved:
+        output_path = os.path.join(args.output_dir, "validated_bioproject_metadata.txt")
+        save_metadata_file(bioproject_df, output_path)
+        logger.info(f"Saved validated bioproject metadata to {output_path}")
+        print(f"Saved validated bioproject metadata to {output_path}")
     
     # Cross-validate if both metadata files are provided
     if sample_df is not None and bioproject_df is not None:
