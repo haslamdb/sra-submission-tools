@@ -69,6 +69,25 @@ cd sra-metagenome-submission
 pip install .
 ```
 
+### Quick Start for Experienced Users ###
+
+```bash
+## check, modify, and save validated metadata files
+sra-validate --config my_config.json --sample-metadata metadata_files/project1-sample-metadata.txt --bioproject-metadata metadata_files/project1-bioproject-metadata.txt
+
+# use validated-sample-metadata to upload files via aspera: Note the temp folder name, which you will select at step 7 below
+sra-submit --config my_config.json --sample-metadata validated_metadata/validated-project1-sample-metadata.txt --files /path/to/files --aspera-path /home/username/.aspera/connect/bin/ascp --aspera-key aspera.openssh --upload-destination subasp@upload.ncbi.nlm.nih.gov:uploads/user_email.com_ABC123X --submission-name project1 --submit
+
+# go to https://submit.ncbi.nlm.nih.gov/subs/sra/#files_upload_aspera_cmd
+# manually enter information at *Steps 1-4* 
+# at *Step 5*, upload validated-bioproject-metadata.txt file
+# when file upload is complete, continue with *Steps 6 and 7*, selecting the temp folder location of uploaded files
+# complete *Step 8*: Review and Submit
+
+```
+
+
+
 ## The SRA Submission Process : First-Time Setup and Subsequent Submision Steps
 
 ### First-Time Setup
@@ -123,7 +142,7 @@ After completing the first-time setup, follow these steps for each submission:
    - Modify `config.json` with your information and defaults for required fields
    - This will save time by automatically filling in common fields across samples
 
-2. **Generate Metadata Files**:
+2. **Generate Draft Metadata Files**:
    - Create draft versions of two required metadata files:
      - `sample-metadata.txt` (or `.xlsx`) - Contains information about each sample and its files
      - `bioproject-metadata.txt` (or `.xlsx`) - Contains project-level information
@@ -176,21 +195,6 @@ After completing your submission:
 - SRA Submission: https://submit.ncbi.nlm.nih.gov/subs/sra/
 
 ## Using the Scripts
-
-### Quick Start
-
-```bash
-# Using pipx-installed command-line tool
-sra-submit --config config.json --metadata sample-metadata.txt --bioproject-metadata bioproject-metadata.txt --files /path/to/sequence/files --output submission_package
-
-# Or, if using conda environment
-conda activate sra-tools
-sra-submit --config config.json --metadata sample-metadata.txt --bioproject-metadata bioproject-metadata.txt --files /path/to/sequence/files --output submission_package
-
-# Validate metadata files
-sra-validate --config config.json --sample-metadata sample-metadata.txt --bioproject-metadata bioproject-metadata.txt
-```
-
 
 This toolset includes scripts to streamline the SRA submission process, reducing manual steps and potential errors.
 
