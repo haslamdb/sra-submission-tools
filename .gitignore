@@ -10,3 +10,7 @@ src/*.pyc
 __pycache__/
 *.py[cod]
 *$py.class
+
+
+aspera.openssh
+dbh_config.json
