@@ -72,7 +72,7 @@ pip install .
 
 ## Quick Start
 
-###1. On your terminal do the following two steps
+###1. On your machine do the following (sra-validate, sra-submit):
 
 ```bash
 ## check, modify, and save validated metadata files
@@ -87,9 +87,9 @@ sra-submit --config my_config.json --sample-metadata validated_metadata/validate
 
 - **Steps 1-4** : enter user information as requested 
 - **Step 5** : upload validated-bioproject-metadata.txt file
-- **Wait until file upload complete**
-- **Steps 6 and 7** : enter requested information and select the temp folder location provided during file upload
-- **Step 8** : Review and Submit
+- **...wait until file upload complete from your end and note temp upload directory location...**
+- **Steps 6 - 7** : enter requested information and select the temp upload directory location 
+- **Step 8** : review and submit
 - **Step 9** : There is no step 9. That's it. You're done!
 
 
