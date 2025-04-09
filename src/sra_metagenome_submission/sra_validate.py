@@ -82,7 +82,7 @@ VALID_OPTIONS['instrument_model'] = [
     'Illumina NovaSeq X', 'Illumina NovaSeq 6000', 'Illumina HiSeq X', 'Illumina HiSeq 2500',
     'Illumina HiSeq 2000', 'Illumina HiSeq 1500', 'Illumina HiSeq 1000', 'Illumina MiSeq',
     'Illumina MiniSeq', 'Illumina NextSeq 500', 'Illumina NextSeq 550', 'Illumina NextSeq 1000',
-    'Illumina NextSeq 2000', 'Illumina iSeq 100', 'NextSeq 500',  # Added NextSeq 500 without "Illumina" prefix
+    'Illumina NextSeq 2000', 'Illumina iSeq 100', 'NextSeq 500', 'NextSeq 500',
     # Oxford Nanopore
     'MinION', 'GridION', 'PromethION',
     # PacBio
@@ -338,8 +338,11 @@ def validate_sample_metadata(df, config=None):
     ]
     
     for field in required_fields:
-        if field in default_values and field in validated_df.columns:
-            validated_df[field] = validated_df[field].fillna(default_values[field])
+        if field in validated_df.columns:
+            mask = validated_df[field].isnull() | (validated_df[field].astype(str) == '')
+            if mask.any() and field in default_values:
+                validated_df.loc[mask, field] = default_values[field]
+                logger.info(f"Applied default value '{default_values[field]}' to {mask.sum()} empty cells in '{field}'")
     
     # Ensure required columns exist
     essential_columns = [
@@ -420,8 +423,11 @@ def validate_bioproject_metadata(df, config=None):
     ]
     
     for field in required_fields:
-        if field in default_values and field in validated_df.columns:
-            validated_df[field] = validated_df[field].fillna(default_values[field])
+        if field in validated_df.columns:
+            mask = validated_df[field].isnull() | (validated_df[field].astype(str) == '')
+            if mask.any() and field in default_values:
+                validated_df.loc[mask, field] = default_values[field]
+                logger.info(f"Applied default value '{default_values[field]}' to {mask.sum()} empty cells in '{field}'")
     
     # Ensure required columns exist
     essential_columns = [
@@ -469,7 +475,7 @@ def validate_bioproject_metadata(df, config=None):
         
         # Check if host fields are filled for host-associated samples
         for idx, row in validated_df.iterrows():
-            if row['sample_source'] == 'host-associated':
+            if row.get('sample_source') == 'host-associated':
                 if 'host' in validated_df.columns and (pd.isna(row['host']) or row['host'] == ''):
                     logger.warning(f"Sample source is host-associated but 'host' field is empty")
     
@@ -519,7 +525,8 @@ def save_metadata_file(df, output_path):
         output_dir = os.path.dirname(output_path)
         if output_dir and not os.path.exists(output_dir):
             os.makedirs(output_dir, exist_ok=True)
-            
+            logger.info(f"Created output directory: {output_dir}")
+        
         file_ext = os.path.splitext(output_path)[1].lower()
         
         if file_ext == '.txt':
@@ -632,14 +639,17 @@ def validate_and_fix_metadata(bioproject_file, sample_file, config_file=None, ou
     # Save validated files if requested
     if output_dir:
         os.makedirs(output_dir, exist_ok=True)
+        logger.info(f"Created output directory: {output_dir}")
         
         if not bioproject_df.empty:
-            output_bioproject = os.path.join(output_dir, "validated_bioproject.txt")
+            original_bioproject_filename = os.path.basename(bioproject_file)
+            output_bioproject = os.path.join(output_dir, f"validated-{original_bioproject_filename}")
             save_metadata_file(bioproject_df, output_bioproject)
             issues.append(f"Saved validated bioproject metadata to {output_bioproject}")
         
         if not sample_df.empty:
-            output_sample = os.path.join(output_dir, "validated_sample.txt")
+            original_sample_filename = os.path.basename(sample_file)
+            output_sample = os.path.join(output_dir, f"validated-{original_sample_filename}")
             save_metadata_file(sample_df, output_sample)
             issues.append(f"Saved validated sample metadata to {output_sample}")
     
@@ -747,7 +757,9 @@ def main():
                 print(f"Saved validated sample metadata to {args.output_sample_metadata}")
                 sample_saved = True
             elif args.output_dir:
-                output_path = os.path.join(args.output_dir, "validated_sample_metadata.txt")
+                # Use original filename with "validated-" prefix
+                original_filename = os.path.basename(args.sample_metadata)
+                output_path = os.path.join(args.output_dir, f"validated-{original_filename}")
                 save_metadata_file(sample_df, output_path)
                 logger.info(f"Saved validated sample metadata to {output_path}")
                 print(f"Saved validated sample metadata to {output_path}")
@@ -778,7 +790,9 @@ def main():
                 print(f"Saved validated bioproject metadata to {args.output_bioproject_metadata}")
                 bioproject_saved = True
             elif args.output_dir:
-                output_path = os.path.join(args.output_dir, "validated_bioproject_metadata.txt")
+                # Use original filename with "validated-" prefix
+                original_filename = os.path.basename(args.bioproject_metadata)
+                output_path = os.path.join(args.output_dir, f"validated-{original_filename}")
                 save_metadata_file(bioproject_df, output_path)
                 logger.info(f"Saved validated bioproject metadata to {output_path}")
                 print(f"Saved validated bioproject metadata to {output_path}")
@@ -791,13 +805,15 @@ def main():
     
     # Make sure files are saved if they weren't already
     if sample_df is not None and not sample_saved:
-        output_path = os.path.join(args.output_dir, "validated_sample_metadata.txt")
+        original_filename = os.path.basename(args.sample_metadata)
+        output_path = os.path.join(args.output_dir, f"validated-{original_filename}")
         save_metadata_file(sample_df, output_path)
         logger.info(f"Saved validated sample metadata to {output_path}")
         print(f"Saved validated sample metadata to {output_path}")
     
     if bioproject_df is not None and not bioproject_saved:
-        output_path = os.path.join(args.output_dir, "validated_bioproject_metadata.txt")
+        original_filename = os.path.basename(args.bioproject_metadata)
+        output_path = os.path.join(args.output_dir, f"validated-{original_filename}")
         save_metadata_file(bioproject_df, output_path)
         logger.info(f"Saved validated bioproject metadata to {output_path}")
         print(f"Saved validated bioproject metadata to {output_path}")
