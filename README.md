@@ -70,7 +70,8 @@ pip install .
 ```
 
 
-## Quick Start
+
+## Fast Track Instructions
 
 ###1. On your machine do the following (sra-validate, sra-submit):
 
@@ -90,7 +91,7 @@ sra-submit --config my_config.json --sample-metadata validated_metadata/validate
 - ...wait until file upload complete from your end and note temp upload directory location...
 - **Steps 6 - 7** : enter requested information and select the temp upload directory location 
 - **Step 8** : review and submit
-- **Step 9** : There is no step 9. That's it. You're done!
+- **Step 9** : There is no step 9. You're done!
 
 
 
