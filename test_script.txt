@@ -10,8 +10,8 @@ sra-submit --config dbh_config.json --metadata metadata_files/viromics_metadata.
 
 sra-submit --config dbh_config.json --metadata metadata_files/NICU_metadata_20211201.csv --files /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/ --submit --aspera-path /home/david/.aspera/connect/bin/ascp --aspera-key aspera.openssh --upload-destination subasp@upload.ncbi.nlm.nih.gov:uploads/dbhaslam_gmail.com_QFq0F7SG --submission-name NICU  # temp submission sra_submission_ilqczrlv"
 
-
-
+Validate metadata:
+sra-validate --config config.json --sample-metadata hellman-sample-metadata.txt --bioproject-metadata hellman-bioproject-metadata.txt
 
 # script usage
 python -m sra_metagenome_submission.main \
@@ -27,10 +27,4 @@ python -m sra_metagenome_submission.main \
 
 
 TODO
-bioproject-metadata-template
-sample-metadata-template
-Check all required columns exist and are formatted correctly 
-Generate a unique identifier column for example arbitrary file_number attribute
-Check instrument type against list of allowed values and rename if possible
-Check library type and rename if possible
-Check for missing files in the upload compared to metadata sheet and either delete those from metadata or find the fills
+
