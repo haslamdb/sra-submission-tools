@@ -1,0 +1,12 @@
+2025-04-09 08:44:16,557 - sra_metagenome_submission.main - INFO - Logging to sra_submission_20250409_084416.log
+2025-04-09 08:44:16,558 - sra_metagenome_submission.sra_validate - INFO - Loaded configuration from dbh_config.json
+2025-04-09 08:44:16,558 - sra_metagenome_submission.sra_validate - INFO - No output location specified, using default: validated_metadata
+2025-04-09 08:44:16,567 - sra_metagenome_submission.sra_validate - INFO - Loaded sample metadata from metadata_files/hellman-sample-metadata.txt
+2025-04-09 08:44:16,585 - sra_metagenome_submission.sra_validate - INFO - Set library_ID to sample_name for 292 samples
+2025-04-09 08:44:16,585 - sra_metagenome_submission.sra_validate - INFO - Validated sample metadata
+2025-04-09 08:44:16,593 - sra_metagenome_submission.sra_validate - INFO - Saved validated metadata to validated_metadata/validated-hellman-sample-metadata.txt
+2025-04-09 08:44:16,594 - sra_metagenome_submission.sra_validate - INFO - Saved validated sample metadata to validated_metadata/validated-hellman-sample-metadata.txt
+2025-04-09 08:44:16,597 - sra_metagenome_submission.sra_validate - INFO - Loaded bioproject metadata from metadata_files/hellman-bioproject-metadata.txt
+2025-04-09 08:44:16,614 - sra_metagenome_submission.sra_validate - INFO - Validated bioproject metadata
+2025-04-09 08:44:16,617 - sra_metagenome_submission.sra_validate - INFO - Saved validated metadata to validated_metadata/validated-hellman-bioproject-metadata.txt
+2025-04-09 08:44:16,617 - sra_metagenome_submission.sra_validate - INFO - Saved validated bioproject metadata to validated_metadata/validated-hellman-bioproject-metadata.txt
