@@ -284,7 +284,7 @@ Example `config.json`:
     "library_strategy": "WGS",
     "library_source": "METAGENOMIC",
     "library_selection": "RANDOM",
-    "library_layout": "single",
+    "library_layout": "paired",
     "platform": "ILLUMINA",
     "instrument_model": "Illumina NovaSeq 6000",
     "project_title": "Metagenomics Study",
@@ -304,7 +304,7 @@ Example `config.json`:
 
 SRA submissions require specific metadata depending on the sample type. For metagenomic samples, ensure you include:
 
-#### Basic Required Fields
+####  Required Fields
 
 - Project title
 - Library strategy (e.g., WGS, AMPLICON)
@@ -312,19 +312,12 @@ SRA submissions require specific metadata depending on the sample type. For meta
 - Library selection (e.g., RANDOM, PCR)
 - Platform (e.g., ILLUMINA, OXFORD_NANOPORE)
 - Instrument model (e.g., Illumina MiSeq, MinION)
-
-#### Environmental Sample Fields (MIxS Standards)
-
 - Sample collection date (supported formats include "DD-Mmm-YYYY", "Mmm-YYYY", "YYYY" or ISO 8601 standard "YYYY-mm-dd", "YYYY-mm", "YYYY-mm-ddThh:mm:ss"; e.g., 30-Oct-1990, Oct-1990, 1990, 1990-10-30, 1990-10, 21-Oct-1952/15-Feb-1953, 2015-10-11T17:53:03Z)
 - Geographic location (country:region)
 - Latitude and longitude (decimal degrees)
-- Environmental biome
-- Environmental feature
-- Environmental material
-- Depth (if applicable)
-- Altitude (if applicable)
 
-#### Host-associated Sample Fields
+
+#### Host-associated Sample Fields (optional)
 
 - Host scientific name
 - Host tissue
