@@ -16,12 +16,21 @@ Submission of raw sequence files to the SRA database can be confusing and frustr
 ## Table of Contents
 
 - [Installation](#installation)
+- [Fast Track Instructions](#fast-track-instructions)
+- [Detailed Instructions](#detailed-instructions--first-time-setup-and-subsequent-submision-steps)
+  - [First-Time Setup](#first-time-setup)
+  - [Processes for Each Submission](#processes-for-each-submission)
+  - [Track Submission Status](#track-submission-status)
+  - [Important URLs](#important-urls)
 - [Using the Scripts](#using-the-scripts)
-- [Quick Start](#quick-start)
 - [Configuration](#configuration)
 - [Metadata Requirements](#metadata-requirements)
+- [Python API](#python-api)
+- [Development](#development)
 - [Troubleshooting](#troubleshooting)
 - [License](#license)
+
+
 
 ## Installation
 
