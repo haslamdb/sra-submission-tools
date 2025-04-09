@@ -16,7 +16,6 @@ Submission of raw sequence files to the SRA database can be confusing and frustr
 ## Table of Contents
 
 - [Installation](#installation)
-- [Understanding the SRA Submission Process](#understanding-the-sra-submission-process)
 - [Using the Scripts](#using-the-scripts)
 - [Quick Start](#quick-start)
 - [Configuration](#configuration)
