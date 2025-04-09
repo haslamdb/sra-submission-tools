@@ -4,9 +4,7 @@ A comprehensive Python package to automate metadata preparation, validation, and
 
 ## Overview
 
-Submission of raw sequence files to the SRA database can be confusing and frustraing, even for experienced users. Navigating the submission process is complex and metadata formatting requirements are strict and unforgiving. 
-
-This package provides tools to make preparation and submission of metagenomic sequence data to the SRA database somewhat less painful. It helps with:
+Submission of raw sequence files to the SRA database can be confusing and frustraing, even for experienced users. This package provides tools to make preparation and submission of metagenomic sequence data to the SRA database somewhat less painful. It helps with:
 
 - Creating required metadata files in the correct format
 - Validating metadata against SRA requirements
