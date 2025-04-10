@@ -18,10 +18,6 @@ Submission of raw sequence files to the SRA database can be confusing and frustr
 - [Installation](#installation)
 - [Fast Track Instructions](#fast-track-instructions)
 - [Detailed Instructions](#detailed-instructions--first-time-setup-and-subsequent-submision-steps)
-  - [First-Time Setup](#first-time-setup)
-  - [Processes for Each Submission](#processes-for-each-submission)
-  - [Track Submission Status](#track-submission-status)
-  - [Important URLs](#important-urls)
 - [Using the Scripts](#using-the-scripts)
 - [Configuration](#configuration)
 - [Metadata Requirements](#metadata-requirements)
@@ -96,7 +92,7 @@ sra-submit --config my_config.json --sample-metadata validated_metadata/validate
 - Select **New Project**
 - **Steps 1-4** : enter information as requested 
 - **Step 5** : select "Upload a file using Excel or text format" and choose file: validated-bioproject-metadata.txt  
- ...wait until file upload complete from your end and note temp upload directory location...
+ ...if not already done, wait until file upload completes successfully and note temp upload directory location...
 - **Steps 6 - 7** : enter requested information and select the temp upload directory location 
 - **Step 8** : review and submit
 - **Step 9** : There is no step 9. You're done!
