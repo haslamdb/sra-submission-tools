@@ -99,7 +99,7 @@ DEFAULT_VALUES = {
     'organism': 'Homo sapiens',
     'geo_loc_name': 'United States: Ohio: Cincinnati',
     'lat_lon': '39.10 N 84.51 W',
-    'collection_date': 'not collected',  # New default for collection_date
+    'collection_date': 'not collected',  # Default for collection_date
     
     # Sample metadata defaults
     'title': 'metagenomics project',
@@ -320,7 +320,7 @@ def check_duplicate_sample_names(df, df_type="metadata"):
         df_type (str): Type of metadata for logging purposes
     
     Returns:
-        list: List of duplicate sample names
+        list: List of duplicate sample names with details
     """
     if 'sample_name' not in df.columns:
         logger.warning(f"No sample_name column found in {df_type} dataframe")
@@ -333,9 +333,76 @@ def check_duplicate_sample_names(df, df_type="metadata"):
     duplicates = sample_counts[sample_counts > 1].index.tolist()
     
     if duplicates:
+        duplicate_details = []
+        for dup in duplicates:
+            duplicate_rows = df[df['sample_name'] == dup].index.tolist()
+            duplicate_details.append({
+                'name': dup,
+                'count': sample_counts[dup],
+                'rows': duplicate_rows
+            })
+        
         logger.warning(f"Found {len(duplicates)} duplicate sample names in {df_type}: {', '.join(duplicates)}")
+        return duplicate_details
     
-    return duplicates
+    return []
+
+def check_column_alignment(df):
+    """
+    Check for data alignment issues in the dataframe.
+    
+    Args:
+        df (pd.DataFrame): DataFrame to check for alignment issues
+    
+    Returns:
+        dict: Dictionary with alignment issues
+    """
+    alignment_issues = {
+        'extra_data': [],
+        'missing_data': []
+    }
+    
+    if 'sample_name' not in df.columns or df.empty:
+        return alignment_issues
+    
+    # Find rows with valid sample names
+    valid_sample_rows = df['sample_name'].notna() & (df['sample_name'].astype(str) != '')
+    
+    if not valid_sample_rows.any():
+        return alignment_issues
+    
+    # Get the last row index with a valid sample name
+    last_sample_idx = valid_sample_rows.to_numpy().nonzero()[0][-1]
+    
+    # Check for data in other columns extending beyond the last sample name
+    for col in df.columns:
+        if col == 'sample_name':
+            continue
+            
+        # Check for extra data beyond the last sample
+        if last_sample_idx + 1 < len(df):
+            tail_data = df.loc[last_sample_idx+1:, col]
+            valid_tail_data = tail_data.notna() & (tail_data.astype(str) != '')
+            
+            if valid_tail_data.any():
+                extra_rows = valid_tail_data.to_numpy().nonzero()[0] + last_sample_idx + 1
+                alignment_issues['extra_data'].append({
+                    'column': col,
+                    'rows': extra_rows.tolist()
+                })
+        
+        # Check for missing data before the last sample
+        for i in range(last_sample_idx + 1):
+            if valid_sample_rows[i] and (pd.isna(df.loc[i, col]) or df.loc[i, col] == ''):
+                if 'missing_rows' not in alignment_issues:
+                    alignment_issues['missing_rows'] = {}
+                
+                if col not in alignment_issues['missing_rows']:
+                    alignment_issues['missing_rows'][col] = []
+                
+                alignment_issues['missing_rows'][col].append(i)
+    
+    return alignment_issues
 
 def validate_sample_metadata(df, config=None):
     """
@@ -361,7 +428,27 @@ def validate_sample_metadata(df, config=None):
     # Check for duplicate sample names
     duplicates = check_duplicate_sample_names(validated_df, "sample metadata")
     if duplicates:
-        logger.warning(f"Duplicate sample names detected in sample metadata. Please review and fix: {', '.join(duplicates)}")
+        for dup in duplicates:
+            logger.warning(f"Duplicate sample name '{dup['name']}' found {dup['count']} times at rows: {dup['rows']}")
+            print(f"\nWARNING: Duplicate sample name '{dup['name']}' found {dup['count']} times at rows: {dup['rows']}")
+            print("Please fix duplicate sample names to ensure proper SRA submission.")
+    
+    # Check for column alignment issues
+    alignment_issues = check_column_alignment(validated_df)
+    
+    if alignment_issues['extra_data']:
+        for issue in alignment_issues['extra_data']:
+            logger.warning(f"Column '{issue['column']}' has data beyond the last valid sample_name at rows: {issue['rows']}")
+            print(f"\nWARNING: Column '{issue['column']}' has data beyond the last valid sample_name at rows: {issue['rows']}")
+            print("This extra data will be ignored during submission.")
+    
+    if 'missing_rows' in alignment_issues:
+        for col, rows in alignment_issues['missing_rows'].items():
+            if rows:
+                logger.warning(f"Column '{col}' is missing data for {len(rows)} sample rows.")
+                print(f"\nWARNING: Column '{col}' is missing data for {len(rows)} sample rows.")
+                if col in default_values:
+                    print(f"Missing values will be filled with default: '{default_values.get(col, '')}'")
     
     # Fill missing required fields with defaults
     required_fields = [
@@ -425,6 +512,15 @@ def validate_sample_metadata(df, config=None):
             validated_df.loc[mask, 'library_ID'] = validated_df.loc[mask, 'sample_name']
             logger.info(f"Set library_ID to sample_name for {mask.sum()} samples")
     
+    # If we have valid samples, trim the dataframe to only include rows with valid sample names
+    if 'sample_name' in validated_df.columns:
+        valid_samples = validated_df['sample_name'].notna() & (validated_df['sample_name'].astype(str) != '')
+        if valid_samples.any():
+            last_valid_idx = valid_samples.to_numpy().nonzero()[0][-1]
+            if last_valid_idx + 1 < len(validated_df):
+                validated_df = validated_df.iloc[:last_valid_idx + 1].copy()
+                logger.info(f"Trimmed dataframe to include only rows with valid sample names (1 to {last_valid_idx + 1})")
+    
     return validated_df
 
 def validate_bioproject_metadata(df, config=None):
@@ -451,7 +547,27 @@ def validate_bioproject_metadata(df, config=None):
     # Check for duplicate sample names
     duplicates = check_duplicate_sample_names(validated_df, "bioproject metadata")
     if duplicates:
-        logger.warning(f"Duplicate sample names detected in bioproject metadata. Please review and fix: {', '.join(duplicates)}")
+        for dup in duplicates:
+            logger.warning(f"Duplicate sample name '{dup['name']}' found {dup['count']} times at rows: {dup['rows']}")
+            print(f"\nWARNING: Duplicate sample name '{dup['name']}' found {dup['count']} times at rows: {dup['rows']}")
+            print("Please fix duplicate sample names to ensure proper SRA submission.")
+    
+    # Check for column alignment issues
+    alignment_issues = check_column_alignment(validated_df)
+    
+    if alignment_issues['extra_data']:
+        for issue in alignment_issues['extra_data']:
+            logger.warning(f"Column '{issue['column']}' has data beyond the last valid sample_name at rows: {issue['rows']}")
+            print(f"\nWARNING: Column '{issue['column']}' has data beyond the last valid sample_name at rows: {issue['rows']}")
+            print("This extra data will be ignored during submission.")
+    
+    if 'missing_rows' in alignment_issues:
+        for col, rows in alignment_issues['missing_rows'].items():
+            if rows:
+                logger.warning(f"Column '{col}' is missing data for {len(rows)} sample rows.")
+                print(f"\nWARNING: Column '{col}' is missing data for {len(rows)} sample rows.")
+                if col in default_values:
+                    print(f"Missing values will be filled with default: '{default_values.get(col, '')}'")
     
     # Fill missing required fields with defaults
     required_fields = [
@@ -489,15 +605,20 @@ def validate_bioproject_metadata(df, config=None):
                     if field in default_values:
                         validated_df.at[idx, field] = default_values[field]
     
-    # Validate date formats
+    # Enhanced validation for collection_date - ensure it's never empty
     if 'collection_date' in validated_df.columns:
-        # First fill any empty collection_date with default value
-        mask = validated_df['collection_date'].isnull() | (validated_df['collection_date'].astype(str) == '')
-        if mask.any():
-            validated_df.loc[mask, 'collection_date'] = default_values['collection_date']
-            logger.info(f"Applied default value '{default_values['collection_date']}' to {mask.sum()} empty cells in 'collection_date'")
+        # Find empty collection dates
+        empty_dates = validated_df['collection_date'].isnull() | (validated_df['collection_date'].astype(str) == '')
+        if empty_dates.any():
+            empty_count = empty_dates.sum()
+            logger.warning(f"Found {empty_count} empty collection_date fields. Filling with default value.")
+            print(f"\nWARNING: Found {empty_count} empty collection_date fields.")
+            print(f"Filling with default value: '{default_values['collection_date']}'")
+            
+            # Fill empty dates with default value
+            validated_df.loc[empty_dates, 'collection_date'] = default_values['collection_date']
         
-        # Then validate the format of non-empty dates
+        # Validate the format of non-empty dates
         validated_df['collection_date'] = validated_df['collection_date'].apply(
             lambda x: validate_date_format(x) if x != default_values['collection_date'] else x
         )
@@ -522,11 +643,20 @@ def validate_bioproject_metadata(df, config=None):
         for idx, row in validated_df.iterrows():
             if row.get('sample_source') == 'host-associated':
                 if 'host' in validated_df.columns and (pd.isna(row['host']) or row['host'] == ''):
-                    logger.warning(f"Sample source is host-associated but 'host' field is empty")
+                    logger.warning(f"Sample source is host-associated but 'host' field is empty for sample {row.get('sample_name', f'at row {idx}')}")
     
     # Add file_number column if not present
     if 'file_number' not in validated_df.columns:
         validated_df['file_number'] = range(1, len(validated_df) + 1)
+    
+    # If we have valid samples, trim the dataframe to only include rows with valid sample names
+    if 'sample_name' in validated_df.columns:
+        valid_samples = validated_df['sample_name'].notna() & (validated_df['sample_name'].astype(str) != '')
+        if valid_samples.any():
+            last_valid_idx = valid_samples.to_numpy().nonzero()[0][-1]
+            if last_valid_idx + 1 < len(validated_df):
+                validated_df = validated_df.iloc[:last_valid_idx + 1].copy()
+                logger.info(f"Trimmed dataframe to include only rows with valid sample names (1 to {last_valid_idx + 1})")
     
     return validated_df
 
@@ -660,12 +790,27 @@ def validate_and_fix_metadata(bioproject_file, sample_file, config_file=None, ou
     if not bioproject_df.empty and 'sample_name' in bioproject_df.columns:
         duplicates = check_duplicate_sample_names(bioproject_df, "bioproject metadata")
         if duplicates:
-            issues.append(f"Found duplicate sample names in bioproject metadata: {', '.join(duplicates)}")
+            for dup in duplicates:
+                issues.append(f"Duplicate sample name '{dup['name']}' found {dup['count']} times at rows: {dup['rows']} in bioproject metadata")
+                print(f"\nWARNING: Duplicate sample name '{dup['name']}' found {dup['count']} times at rows: {dup['rows']} in bioproject metadata")
     
     if not sample_df.empty and 'sample_name' in sample_df.columns:
         duplicates = check_duplicate_sample_names(sample_df, "sample metadata")
         if duplicates:
-            issues.append(f"Found duplicate sample names in sample metadata: {', '.join(duplicates)}")
+            for dup in duplicates:
+                issues.append(f"Duplicate sample name '{dup['name']}' found {dup['count']} times at rows: {dup['rows']} in sample metadata")
+                print(f"\nWARNING: Duplicate sample name '{dup['name']}' found {dup['count']} times at rows: {dup['rows']} in sample metadata")
+    
+    # Check for column alignment issues
+    if not bioproject_df.empty:
+        alignment_issues = check_column_alignment(bioproject_df)
+        if alignment_issues['extra_data'] or ('missing_rows' in alignment_issues and alignment_issues['missing_rows']):
+            issues.append("Column alignment issues found in bioproject metadata. See logs for details.")
+    
+    if not sample_df.empty:
+        alignment_issues = check_column_alignment(sample_df)
+        if alignment_issues['extra_data'] or ('missing_rows' in alignment_issues and alignment_issues['missing_rows']):
+            issues.append("Column alignment issues found in sample metadata. See logs for details.")
     
     # Validate and fix metadata
     if not bioproject_df.empty:
@@ -726,6 +871,7 @@ def main():
     parser.add_argument('--output-bioproject-metadata', help='Path to save validated bioproject metadata')
     parser.add_argument('--output-dir', help='Directory to save validated files')
     parser.add_argument('--validation-name', help='Custom name for this validation (used in log filename)')
+    parser.add_argument('--strict', action='store_true', help='Enable strict validation (exit with error on duplicates or collection_date issues)')
     
     args = parser.parse_args()
     
@@ -759,6 +905,9 @@ def main():
         print("\nError: At least one of --sample-metadata or --bioproject-metadata must be specified.")
         sys.exit(1)
     
+    # Track validation issues for strict mode
+    validation_errors = []
+    
     # Track whether files were saved
     sample_saved = False
     bioproject_saved = False
@@ -774,11 +923,23 @@ def main():
             # Check for duplicates in sample metadata
             duplicates = check_duplicate_sample_names(sample_df, "sample metadata")
             if duplicates:
-                print(f"\nWARNING: Found {len(duplicates)} duplicate sample names in sample metadata.")
-                if len(duplicates) <= 10:
-                    print(f"Duplicate samples: {', '.join(duplicates)}")
-                else:
-                    print(f"First 10 duplicate samples: {', '.join(duplicates[:10])}, ...")
+                dup_msg = f"\nWARNING: Found {len(duplicates)} duplicate sample names in sample metadata."
+                print(dup_msg)
+                for dup in duplicates[:10]:  # Show details for first 10
+                    print(f"  '{dup['name']}' found {dup['count']} times at rows: {dup['rows']}")
+                
+                if args.strict:
+                    validation_errors.append(f"Duplicate sample names found in sample metadata: {', '.join([d['name'] for d in duplicates])}")
+            
+            # Check for column alignment
+            alignment_issues = check_column_alignment(sample_df)
+            if alignment_issues['extra_data']:
+                print("\nWARNING: Found data in columns beyond the last valid sample name:")
+                for issue in alignment_issues['extra_data'][:5]:  # Show details for first 5 issues
+                    print(f"  Column '{issue['column']}' has extra data at rows: {issue['rows']}")
+                
+                if args.strict:
+                    validation_errors.append("Found data in columns beyond the last valid sample name")
             
             # Validate
             sample_df = validate_sample_metadata(sample_df, config)
@@ -816,17 +977,35 @@ def main():
             # Check for duplicates in bioproject metadata
             duplicates = check_duplicate_sample_names(bioproject_df, "bioproject metadata")
             if duplicates:
-                print(f"\nWARNING: Found {len(duplicates)} duplicate sample names in bioproject metadata.")
-                if len(duplicates) <= 10:
-                    print(f"Duplicate samples: {', '.join(duplicates)}")
-                else:
-                    print(f"First 10 duplicate samples: {', '.join(duplicates[:10])}, ...")
+                dup_msg = f"\nWARNING: Found {len(duplicates)} duplicate sample names in bioproject metadata."
+                print(dup_msg)
+                for dup in duplicates[:10]:  # Show details for first 10
+                    print(f"  '{dup['name']}' found {dup['count']} times at rows: {dup['rows']}")
+                
+                if args.strict:
+                    validation_errors.append(f"Duplicate sample names found in bioproject metadata: {', '.join([d['name'] for d in duplicates])}")
+            
+            # Check for column alignment
+            alignment_issues = check_column_alignment(bioproject_df)
+            if alignment_issues['extra_data']:
+                print("\nWARNING: Found data in columns beyond the last valid sample name:")
+                for issue in alignment_issues['extra_data'][:5]:  # Show details for first 5 issues
+                    print(f"  Column '{issue['column']}' has extra data at rows: {issue['rows']}")
+                
+                if args.strict:
+                    validation_errors.append("Found data in columns beyond the last valid sample name in bioproject metadata")
             
             # Check for empty collection_date fields
             if 'collection_date' in bioproject_df.columns:
                 empty_dates = bioproject_df['collection_date'].isnull() | (bioproject_df['collection_date'].astype(str) == '')
                 if empty_dates.any():
-                    print(f"\nNOTE: Found {empty_dates.sum()} empty collection_date fields. Will set to default '{DEFAULT_VALUES['collection_date']}'")
+                    empty_count = empty_dates.sum()
+                    print(f"\nWARNING: Found {empty_count} empty collection_date fields.")
+                    print(f"These will be filled with default value: '{DEFAULT_VALUES['collection_date']}'")
+                    
+                    if args.strict:
+                        empty_rows = empty_dates.to_numpy().nonzero()[0].tolist()
+                        validation_errors.append(f"Empty collection_date fields found at rows: {empty_rows[:10]}{'...' if len(empty_rows) > 10 else ''}")
             
             # Validate
             bioproject_df = validate_bioproject_metadata(bioproject_df, config)
@@ -886,6 +1065,9 @@ def main():
                     print(f"  Missing samples: {', '.join(missing_in_bioproject)}")
                 else:
                     print(f"  First 10 missing samples: {', '.join(list(missing_in_bioproject)[:10])}, ...")
+                
+                if args.strict:
+                    validation_errors.append(f"Samples in sample metadata but missing in bioproject: {', '.join(list(missing_in_bioproject)[:10])}")
             
             # Check for samples in bioproject but not in sample metadata
             missing_in_sample_metadata = bioproject_samples - sample_metadata_samples
@@ -897,9 +1079,20 @@ def main():
                     print(f"  Missing samples: {', '.join(missing_in_sample_metadata)}")
                 else:
                     print(f"  First 10 missing samples: {', '.join(list(missing_in_sample_metadata)[:10])}, ...")
+                
+                if args.strict:
+                    validation_errors.append(f"Samples in bioproject but missing in sample metadata: {', '.join(list(missing_in_sample_metadata)[:10])}")
             
             if not missing_in_bioproject and not missing_in_sample_metadata:
                 print("All samples are consistent between both metadata files.")
+    
+    # Handle strict mode errors
+    if args.strict and validation_errors:
+        print("\nERROR: Validation failed in strict mode due to the following issues:")
+        for i, error in enumerate(validation_errors, 1):
+            print(f"{i}. {error}")
+        print("\nPlease fix these issues and run validation again.")
+        sys.exit(1)
     
     print("\nValidation completed successfully.")
     
