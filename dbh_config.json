@@ -9,7 +9,10 @@
     "platform": "ILLUMINA",
     "instrument_model": "Illumina NovaSeq 6000",
     "project_title": "Metagenomics Study",
-    "project_description": "Metagenomics of human gut"
+    "project_description": "Metagenomics of human gut",
+    "collection_date": "not collected",
+    "geo_loc_name": "USA: Ohio, Cincinnati",
+    "lat_lon": "39.10 N 84.51 W"
   },
   "contact": {
     "name": "David Haslam",

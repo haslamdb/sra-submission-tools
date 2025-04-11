@@ -641,21 +641,30 @@ def validate_bioproject_metadata(df, config=None):
     
     # Enhanced validation for collection_date - ensure it's never empty
     if 'collection_date' in validated_df.columns:
-        # Find empty collection dates
-        empty_dates = validated_df['collection_date'].isnull() | (validated_df['collection_date'].astype(str) == '')
-        if empty_dates.any():
-            empty_count = empty_dates.sum()
-            logger.warning(f"Found {empty_count} empty collection_date fields. Filling with default value.")
-            print(f"\nWARNING: Found {empty_count} empty collection_date fields.")
-            print(f"Filling with default value: '{default_values['collection_date']}'")
+        try:
+            # Find empty collection dates
+            empty_dates = validated_df['collection_date'].isnull() | (validated_df['collection_date'].astype(str) == '')
+            if empty_dates.any():
+                empty_count = empty_dates.sum()
+                logger.warning(f"Found {empty_count} empty collection_date fields. Filling with default value.")
+                print(f"\nWARNING: Found {empty_count} empty collection_date fields.")
+                print(f"Filling with default value: '{default_values['collection_date']}'")
+                
+                # Fill empty dates with default value
+                validated_df.loc[empty_dates, 'collection_date'] = default_values['collection_date']
             
-            # Fill empty dates with default value
-            validated_df.loc[empty_dates, 'collection_date'] = default_values['collection_date']
-        
-        # Validate the format of non-empty dates
-        validated_df['collection_date'] = validated_df['collection_date'].apply(
-            lambda x: validate_date_format(x) if x != default_values['collection_date'] else x
-        )
+            # Validate the format of non-empty dates - apply the function to each row with error handling
+            for idx, value in validated_df['collection_date'].items():
+                try:
+                    if value != default_values['collection_date'] and pd.notna(value) and str(value).strip() != '':
+                        validated_df.at[idx, 'collection_date'] = validate_date_format(value)
+                except Exception as e:
+                    logger.warning(f"Error validating date at row {idx}: '{value}' - {str(e)}")
+                    validated_df.at[idx, 'collection_date'] = default_values['collection_date']
+        except Exception as e:
+            logger.error(f"Error during collection_date validation: {str(e)}")
+            import traceback
+            logger.error(traceback.format_exc())
         
     # Validate geographic location format
     if 'geo_loc_name' in validated_df.columns:

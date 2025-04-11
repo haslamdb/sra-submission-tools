@@ -1,0 +1,27 @@
+2025-04-11 13:58:38,021 - src.sra_metagenome_submission.main - INFO - Logging to sra_submission_20250411_135838.log
+2025-04-11 13:58:38,022 - __main__ - INFO - Logging to sra_validation_debug_hellman_20250411_135838.log
+2025-04-11 13:58:38,022 - __main__ - INFO - Using validation name: debug_hellman
+2025-04-11 13:58:38,022 - __main__ - INFO - Loaded configuration from dbh_config.json
+2025-04-11 13:58:38,022 - __main__ - INFO - No output location specified, using default: validated_metadata
+2025-04-11 13:58:38,026 - __main__ - INFO - Loaded sample metadata from metadata_files/hellman-sample-metadata1.txt
+2025-04-11 13:58:38,104 - __main__ - WARNING - Column 'assembly' is missing data for 149 sample rows.
+2025-04-11 13:58:38,104 - __main__ - WARNING - Column 'filename3' is missing data for 149 sample rows.
+2025-04-11 13:58:38,104 - __main__ - WARNING - Column 'filename4' is missing data for 149 sample rows.
+2025-04-11 13:58:38,104 - __main__ - WARNING - Column 'filename5' is missing data for 149 sample rows.
+2025-04-11 13:58:38,104 - __main__ - WARNING - Column 'filename6' is missing data for 149 sample rows.
+2025-04-11 13:58:38,104 - __main__ - WARNING - Column 'filename7' is missing data for 149 sample rows.
+2025-04-11 13:58:38,104 - __main__ - WARNING - Column 'filename8' is missing data for 149 sample rows.
+2025-04-11 13:58:38,114 - __main__ - INFO - Validated sample metadata
+2025-04-11 13:58:38,117 - __main__ - INFO - Saved validated metadata to validated_metadata/validated-hellman-sample-metadata1.txt
+2025-04-11 13:58:38,117 - __main__ - INFO - Saved validated sample metadata to validated_metadata/validated-hellman-sample-metadata1.txt
+2025-04-11 13:58:38,119 - __main__ - INFO - Loaded bioproject metadata from metadata_files/hellman-bioproject-metadata1.txt
+2025-04-11 13:58:38,169 - __main__ - WARNING - Column 'sample_title' is missing data for 149 sample rows.
+2025-04-11 13:58:38,169 - __main__ - WARNING - Column 'bioproject_accession' is missing data for 149 sample rows.
+2025-04-11 13:58:38,169 - __main__ - WARNING - Column 'ref_biomaterial' is missing data for 149 sample rows.
+2025-04-11 13:58:38,169 - __main__ - WARNING - Column 'rel_to_oxygen' is missing data for 149 sample rows.
+2025-04-11 13:58:38,169 - __main__ - WARNING - Column 'samp_collect_device' is missing data for 149 sample rows.
+2025-04-11 13:58:38,169 - __main__ - WARNING - Column 'samp_mat_process' is missing data for 149 sample rows.
+2025-04-11 13:58:38,169 - __main__ - WARNING - Column 'samp_size' is missing data for 149 sample rows.
+2025-04-11 13:58:38,169 - __main__ - WARNING - Column 'source_material_id' is missing data for 149 sample rows.
+2025-04-11 13:58:38,169 - __main__ - WARNING - Column 'description' is missing data for 149 sample rows.
+2025-04-11 13:58:38,172 - __main__ - ERROR - Error validating bioproject metadata: 'collection_date'

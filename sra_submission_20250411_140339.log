@@ -1,0 +1,27 @@
+2025-04-11 14:03:39,062 - sra_metagenome_submission.main - INFO - Logging to sra_submission_20250411_140339.log
+2025-04-11 14:03:39,063 - sra_metagenome_submission.sra_validate - INFO - Loaded configuration from dbh_config.json
+2025-04-11 14:03:39,063 - sra_metagenome_submission.sra_validate - INFO - No output location specified, using default: validated_metadata
+2025-04-11 14:03:39,067 - sra_metagenome_submission.sra_validate - INFO - Loaded sample metadata from metadata_files/hellman-sample-metadata1.txt
+2025-04-11 14:03:39,143 - sra_metagenome_submission.sra_validate - WARNING - Column 'assembly' is missing data for 149 sample rows.
+2025-04-11 14:03:39,143 - sra_metagenome_submission.sra_validate - WARNING - Column 'filename3' is missing data for 149 sample rows.
+2025-04-11 14:03:39,143 - sra_metagenome_submission.sra_validate - WARNING - Column 'filename4' is missing data for 149 sample rows.
+2025-04-11 14:03:39,143 - sra_metagenome_submission.sra_validate - WARNING - Column 'filename5' is missing data for 149 sample rows.
+2025-04-11 14:03:39,143 - sra_metagenome_submission.sra_validate - WARNING - Column 'filename6' is missing data for 149 sample rows.
+2025-04-11 14:03:39,143 - sra_metagenome_submission.sra_validate - WARNING - Column 'filename7' is missing data for 149 sample rows.
+2025-04-11 14:03:39,144 - sra_metagenome_submission.sra_validate - WARNING - Column 'filename8' is missing data for 149 sample rows.
+2025-04-11 14:03:39,154 - sra_metagenome_submission.sra_validate - INFO - Validated sample metadata
+2025-04-11 14:03:39,156 - sra_metagenome_submission.sra_validate - INFO - Saved validated metadata to validated_metadata/validated-hellman-sample-metadata1.txt
+2025-04-11 14:03:39,156 - sra_metagenome_submission.sra_validate - INFO - Saved validated sample metadata to validated_metadata/validated-hellman-sample-metadata1.txt
+2025-04-11 14:03:39,158 - sra_metagenome_submission.sra_validate - INFO - Loaded bioproject metadata from metadata_files/hellman-bioproject-metadata1.txt
+2025-04-11 14:03:39,208 - sra_metagenome_submission.sra_validate - WARNING - Column 'sample_title' is missing data for 149 sample rows.
+2025-04-11 14:03:39,208 - sra_metagenome_submission.sra_validate - WARNING - Column 'bioproject_accession' is missing data for 149 sample rows.
+2025-04-11 14:03:39,208 - sra_metagenome_submission.sra_validate - WARNING - Column 'ref_biomaterial' is missing data for 149 sample rows.
+2025-04-11 14:03:39,208 - sra_metagenome_submission.sra_validate - WARNING - Column 'rel_to_oxygen' is missing data for 149 sample rows.
+2025-04-11 14:03:39,208 - sra_metagenome_submission.sra_validate - WARNING - Column 'samp_collect_device' is missing data for 149 sample rows.
+2025-04-11 14:03:39,208 - sra_metagenome_submission.sra_validate - WARNING - Column 'samp_mat_process' is missing data for 149 sample rows.
+2025-04-11 14:03:39,208 - sra_metagenome_submission.sra_validate - WARNING - Column 'samp_size' is missing data for 149 sample rows.
+2025-04-11 14:03:39,208 - sra_metagenome_submission.sra_validate - WARNING - Column 'source_material_id' is missing data for 149 sample rows.
+2025-04-11 14:03:39,208 - sra_metagenome_submission.sra_validate - WARNING - Column 'description' is missing data for 149 sample rows.
+2025-04-11 14:03:39,221 - sra_metagenome_submission.sra_validate - INFO - Validated bioproject metadata
+2025-04-11 14:03:39,222 - sra_metagenome_submission.sra_validate - INFO - Saved validated metadata to validated_metadata/validated-hellman-bioproject-metadata1.txt
+2025-04-11 14:03:39,223 - sra_metagenome_submission.sra_validate - INFO - Saved validated bioproject metadata to validated_metadata/validated-hellman-bioproject-metadata1.txt
