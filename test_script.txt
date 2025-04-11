@@ -1,9 +1,13 @@
 
 
-Hellman:
-sra-validate --config dbh_config.json --sample-metadata metadata_files/hellman-sample-metadata.txt --bioproject-metadata metadata_files/hellman-bioproject-metadata.txt
+Hellman: Split into two submissions
+sra-validate --config dbh_config.json --sample-metadata metadata_files/hellman-sample-metadata1.txt --bioproject-metadata metadata_files/hellman-bioproject-metadata1.txt
 
-sra-submit --config dbh_config.json --sample-metadata validated_metadata/validated-hellman-sample-metadata.txt --files /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/ --submit --aspera-path /home/david/.aspera/connect/bin/ascp --aspera-key aspera.openssh --upload-destination subasp@upload.ncbi.nlm.nih.gov:uploads/dbhaslam_gmail.com_QFq0F7SG --submission-name hellman
+sra-submit --config dbh_config.json --sample-metadata validated_metadata/validated-hellman-sample-metadata1.txt --files /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/ --submit --aspera-path /home/david/.aspera/connect/bin/ascp --aspera-key aspera.openssh --upload-destination subasp@upload.ncbi.nlm.nih.gov:uploads/dbhaslam_gmail.com_QFq0F7SG --submission-name hellman
+
+sra-validate --config dbh_config.json --sample-metadata metadata_files/hellman-sample-metadata2.txt --bioproject-metadata metadata_files/hellman-bioproject-metadata2.txt
+
+sra-submit --config dbh_config.json --sample-metadata validated_metadata/validated-hellman-sample-metadata2.txt --files /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/ --submit --aspera-path /home/david/.aspera/connect/bin/ascp --aspera-key aspera.openssh --upload-destination subasp@upload.ncbi.nlm.nih.gov:uploads/dbhaslam_gmail.com_QFq0F7SG --submission-name hellman
 
 
 NICU
@@ -22,6 +26,9 @@ sra-submit --config my_config.json --sample-metadata validated_metadata/validate
 
 
 ###########  TODO
+- check for duplicated sample names on both files
+- make sure every sample has attributes and no extra attributes past sample names for both files
+- title on sample metadata is necessary
 
 
 ############ Completed:

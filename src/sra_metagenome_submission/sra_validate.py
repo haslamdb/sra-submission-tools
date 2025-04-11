@@ -148,6 +148,7 @@ def validate_date_format(date_str):
     - ISO 8601: "YYYY-mm" (e.g., 1990-10)
     - Range: "DD-Mmm-YYYY/DD-Mmm-YYYY" (e.g., 21-Oct-1952/15-Feb-1953)
     - With time: "YYYY-mm-ddThh:mm:ssZ" (e.g., 2015-10-11T17:53:03Z)
+    - MM/DD/YYYY or DD/MM/YYYY: (e.g., 7/24/2017 or 24/7/2017)
     
     Returns:
         str: Validated date in ISO 8601 format
@@ -155,7 +156,18 @@ def validate_date_format(date_str):
     if not date_str or pd.isna(date_str) or str(date_str).strip() == "":
         return ""
     
+    if date_str == "not collected" or date_str == "not provided" or date_str == "unknown":
+        return date_str 
+    
+    # Special case handling for "not collected" and similar values
+    if str(date_str).strip().lower() in ["not collected", "not provided", "unknown"]:
+        return str(date_str).strip()
+    
+    # Convert to string and strip whitespace
     date_str = str(date_str).strip()
+    
+    # Log the input date for debugging
+    logger.debug(f"Validating date format: '{date_str}'")
     
     # ISO 8601 with time (already correct format)
     if re.match(r'^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$', date_str):
@@ -174,13 +186,53 @@ def validate_date_format(date_str):
         return date_str
     
     # Date range with slash
-    if '/' in date_str:
+    if '/' in date_str and not re.match(r'^\d{1,2}/\d{1,2}/\d{4}$', date_str):
         dates = date_str.split('/')
         if len(dates) == 2:
             start_date = validate_date_format(dates[0])
             end_date = validate_date_format(dates[1])
             if start_date and end_date:
                 return f"{start_date}/{end_date}"
+    
+    # MM/DD/YYYY or DD/MM/YYYY format - common US date format
+    mdy_or_dmy = re.match(r'^(\d{1,2})/(\d{1,2})/(\d{4})$', date_str)
+    if mdy_or_dmy:
+        d1, d2, year = mdy_or_dmy.groups()
+        
+        try:
+            # Convert to integers for comparison
+            d1_int = int(d1)
+            d2_int = int(d2)
+            
+            # Assume MM/DD/YYYY for US format
+            # But if d1 > 12, it's probably DD/MM/YYYY
+            if d1_int > 12:
+                day, month = d1, d2
+            else:
+                month, day = d1, d2
+            
+            # Ensure values are in valid ranges
+            month_int = int(month)
+            day_int = int(day)
+            
+            if month_int < 1 or month_int > 12:
+                logger.warning(f"Invalid month value {month_int} in date {date_str}")
+                month = "01"  # Default to January if invalid
+            
+            if day_int < 1 or day_int > 31:
+                logger.warning(f"Invalid day value {day_int} in date {date_str}")
+                day = "01"  # Default to 1st if invalid
+            
+            # Ensure two digits
+            month = month.zfill(2)
+            day = day.zfill(2)
+            
+            # Return in ISO format
+            return f"{year}-{month}-{day}"
+        except ValueError as e:
+            logger.warning(f"Error converting date parts to integers: {e}")
+            # Try to recover with defaults
+            return f"{year}-01-01"
     
     # DD-Mmm-YYYY format
     dd_mmm_yyyy = re.match(r'^(\d{1,2})[-/\s]([A-Za-z]{3})[-/\s](\d{4})$', date_str)
@@ -216,24 +268,6 @@ def validate_date_format(date_str):
         if month_abbr in month_dict:
             month_num = month_dict[month_abbr]
             return f"{year}-{month_num}"
-    
-    # MM/DD/YYYY or DD/MM/YYYY format
-    mdy_or_dmy = re.match(r'^(\d{1,2})[-/](\d{1,2})[-/](\d{4})$', date_str)
-    if mdy_or_dmy:
-        d1, d2, year = mdy_or_dmy.groups()
-        
-        # Assume MM/DD/YYYY for US format
-        # But try to be smart about it (if d1 > 12, it's probably DD/MM/YYYY)
-        if int(d1) > 12:
-            day, month = d1, d2
-        else:
-            month, day = d1, d2
-        
-        # Ensure two digits
-        month = month.zfill(2)
-        day = day.zfill(2)
-        
-        return f"{year}-{month}-{day}"
     
     # YYYY/MM/DD format
     ymd = re.match(r'^(\d{4})[-/](\d{1,2})[-/](\d{1,2})$', date_str)
