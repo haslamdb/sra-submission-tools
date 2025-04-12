@@ -1,0 +1,6 @@
+2025-04-11 14:39:03,907 - sra_metagenome_submission.main - INFO - Log file renamed to include submission ID: sra_submission_sra_submission__9cz3013_20250411_143903.log
+2025-04-11 14:39:03,924 - sra_metagenome_submission.main - INFO - Running command: "/home/david/.aspera/connect/bin/ascp" -i "aspera.openssh" -QT -l100m -k1 -d "/tmp/sra_submission__9cz3013" subasp@upload.ncbi.nlm.nih.gov:uploads/dbhaslam_gmail.com_QFq0F7SG
+2025-04-11 21:13:22,235 - sra_metagenome_submission.main - INFO - File upload completed successfully
+2025-04-11 21:13:22,237 - sra_metagenome_submission.main - INFO - Running command: "/home/david/.aspera/connect/bin/ascp" -i "aspera.openssh" -QT "/tmp/sra_submission__9cz3013/submit.ready" subasp@upload.ncbi.nlm.nih.gov:uploads/dbhaslam_gmail.com_QFq0F7SG/sra_submission__9cz3013
+2025-04-11 21:13:24,744 - sra_metagenome_submission.main - INFO - Submit.ready file uploaded successfully
+2025-04-11 21:13:24,757 - sra_metagenome_submission.main - INFO - Removed temporary directory: /tmp/sra_submission__9cz3013
