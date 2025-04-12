@@ -14,3 +14,9 @@ __pycache__/
 aspera.openssh
 dbh_config.json
 src/sra_metagenome_submission/__pycache__/_version.cpython-312.pyc
+
+# Ignore all sra_submission logs
+sra_submission_*.log
+
+# Ignore all sra_validation logs
+sra_validation_*.log
