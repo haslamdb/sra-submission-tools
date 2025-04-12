@@ -5,7 +5,7 @@ sra-validate --config dbh_config.json --sample-metadata metadata_files/hellman-s
 
 sra-submit --config dbh_config.json --sample-metadata validated_metadata/validated-hellman-sample-metadata1.txt --files /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/ --submit --aspera-path /home/david/.aspera/connect/bin/ascp --aspera-key aspera.openssh --upload-destination subasp@upload.ncbi.nlm.nih.gov:uploads/dbhaslam_gmail.com_QFq0F7SG --submission-name hellman
 
-sra-validate --config dbh_config.json --sample-metadata metadata_files/hellman-sample-metadata2.txt --bioproject-metadata metadata_files/hellman-bioproject-metadata2.txt
+sra-validate --config dbh_config.json --file-dir /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/ --sample-metadata metadata_files/hellman-sample-metadata2.txt --bioproject-metadata metadata_files/hellman-bioproject-metadata2.txt
 
 sra-submit --config dbh_config.json --sample-metadata validated_metadata/validated-hellman-sample-metadata2.txt --files /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/ --submit --aspera-path /home/david/.aspera/connect/bin/ascp --aspera-key aspera.openssh --upload-destination subasp@upload.ncbi.nlm.nih.gov:uploads/dbhaslam_gmail.com_QFq0F7SG --submission-name hellman
 
