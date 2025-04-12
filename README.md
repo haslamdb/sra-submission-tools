@@ -94,7 +94,7 @@ sra-submit --config my_config.json --sample-metadata validated_metadata/validate
 - **Step 5** : select "Upload a file using Excel or text format" and choose file: validated-bioproject-metadata.txt  
  ...if not already done, wait until file upload completes successfully and note temp upload directory location...
 - **Step 6** : select "Upload a file using Excel or text format" and choose file: validated-sample-metadata.txt
-- **Step 7** : "Select Preload Folder" - look for the suffix from the file upload output (destination path) 
+- **Step 7** : select "FTP or Aspera Command Line file preload" then "Select Preload Folder" - look for the suffix from the file upload output (destination path) 
 - **Step 8** : Review and Submit
 - **Step 9** : There is no step 9. You're done!
 
