@@ -139,6 +139,6 @@ IBD531			metagenome	Homo sapiens	stool	10/26/2016	"USA: Ohio, Cincinnati"	39.10 
 IBD535			metagenome	Homo sapiens	stool	10/24/2016	"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
 IBD538			metagenome	Homo sapiens	stool	11/8/2016	"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
 IBD548			metagenome	Homo sapiens	stool	12/4/2016	"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
-IBD559			metagenome	Homo sapiens	stool	11/15/2016	"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
-						11/13/2016									
-						11/21/2016									
+IBD559			metagenome	Homo sapiens	stool	11/15/2016	"USA: Ohio, Cincinnati"	39.10 N 84.51 W	
+IBDXXX			metagenome	Homo sapiens	stool	11/15/2016	"USA: Ohio, Cincinnati"	39.10 N 84.51 W							
+								

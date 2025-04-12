@@ -140,3 +140,4 @@ IBD535	Hellman IBD Study	WGS	METAGENOMIC	size fractionation	paired	ILLUMINA	Next
 IBD538	Hellman IBD Study	WGS	METAGENOMIC	size fractionation	paired	ILLUMINA	NextSeq 500	Nextera XT	fastq		IBD538_R1.fastq.gz	IBD538_R2.fastq.gz							IBD538	Metagenome-Human-Stool
 IBD548	Hellman IBD Study	WGS	METAGENOMIC	size fractionation	paired	ILLUMINA	NextSeq 500	Nextera XT	fastq		IBD548_R1.fastq.gz	IBD548_R2.fastq.gz							IBD548	Metagenome-Human-Stool
 IBD559	Hellman IBD Study	WGS	METAGENOMIC	size fractionation	paired	ILLUMINA	NextSeq 500	Nextera XT	fastq		IBD559_R1.fastq.gz	IBD559_R2.fastq.gz							IBD559	Metagenome-Human-Stool
+IBDXXX	Hellman IBD Study	WGS	METAGEMNOMICS	size fractionation	paired	ILLUMINA	NextSeq500	Nextera XT	fastq		IBDXXX_R1.fastq.gz	IBXXX_R2.fastq.gz
