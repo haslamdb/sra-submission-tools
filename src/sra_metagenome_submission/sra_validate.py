@@ -438,6 +438,98 @@ def check_column_alignment(df):
     
     return alignment_issues
 
+def check_files_exist(df, base_dir=None):
+    """
+    Check if all files mentioned in the metadata exist in their expected locations.
+    
+    Args:
+        df (pd.DataFrame): Metadata dataframe
+        base_dir (str, optional): Base directory for relative file paths
+    
+    Returns:
+        tuple: (all_exist_flag, list_of_missing_files, dict_of_missing_files_by_sample)
+    """
+    missing_files = []
+    missing_by_sample = {}
+    
+    # Define possible filename columns to check
+    filename_columns = ['filename', 'filename2', 'filepath', 'filepath2', 'file1', 'file2']
+    
+    # Filter to columns that actually exist in the dataframe
+    existing_columns = [col for col in filename_columns if col in df.columns]
+    
+    if not existing_columns:
+        logger.warning("No filename columns found in metadata")
+        return True, [], {}
+    
+    # Check each file referenced in the metadata
+    for idx, row in df.iterrows():
+        sample_name = row.get('sample_name', f"Row_{idx}")
+        sample_missing_files = []
+        
+        for col in existing_columns:
+            if pd.isna(row[col]) or str(row[col]).strip() == "":
+                continue
+                
+            filename = str(row[col]).strip()
+            
+            # Handle both absolute and relative paths
+            if os.path.isabs(filename):
+                file_path = filename
+            elif base_dir:
+                file_path = os.path.join(base_dir, filename)
+            else:
+                file_path = filename
+            
+            # Check if file exists
+            if not os.path.exists(file_path):
+                missing_files.append(file_path)
+                sample_missing_files.append({"column": col, "file": file_path})
+        
+        if sample_missing_files:
+            missing_by_sample[sample_name] = sample_missing_files
+    
+    all_exist = len(missing_files) == 0
+    
+    if not all_exist:
+        logger.warning(f"Found {len(missing_files)} files mentioned in metadata that don't exist")
+    else:
+        logger.info("All files mentioned in metadata exist")
+    
+    return all_exist, missing_files, missing_by_sample
+
+def remove_samples_with_missing_files(sample_df, bioproject_df, missing_by_sample):
+    """
+    Remove samples with missing files from both sample and bioproject metadata.
+    
+    Args:
+        sample_df (pd.DataFrame): Sample metadata dataframe
+        bioproject_df (pd.DataFrame): Bioproject metadata dataframe
+        missing_by_sample (dict): Dictionary of missing files by sample name
+    
+    Returns:
+        tuple: (updated_sample_df, updated_bioproject_df, list_of_removed_samples)
+    """
+    samples_to_remove = list(missing_by_sample.keys())
+    
+    if not samples_to_remove:
+        return sample_df, bioproject_df, []
+    
+    # Create copies to avoid modifying the originals
+    updated_sample_df = sample_df.copy()
+    updated_bioproject_df = None if bioproject_df is None else bioproject_df.copy()
+    
+    # Remove samples from sample metadata
+    if 'sample_name' in updated_sample_df.columns:
+        updated_sample_df = updated_sample_df[~updated_sample_df['sample_name'].isin(samples_to_remove)]
+        
+    # Remove samples from bioproject metadata if it exists
+    if updated_bioproject_df is not None and 'sample_name' in updated_bioproject_df.columns:
+        updated_bioproject_df = updated_bioproject_df[~updated_bioproject_df['sample_name'].isin(samples_to_remove)]
+    
+    logger.info(f"Removed {len(samples_to_remove)} samples with missing files from metadata")
+    return updated_sample_df, updated_bioproject_df, samples_to_remove
+
 def validate_sample_metadata(df, config=None):
     """
     Validate sample metadata and fix common issues.
@@ -780,7 +872,7 @@ def load_config(config_file):
         logger.error(f"Error loading configuration file: {str(e)}")
         return {}
 
-def validate_and_fix_metadata(bioproject_file, sample_file, config_file=None, output_dir=None):
+def validate_and_fix_metadata(bioproject_file, sample_file, config_file=None, output_dir=None, file_dir=None):
     """
     Validate and fix bioproject and sample metadata files.
     
@@ -789,6 +881,7 @@ def validate_and_fix_metadata(bioproject_file, sample_file, config_file=None, ou
         sample_file (str): Path to sample metadata file
         config_file (str): Path to configuration file with defaults
         output_dir (str): Directory to save validated files
+        file_dir (str): Directory containing the sequence files
         
     Returns:
         tuple: (bioproject_df, sample_df, list_of_issues)
@@ -828,6 +921,52 @@ def validate_and_fix_metadata(bioproject_file, sample_file, config_file=None, ou
         if empty_samples.any():
             issues.append(f"Removed {empty_samples.sum()} rows with empty sample_name from sample metadata")
             sample_df = sample_df[~empty_samples].reset_index(drop=True)
+    
+    # NEW: Check if all files mentioned in metadata exist before proceeding
+    if not sample_df.empty and file_dir:
+        all_exist, missing_files, missing_by_sample = check_files_exist(sample_df, file_dir)
+        
+        if not all_exist:
+            print("\n" + "="*80)
+            print(f"WARNING: Found {len(missing_files)} files referenced in metadata that don't exist")
+            print(f"Missing files are associated with {len(missing_by_sample)} samples")
+            print("\nMissing files by sample (showing up to 5 per sample):")
+            
+            for sample_name, files in missing_by_sample.items():
+                print(f"\nSample: {sample_name}")
+                for i, file_info in enumerate(files[:5]):
+                    print(f"  - {file_info['column']}: {file_info['file']}")
+                if len(files) > 5:
+                    print(f"  - ... and {len(files) - 5} more files")
+            
+            print("\nOptions:")
+            print("1. Stop validation and find the missing files")
+            print("2. Remove samples with missing files from both metadata files and continue")
+            
+            while True:
+                try:
+                    choice = input("\nEnter your choice (1 or 2): ")
+                    if choice == "1":
+                        print("\nValidation stopped. Please find the missing files and try again.")
+                        logger.info("User chose to stop validation to find missing files")
+                        sys.exit(0)
+                    elif choice == "2":
+                        print("\nRemoving samples with missing files from metadata...")
+                        sample_df, bioproject_df, removed_samples = remove_samples_with_missing_files(
+                            sample_df, bioproject_df, missing_by_sample
+                        )
+                        
+                        issues.append(f"Removed {len(removed_samples)} samples with missing files from metadata")
+                        print(f"Removed {len(removed_samples)} samples from metadata")
+                        logger.info(f"Removed samples: {', '.join(removed_samples)}")
+                        break
+                    else:
+                        print("Invalid choice. Please enter 1 or 2.")
+                except KeyboardInterrupt:
+                    print("\nValidation cancelled by user.")
+                    sys.exit(0)
+            
+            print("="*80 + "\n")
     
     # Check for duplicate sample names
     if not bioproject_df.empty and 'sample_name' in bioproject_df.columns:
@@ -915,6 +1054,7 @@ def main():
     parser.add_argument('--output-dir', help='Directory to save validated files')
     parser.add_argument('--validation-name', help='Custom name for this validation (used in log filename)')
     parser.add_argument('--strict', action='store_true', help='Enable strict validation (exit with error on duplicates or collection_date issues)')
+    parser.add_argument('--file-dir', help='Directory containing sequence files to check file existence')
     
     args = parser.parse_args()
     
@@ -962,6 +1102,62 @@ def main():
             sample_df = load_metadata_file(args.sample_metadata)
             logger.info(f"Loaded sample metadata from {args.sample_metadata}")
             print(f"Loaded sample metadata from {args.sample_metadata}")
+            
+            # NEW: Check if all files mentioned in metadata exist
+            if args.file_dir:
+                all_exist, missing_files, missing_by_sample = check_files_exist(sample_df, args.file_dir)
+                
+                if not all_exist:
+                    print("\n" + "="*80)
+                    print(f"WARNING: Found {len(missing_files)} files referenced in metadata that don't exist")
+                    print(f"Missing files are associated with {len(missing_by_sample)} samples")
+                    print("\nMissing files by sample (showing up to 5 per sample):")
+                    
+                    for sample_name, files in missing_by_sample.items():
+                        print(f"\nSample: {sample_name}")
+                        for i, file_info in enumerate(files[:5]):
+                            print(f"  - {file_info['column']}: {file_info['file']}")
+                        if len(files) > 5:
+                            print(f"  - ... and {len(files) - 5} more files")
+                    
+                    print("\nOptions:")
+                    print("1. Stop validation and find the missing files")
+                    print("2. Remove samples with missing files from the metadata and continue")
+                    
+                    choice = input("\nEnter your choice (1 or 2): ")
+                    if choice == "1":
+                        print("\nValidation stopped. Please find the missing files and try again.")
+                        logger.info("User chose to stop validation to find missing files")
+                        sys.exit(0)
+                    elif choice == "2":
+                        print("\nRemoving samples with missing files from metadata...")
+                        
+                        # If we have bioproject metadata, load it now to remove the same samples
+                        bioproject_df = None
+                        if args.bioproject_metadata:
+                            try:
+                                bioproject_df = load_metadata_file(args.bioproject_metadata)
+                                logger.info(f"Loaded bioproject metadata from {args.bioproject_metadata} for sample removal")
+                            except Exception as e:
+                                logger.error(f"Error loading bioproject metadata: {str(e)}")
+                                print(f"Error loading bioproject metadata: {str(e)}")
+                        
+                        sample_df, bioproject_df, removed_samples = remove_samples_with_missing_files(
+                            sample_df, bioproject_df, missing_by_sample
+                        )
+                        
+                        print(f"Removed {len(removed_samples)} samples from metadata")
+                        logger.info(f"Removed samples: {', '.join(removed_samples)}")
+                        
+                        # Update the bioproject_df for later use
+                        if bioproject_df is not None and args.bioproject_metadata:
+                            print("Updated bioproject metadata to remove samples with missing files")
+                    else:
+                        print("Invalid choice. Defaulting to stopping validation.")
+                        logger.info("Invalid choice entered, stopping validation")
+                        sys.exit(0)
+                    
+                    print("="*80 + "\n")
             
             # Check for duplicates in sample metadata
             duplicates = check_duplicate_sample_names(sample_df, "sample metadata")
@@ -1011,7 +1207,7 @@ def main():
     
     # Validate bioproject metadata if provided
     bioproject_df = None
-    if args.bioproject_metadata:
+    if args.bioproject_metadata and 'bioproject_df' not in locals():  # Only load if not already loaded above
         try:
             bioproject_df = load_metadata_file(args.bioproject_metadata)
             logger.info(f"Loaded bioproject metadata from {args.bioproject_metadata}")
@@ -1138,6 +1334,3 @@ def main():
         sys.exit(1)
     
     print("\nValidation completed successfully.")
-    
-if __name__ == "__main__":
-    main()
