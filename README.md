@@ -8,9 +8,9 @@ Submission of raw sequence files to the SRA database can be confusing and frustr
 
 - Creating required metadata files in the correct format
 - Validating metadata against SRA requirements
+- Verifying the existence of files referenced in metadata
 - Organizing sequence files according to SRA requirements
 - Automating the submission process via the NCBI Submission Portal
-- Verifying files and metadata before submission
 - Handling file uploads using IBM Aspera Connect
 
 ## Table of Contents
@@ -80,12 +80,11 @@ pip install .
 ###1. On your machine do the following (sra-validate, sra-submit):
 
 ```bash
-## check, modify, and save validated metadata files
-sra-validate --config my_config.json --sample-metadata metadata_files/project1-sample-metadata.txt --bioproject-metadata metadata_files/project1-bioproject-metadata.txt
+## First, validate metadata files and check if referenced files exist
+sra-validate --config my_config.json --sample-metadata metadata_files/project1-sample-metadata.txt --bioproject-metadata metadata_files/project1-bioproject-metadata.txt --file-dir /path/to/files
 
-# use validated-sample-metadata to upload files via aspera: Note the temp folder name, which you will select at step 7 below
-sra-submit --config my_config.json --sample-metadata validated_metadata/validated-project1-sample-metadata.txt --files /path/to/files --aspera-path /home/username/.aspera/connect/bin/ascp --aspera-key aspera.openssh --upload-destination subasp@upload.ncbi.nlm.nih.gov:uploads/user_email.com_ABC123X --submission-name project1 --submit
-
+# Use validated metadata to upload files via aspera: Note the temp folder name, which you will select at step 7 below
+sra-submit --config my_config.json --sample-metadata validated_metadata/validated-project1-sample-metadata.txt --files-dir /path/to/files --aspera-path /home/username/.aspera/connect/bin/ascp --aspera-key aspera.openssh --upload-destination subasp@upload.ncbi.nlm.nih.gov:uploads/user_email.com_ABC123X --submission-name project1 --submit
 ```
 
 ###2. Go to [SRA Files Upload via Aspera](https://submit.ncbi.nlm.nih.gov/subs/sra/#files_upload_aspera_cmd)
@@ -164,11 +163,13 @@ After completing the first-time setup, follow these steps for each submission:
    - Minimal input is a list of sample names and matching file names
    - Other values will be filled in using defaults from `config.json` or through runtime prompts
 
-3. **Validate Metadata Files**:
+3. **Validate Metadata Files and Check File Existence**:
    ```bash
-   sra-validate --config config.json --sample-metadata sample-metadata.txt --bioproject-metadata bioproject-metadata.txt
+   sra-validate --config config.json --sample-metadata sample-metadata.txt --bioproject-metadata bioproject-metadata.txt --file-dir /path/to/sequence/files
    ```
    - This ensures your metadata meets SRA requirements
+   - Checks if all referenced files exist in the specified directory
+   - Gives you the option to stop validation or remove samples with missing files
    - Fixes common formatting issues (dates, geographic coordinates, etc.)
    - Produces validated versions of both metadata files
 
@@ -215,7 +216,7 @@ This toolset includes scripts to streamline the SRA submission process, reducing
 
 ### Metadata Validation Script: `sra_validate.py`
 
-This script validates your metadata files against SRA requirements and fixes common formatting issues.
+This script validates your metadata files against SRA requirements, checks for file existence, and fixes common formatting issues.
 
 ```bash
 # Basic usage
@@ -223,6 +224,9 @@ sra-validate --sample-metadata sample-metadata.txt --bioproject-metadata bioproj
 
 # With configuration file
 sra-validate --config config.json --sample-metadata sample-metadata.txt --bioproject-metadata bioproject-metadata.txt
+
+# Check if files referenced in metadata exist
+sra-validate --sample-metadata sample-metadata.txt --bioproject-metadata bioproject-metadata.txt --file-dir /path/to/sequence/files
 
 # Output validated files to specific locations
 sra-validate --sample-metadata sample-metadata.txt --bioproject-metadata bioproject-metadata.txt --output-sample-metadata validated-sample-metadata.txt --output-bioproject-metadata validated-bioproject-metadata.txt
@@ -237,22 +241,37 @@ This is the primary script for preparing and submitting metagenomic data to SRA.
 sra-submit --output submission_package
 
 # Using metadata files and auto-detecting sequence files
-sra-submit --sample-metadata sample-metadata.txt --bioproject-metadata bioproject-metadata.txt --files /path/to/fastq_files --output submission_package
+sra-submit --sample-metadata sample-metadata.txt --bioproject-metadata bioproject-metadata.txt --files-dir /path/to/fastq_files --output submission_package
 
 # Generate template metadata files from existing sequence files
-sra-submit --files /path/to/fastq_files --generate-templates --output templates
+sra-submit --files-dir /path/to/fastq_files --generate-templates --output templates
 ```
 
 ### Command-line Arguments
 
+#### Common to both scripts
 - `--config`: Path to JSON configuration file with authentication and defaults
 - `--sample-metadata`: Path to tab-delimited TXT or Excel file containing sample metadata
 - `--bioproject-metadata`: Path to tab-delimited TXT or Excel file containing bioproject metadata
-- `--files`: Directory containing sequence files (will auto-detect FASTQ/FQ/FASTQ.GZ files)
 - `--output`: Directory to store generated submission files (default: sra_submission)
+
+#### For sra-validate
+- `--file-dir`: Directory containing sequence files to check file existence
+- `--output-sample-metadata`: Path to save validated sample metadata
+- `--output-bioproject-metadata`: Path to save validated bioproject metadata
+- `--output-dir`: Directory to save validated files
+- `--validation-name`: Custom name for this validation (used in log filename)
+- `--strict`: Enable strict validation (exit with error on duplicates or collection_date issues)
+
+#### For sra-submit
+- `--files-dir`: Directory containing sequence files (will auto-detect FASTQ/FQ/FASTQ.GZ files)
 - `--generate-templates`: Generate template metadata files from detected sequence files
 - `--validate-only`: Only validate files and metadata without creating submission package
-- `--auto-pair`: Automatically detect paired-end files
+- `--submit`: Submit to SRA after preparing
+- `--aspera-key`: Path to Aspera key file
+- `--aspera-path`: Full path to the Aspera Connect (ascp) executable
+- `--upload-destination`: NCBI upload destination (e.g., subasp@upload.ncbi.nlm.nih.gov:uploads/your_folder)
+- `--submission-name`: Custom name for this submission (used in log filename)
 
 ### Interactive Mode
 
@@ -426,7 +445,12 @@ pip install -e .
    - CSV files are not accepted
    - Use the validation script to check for and fix formatting issues
 
-2. **Date Format Problems**:
+2. **Missing or Incorrect Files**:
+   - Use the `--file-dir` option with `sra-validate` to check if all files exist before submission
+   - Make sure file paths in your metadata file match the actual locations
+   - The validation script will offer to remove samples with missing files or allow you to fix the issues
+
+3. **Date Format Problems**:
    - Collection dates must be in one of these formats:
      - "DD-Mmm-YYYY" (e.g., 30-Oct-1990)
      - "Mmm-YYYY" (e.g., Oct-1990)
@@ -437,16 +461,16 @@ pip install -e .
      - With time: "YYYY-mm-ddThh:mm:ssZ" (e.g., 2015-10-11T17:53:03Z)
    - The validation script will automatically convert valid dates to ISO format
 
-3. **Missing Required Metadata**:
+4. **Missing Required Metadata**:
    - Ensure all required fields are completed
    - Pay attention to format (geographic coordinates, etc.)
 
-4. **File Format Problems**:
+5. **File Format Problems**:
    - SRA accepts FASTQ, BAM, and SFF formats
    - Ensure files are properly compressed if using gzip
    - File names should not contain spaces or special characters
 
-5. **Validation Errors**:
+6. **Validation Errors**:
    - Read error messages carefully
    - Address each issue before resubmitting
    - Use the validation script to check your metadata before submission

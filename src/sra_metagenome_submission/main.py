@@ -453,7 +453,7 @@ def main():
     parser.add_argument('--config', help='Path to configuration JSON file')
     parser.add_argument('--sample-metadata', help='Path to sample metadata file (tab-delimited TXT or Excel)')
     parser.add_argument('--bioproject-metadata', help='Path to bioproject metadata file (tab-delimited TXT or Excel)')
-    parser.add_argument('--files', help='Directory containing sequence files')
+    parser.add_argument('--files-dir', help='Directory containing sequence files')
     parser.add_argument('--output', default='sra_submission', help='Directory to store output files')
     parser.add_argument('--generate-templates', action='store_true', help='Generate template metadata files from sequence files')
     parser.add_argument('--validate-only', action='store_true', help='Only validate files and metadata without preparing submission')
@@ -476,7 +476,7 @@ def main():
     
     # Handle template generation
     if args.generate_templates:
-        if not args.files:
+        if not args.files_dir:
             print("Error: --files parameter is required with --generate-templates")
             sys.exit(1)
         
@@ -500,8 +500,8 @@ def main():
         sys.exit(0)
     
     # Collect sequence files
-    if args.files and (submission.sample_metadata_df is not None):
-        num_files = submission.collect_sequence_files(args.files)
+    if args.files_dir and (submission.sample_metadata_df is not None):
+        num_files = submission.collect_sequence_files(args.files_dir)
         
         if num_files == 0:
             print("No files found for upload. Please check your metadata file and file paths.")
