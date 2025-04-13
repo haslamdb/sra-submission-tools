@@ -121,6 +121,8 @@ IBD_007	Hellman IBD Study	WGS	METAGENOMIC	size fractionation	paired	ILLUMINA	Nex
 IBD_204	Hellman IBD Study	WGS	METAGENOMIC	size fractionation	paired	ILLUMINA	NextSeq 500	Nextera XT	fastq		IBD_204_R1.fastq.gz	IBD_204_R2.fastq.gz							IBD_204	Metagenome-Human-Stool
 IBD_516	Hellman IBD Study	WGS	METAGENOMIC	size fractionation	paired	ILLUMINA	NextSeq 500	Nextera XT	fastq		IBD_516_R1.fastq.gz	IBD_516_R2.fastq.gz							IBD_516	Metagenome-Human-Stool
 IBD_520_CDC_491_Pellet	Hellman IBD Study	WGS	METAGENOMIC	size fractionation	paired	ILLUMINA	NextSeq 500	Nextera XT	fastq		IBD_520_CDC_491_Pellet_R1.fastq.gz	IBD_520_CDC_491_Pellet_R2.fastq.gz							IBD_520_CDC_491_Pellet	Metagenome-Human-Stool
+IBD_521	Hellman IBD Study	WGS	METAGENOMIC	size fractionation	paired	ILLUMINA	NextSeq 500	Nextera XT	fastq		IBD_521_R1.fastq.gz	IBD_521_R2.fastq.gz							IBD_521	Metagenome-Human-Stool
+IBD_532	Hellman IBD Study	WGS	METAGENOMIC	size fractionation	paired	ILLUMINA	NextSeq 500	Nextera XT	fastq		IBD_532_R1.fastq.gz	IBD_532_R2.fastq.gz							IBD_532	Metagenome-Human-Stool
 IBD_UCC0621241_Supernatant	Hellman IBD Study	WGS	METAGENOMIC	size fractionation	paired	ILLUMINA	NextSeq 500	Nextera XT	fastq		IBD_UCC0621241_Supernatant_R1.fastq.gz	IBD_UCC0621241_Supernatant_R2.fastq.gz							IBD_UCC0621241_Supernatant	Metagenome-Human-Stool
 IBD048	Hellman IBD Study	WGS	METAGENOMIC	size fractionation	paired	ILLUMINA	NextSeq 500	Nextera XT	fastq		IBD048_R1.fastq.gz	IBD048_R2.fastq.gz							IBD048	Metagenome-Human-Stool
 IBD289	Hellman IBD Study	WGS	METAGENOMIC	size fractionation	paired	ILLUMINA	NextSeq 500	Nextera XT	fastq		IBD289_R1.fastq.gz	IBD289_R2.fastq.gz							IBD289	Metagenome-Human-Stool
