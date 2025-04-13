@@ -78,7 +78,6 @@ C12Jenny03			metagenome	Homo sapiens	stool	2018-01-08	USA: Ohio, Cincinnati	39.1
 C12Jenny1			metagenome	Homo sapiens	stool	2017-03-01	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000	77
 C1Jenny02			metagenome	Homo sapiens	stool	2017-09-12	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000	78
 C1Jenny1			metagenome	Homo sapiens	stool	2017-04-06	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000	79
-C2Jenny02			metagenome	Homo sapiens	stool	2017-09-12	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000	80
 C2Jenny03			metagenome	Homo sapiens	stool	2018-01-02	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000	81
 C2Jenny1			metagenome	Homo sapiens	stool	2017-04-04	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000	82
 C3Jenny02			metagenome	Homo sapiens	stool	2017-09-13	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000	83
