@@ -88,7 +88,7 @@ sra-submit --config my_config.json --sample-metadata validated_metadata/validate
 ```
 
 ###2. Go to [SRA Files Upload via Aspera](https://submit.ncbi.nlm.nih.gov/subs/sra/#files_upload_aspera_cmd)
-- Select **New Project**
+- Select **New Submission** at the top of the page
 - **Steps 1-4** : enter information as requested 
 - **Step 5** : select "Upload a file using Excel or text format" and choose file: validated-bioproject-metadata.txt  
  ...if not already done, wait until file upload completes successfully and note temp upload directory location...
