@@ -99,7 +99,16 @@ sra-submit --config my_config.json --sample-metadata validated_metadata/validate
 
 ```bash
 ## Example command: 
-sra-submit     --config dbh_config.json     --bioproject-metadata validated_metadata/validated-geiger_bioproject_metadata.txt     --sample-metadata validated_metadata/validated-geiger_sample_metadata.txt     --files-dir /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/     --aspera-path /home/david/.aspera/connect/bin/ascp     --aspera-key aspera.openssh     --upload-destination subasp@upload.ncbi.nlm.nih.gov:uploads/dbhaslam_gmail.com_QFq0F7SG     --submission-name geiger     --submit
+sra-submit   \
+--config dbh_config.json  \
+--bioproject-metadata validated_metadata/validated-project1_bioproject_metadata.txt  \
+--sample-metadata validated_metadata/validated-project1_sample_metadata.txt  \
+--files-dir /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles \
+--aspera-path /home/david/.aspera/connect/bin/ascp   \
+--aspera-key aspera.openssh   \
+--upload-destination subasp@upload.ncbi.nlm.nih.gov:uploads/dbhaslam_gmail.com_QFq0F7SG  \
+--submission-name project1  \
+--submit
 ```
 
 
