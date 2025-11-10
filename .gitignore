@@ -11,7 +11,7 @@ __pycache__/
 *$py.class
 
 
-aspera.openssh
+aspera*.openssh
 dbh_config.json
 src/sra_metagenome_submission/__pycache__/_version.cpython-312.pyc
 
