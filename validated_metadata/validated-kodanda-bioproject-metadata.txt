@@ -1,0 +1,46 @@
+sample_name	sample_title	bioproject_accession	organism	host	isolation_source	collection_date	geo_loc_name	lat_lon	sample_number	ref_biomaterial	rel_to_oxygen	samp_collect_device	samp_mat_process	samp_size	source_material_id	description
+Yng1	Young mouse baseline 1		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	1
+Yng2	Young mouse baseline 2		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	2
+Yng3	Young mouse baseline 3		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	3
+Yng4	Young mouse baseline 4		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	4
+Yng5	Young mouse baseline 5		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	5
+Yng6	Young mouse baseline 6		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	6
+Yng7	Young mouse baseline 7		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	7
+Yng8	Young mouse baseline 8		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	8
+Aged1	Aged mouse baseline 1		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	9
+Aged2	Aged mouse baseline 2		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	10
+Aged3	Aged mouse baseline 3		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	11
+Aged4	Aged mouse baseline 4		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	12
+Aged5	Aged mouse baseline 5		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	13
+Aged6	Aged mouse baseline 6		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	14
+Aged7	Aged mouse baseline 7		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	15
+1.Yng3days	Young mouse 1 day 3 post-treatment		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	16
+2.Yng3days	Young mouse 2 day 3 post-treatment		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	17
+3.Yng3days	Young mouse 3 day 3 post-treatment		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	18
+4.Yng3days	Young mouse 4 day 3 post-treatment		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	19
+5.Yng3days	Young mouse 5 day 3 post-treatment		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	20
+6.Yng3days	Young mouse 6 day 3 post-treatment		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	21
+7.Yng3days	Young mouse 7 day 3 post-treatment		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	22
+8.Yng3days	Young mouse 8 day 3 post-treatment		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	23
+1.Aged3days	Aged mouse 1 day 3 post-treatment		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	24
+2.Aged3days	Aged mouse 2 day 3 post-treatment		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	25
+3.Aged3days	Aged mouse 3 day 3 post-treatment		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	26
+4.Aged3days	Aged mouse 4 day 3 post-treatment		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	27
+5.Aged3days	Aged mouse 5 day 3 post-treatment		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	28
+6.Aged3days	Aged mouse 6 day 3 post-treatment		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	29
+7.Aged3days	Aged mouse 7 day 3 post-treatment		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	30
+YY1	Young-to-Young transfer 1		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	31
+YY2	Young-to-Young transfer 2		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	32
+YY3	Young-to-Young transfer 3		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	33
+YY4	Young-to-Young transfer 4		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	34
+YA1	Young-to-Aged transfer 1		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	35
+YA2	Young-to-Aged transfer 2		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	36
+YA3	Young-to-Aged transfer 3		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	37
+YA4	Young-to-Aged transfer 4		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	38
+AY1	Aged-to-Young transfer 1		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	39
+AY2	Aged-to-Young transfer 2		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	40
+AY3	Aged-to-Young transfer 3		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	41
+AY4	Aged-to-Young transfer 4		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	42
+AA1	Aged-to-Aged transfer 1		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	43
+AA2	Aged-to-Aged transfer 2		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	44
+AA3	Aged-to-Aged transfer 3		gut metagenome	Mus musculus	feces	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W	45

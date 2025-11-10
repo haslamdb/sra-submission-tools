@@ -1,0 +1,41 @@
+
+
+Hellman: Split into two submissions
+sra-validate --config dbh_config.json --sample-metadata metadata_files/hellman-sample-metadata1.txt --bioproject-metadata metadata_files/hellman-bioproject-metadata1.txt
+
+sra-submit --config dbh_config.json --sample-metadata validated_metadata/validated-hellman-sample-metadata1.txt --files /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/ --submit --aspera-path /home/david/.aspera/connect/bin/ascp --aspera-key aspera.openssh --upload-destination subasp@upload.ncbi.nlm.nih.gov:uploads/dbhaslam_gmail.com_QFq0F7SG --submission-name hellman
+
+sra-validate --config dbh_config.json --file-dir /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/ --sample-metadata metadata_files/hellman-sample-metadata2.txt --bioproject-metadata metadata_files/hellman-bioproject-metadata2.txt
+
+sra-submit --config dbh_config.json --sample-metadata validated_metadata/validated-hellman-sample-metadata2.txt --files /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/ --submit --aspera-path /home/david/.aspera/connect/bin/ascp --aspera-key aspera.openssh --upload-destination subasp@upload.ncbi.nlm.nih.gov:uploads/dbhaslam_gmail.com_QFq0F7SG --submission-name hellman
+
+
+NICU
+
+sra-validate --config dbh_config.json --sample-metadata metadata_files/NICU-sample-metadata.txt --bioproject-metadata metadata_files/NICU-bioproject-metadata.txt
+
+sra-submit --config dbh_config.json --sample-metadata validated_metadata/validated-NICU-sample-metadata.txt --files /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/ --submit --aspera-path /home/david/.aspera/connect/bin/ascp --aspera-key aspera.openssh --upload-destination subasp@upload.ncbi.nlm.nih.gov:uploads/dbhaslam_gmail.com_QFq0F7SG --submission-name NICU
+
+
+
+sra-validate --config my_config.json --sample-metadata metadata_files/project1-sample-metadata.txt --bioproject-metadata metadata_files/project1-bioproject-metadata.txt
+
+sra-submit --config my_config.json --sample-metadata validated_metadata/validated-project1-sample-metadata.txt --files /path/to/files --aspera-path /home/username/.aspera/connect/bin/ascp --aspera-key aspera.openssh --upload-destination subasp@upload.ncbi.nlm.nih.gov:uploads/user_email.com_ABC123X --submission-name project1 --submit
+
+
+
+
+###########  TODO
+- check for duplicated sample names on both files
+- make sure every sample has attributes and no extra attributes past sample names for both files
+- title on sample metadata is necessary
+
+
+############ Completed:
+
+
+#complete#sra-submit --config dbh_config.json --metadata metadata_files/michele_metadata.csv --files /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/ --submit --aspera-path /home/david/.aspera/connect/bin/ascp --aspera-key aspera.openssh --upload-destination subasp@upload.ncbi.nlm.nih.gov:uploads/dbhaslam_gmail.com_QFq0F7SG --submission-name michele
+
+#compete#sra-submit --config dbh_config.json --metadata metadata_files/viromics_metadata.csv --files /media/david/BackupNAS/Data/MSSData/Human/RawHumanSequenceFiles/ --submit --aspera-path /home/david/.aspera/connect/bin/ascp --aspera-key aspera.openssh --upload-destination subasp@upload.ncbi.nlm.nih.gov:uploads/dbhaslam_gmail.com_QFq0F7SG --submission-name viromics# temp submission sra_submission_2qrgs7l4"   sra_submission_2qrgs7l4
+
+

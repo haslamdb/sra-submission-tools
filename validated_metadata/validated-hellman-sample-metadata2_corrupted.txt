@@ -1,0 +1,3 @@
+project_title	library_strategy	library_source	library_selection	library_layout	platform	instrument_model	design_description	filetype	assembly	filename	filename2	filename3	filename4	filename5	filename6	filename7	filename8	library_ID	title	biosample_accession
+Hellman IBD Study	WGS	METAGENOMIC	size fractionation	paired	ILLUMINA	NextSeq 500	Nextera XT	fastq		IBD_521_R1.fastq.gz	IBD_521_R2.fastq.gz							IBD_521	Metagenome-Human-Stool	SAMN47909257
+Hellman IBD Study	WGS	METAGENOMIC	size fractionation	paired	ILLUMINA	NextSeq 500	Nextera XT	fastq		IBD_532_R1.fastq.gz	IBD_532_R2.fastq.gz							IBD_532	Metagenome-Human-Stool	SAMN47909258
