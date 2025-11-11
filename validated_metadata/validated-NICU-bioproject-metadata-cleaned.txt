@@ -1,362 +1,362 @@
 sample_name	sample_title	bioproject_accession	organism	host	isolation_source	collection_date	geo_loc_name	lat_lon	ref_biomaterial	rel_to_oxygen	samp_collect_device	samp_mat_process	samp_size	source_material_id	description	bioproject_id	project_title	project_description	sample_source	library_strategy	library_source	library_selection	platform	instrument_model	env_biome	env_feature	env_material	file_number
-N01_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				1
-N01_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				2
-N01_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				3
-N01_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				4
-N01_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				5
-N01_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				6
-N02_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				7
-N02_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				8
-N02_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				9
-N02_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				10
-N02_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				11
-N02_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				12
-N03_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				13
-N03_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				14
-N03_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				15
-N03_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				16
-N04_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				17
-N04_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				18
-N04_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				19
-N04_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				20
-N04_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				21
-N04_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				22
-N05_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				23
-N05_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				24
-N05_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				25
-N05_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				26
-N05_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				27
-N05_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				28
-N06_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				29
-N06_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				30
-N06_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				31
-N07_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				32
-N07_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				33
-N07_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				34
-N07_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				35
-N07_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				36
-N07_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				37
-N08_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				38
-N08_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				39
-N08_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				40
-N08_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				41
-N08_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				42
-N08_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				43
-N09_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				44
-N09_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				45
-N09_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				46
-N09_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				47
-N09_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				48
-N09_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				49
-N10_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				50
-N10_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				51
-N10_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				52
-N10_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				53
-N10_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				54
-N10_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				55
-N11_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				56
-N11_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				57
-N11_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				58
-N11_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				59
-N11_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				60
-N11_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				61
-N12_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				62
-N12_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				63
-N12_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				64
-N13_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				65
-N13_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				66
-N13_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				67
-N13_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				68
-N13_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				69
-N13_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				70
-N14_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				71
-N14_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				72
-N14_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				73
-N14_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				74
-N14_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				75
-N14_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				76
-N15_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				77
-N15_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				78
-N15_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				79
-N15_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				80
-N15_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				81
-N15_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				82
-N16_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				83
-N16_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				84
-N16_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				85
-N16_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				86
-N16_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				87
-N16_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				88
-N17_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				89
-N17_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				90
-N17_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				91
-N17_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				92
-N17_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				93
-N17_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				94
-N18_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				95
-N18_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				96
-N18_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				97
-N18_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				98
-N18_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				99
-N18_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				100
-N19_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				101
-N19_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				102
-N19_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				103
-N19_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				104
-N19_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				105
-N19_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				106
-N20_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				107
-N20_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				108
-N20_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				109
-N20_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				110
-N20_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				111
-N20_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				112
-N21_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				113
-N21_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				114
-N21_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				115
-N21_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				116
-N21_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				117
-N21_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				118
-N22_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				119
-N22_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				120
-N22_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				121
-N22_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				122
-N22_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				123
-N22_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				124
-N23_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				125
-N23_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				126
-N23_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				127
-N23_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				128
-N24_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				129
-N24_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				130
-N24_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				131
-N24_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				132
-N24_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				133
-N25_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				134
-N25_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				135
-N25_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				136
-N25_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				137
-N25_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				138
-N25_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				139
-N26_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				140
-N27_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				141
-N27_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				142
-N27_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				143
-N27_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				144
-N27_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				145
-N28_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				146
-N28_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				147
-N28_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				148
-N28_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				150
-N28_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				151
-N29_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				152
-N29_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				153
-N29_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				154
-N29_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				155
-N29_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				156
-N29_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				157
-N30_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				158
-N30_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				159
-N30_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				160
-N30_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				161
-N30_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				162
-N31_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				163
-N31_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				164
-N31_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				165
-N31_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				166
-N31_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				168
-N32_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				169
-N32_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				170
-N32_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				171
-N32_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				172
-N32_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				173
-N33_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				175
-N33_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				176
-N33_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				177
-N33_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				178
-N34_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				179
-N34_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				180
-N34_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				181
-N34_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				182
-N34_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				183
-N35_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				185
-N35_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				186
-N35_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				187
-N35_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				188
-N35_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				189
-N36_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				191
-N36_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				192
-N36_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				193
-N36_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				194
-N36_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				195
-N37_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				197
-N37_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				198
-N38_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				201
-N38_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				202
-N38_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				203
-N38_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				204
-N38_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				205
-N38_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				206
-N54_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				207
-N54_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				208
-N54_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				209
-N54_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				210
-N54_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				211
-N54_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				212
-N55_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				213
-N55_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				214
-N55_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				215
-N55_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				216
-N55_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				217
-N55_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				218
-N56_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				219
-N56_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				220
-N56_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				221
-N57_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				225
-N57_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				226
-N57_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				227
-N57_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				228
-N57_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				229
-N57_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				230
-N58_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				231
-N58_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				232
-N58_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				233
-N58_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				234
-N58_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				235
-N58_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				236
-N59_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				237
-N59_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				238
-N59_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				239
-N60_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				243
-N60_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				244
-N60_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				245
-N60_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				246
-N60_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				247
-N60_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				248
-N61_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				249
-N61_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				250
-N61_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				251
-N61_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				252
-N61_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				253
-N61_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				254
-N62_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				255
-N62_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				256
-N62_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				257
-N62_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				258
-N62_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				259
-N62_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				260
-N63_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				261
-N63_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				262
-N63_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				263
-N63_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				264
-N63_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				265
-N63_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				266
-N64_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				267
-N64_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				268
-N64_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				269
-N64_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				270
-N64_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				271
-N64_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				272
-N65_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				273
-N65_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				274
-N65_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				275
-N65_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				276
-N65_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				277
-N65_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				278
-N66_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				279
-N66_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				280
-N66_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				281
-N66_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				282
-N66_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				283
-N66_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				284
-N67_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				285
-N67_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				286
-N67_1_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				287
-N67_2_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				288
-N67_2_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				289
-N67_2_4			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				290
-N68_1_2			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				291
-N68_1_3			metagenome	Homo sapiens	stool		USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				292
-N68_1_4																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				293
-N68_2_2																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				294
-N68_2_3																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				295
-N68_2_4																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				296
-N39_1_2																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				297
-N39_1_3																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				298
-N39_1_4																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				299
-N39_2_4																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				300
-N39_2_2																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				301
-N39_2_3																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				302
-N40_1_2																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				303
-N40_1_3																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				304
-N40_1_4																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				305
-N40_2_2																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				307
-N40_2_3																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				308
-N41_1_2																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				309
-N41_1_3																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				310
-N41_1_4																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				311
-N41_2_2																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				313
-N41_2_3																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				314
-N42_1_2																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				315
-N42_1_3																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				316
-N42_1_4																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				317
-N42_2_2																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				318
-N42_2_3																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				319
-N43_1_2																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				321
-N43_1_3																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				322
-N43_2_2																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				324
-N43_2_3																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				325
-N44_1_2																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				327
-N44_1_3																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				328
-N44_2_2																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				330
-N44_2_3																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				331
-N45_1_2																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				333
-N45_1_3																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				334
-N45_1_4																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				335
-N45_2_2																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				336
-N45_2_3																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				337
-N46_1_2																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				339
-N46_1_3																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				340
-N46_2_2																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				342
-N46_2_3																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				343
-N46_2_4																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				344
-N47_1_2																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				345
-N47_1_3																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				346
-N47_2_2																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				348
-N47_2_3																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				349
-N47_2_4																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				350
-N48_1_2																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				351
-N48_1_3																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				352
-N48_2_2																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				354
-N48_2_3																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				355
-N48_2_4																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				356
-N49_1_2																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				357
-N49_1_3																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				358
-N49_1_4																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				359
-N49_2_2																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				360
-N49_2_3																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				361
-N49_2_4																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				362
-N50_1_2																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				363
-N50_1_3																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				364
-N50_1_4																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				365
-N50_2_2																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				366
-N50_2_3																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				367
-N50_2_4																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				368
-N51_1_2																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				369
-N51_1_3																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				370
-N51_1_4																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				371
-N51_2_2																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				372
-N51_2_3																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				373
-N51_2_4																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				374
-N52_1_2																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				375
-N52_1_3																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				376
-N52_1_4																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				377
-N52_2_2																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				378
-N52_2_3																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				379
-N52_2_4																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				380
-N53_1_2																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				381
-N53_1_3																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				382
-N53_1_4																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				383
-N53_2_2																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				384
-N53_2_3																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				385
-N53_2_4																	Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				386
+N01_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				1
+N01_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				2
+N01_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				3
+N01_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				4
+N01_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				5
+N01_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				6
+N02_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				7
+N02_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				8
+N02_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				9
+N02_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				10
+N02_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				11
+N02_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				12
+N03_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				13
+N03_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				14
+N03_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				15
+N03_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				16
+N04_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				17
+N04_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				18
+N04_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				19
+N04_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				20
+N04_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				21
+N04_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				22
+N05_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				23
+N05_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				24
+N05_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				25
+N05_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				26
+N05_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				27
+N05_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				28
+N06_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				29
+N06_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				30
+N06_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				31
+N07_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				32
+N07_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				33
+N07_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				34
+N07_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				35
+N07_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				36
+N07_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				37
+N08_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				38
+N08_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				39
+N08_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				40
+N08_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				41
+N08_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				42
+N08_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				43
+N09_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				44
+N09_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				45
+N09_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				46
+N09_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				47
+N09_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				48
+N09_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				49
+N10_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				50
+N10_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				51
+N10_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				52
+N10_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				53
+N10_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				54
+N10_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				55
+N11_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				56
+N11_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				57
+N11_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				58
+N11_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				59
+N11_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				60
+N11_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				61
+N12_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				62
+N12_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				63
+N12_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				64
+N13_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				65
+N13_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				66
+N13_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				67
+N13_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				68
+N13_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				69
+N13_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				70
+N14_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				71
+N14_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				72
+N14_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				73
+N14_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				74
+N14_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				75
+N14_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				76
+N15_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				77
+N15_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				78
+N15_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				79
+N15_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				80
+N15_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				81
+N15_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				82
+N16_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				83
+N16_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				84
+N16_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				85
+N16_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				86
+N16_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				87
+N16_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				88
+N17_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				89
+N17_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				90
+N17_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				91
+N17_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				92
+N17_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				93
+N17_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				94
+N18_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				95
+N18_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				96
+N18_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				97
+N18_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				98
+N18_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				99
+N18_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				100
+N19_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				101
+N19_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				102
+N19_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				103
+N19_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				104
+N19_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				105
+N19_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				106
+N20_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				107
+N20_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				108
+N20_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				109
+N20_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				110
+N20_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				111
+N20_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				112
+N21_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				113
+N21_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				114
+N21_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				115
+N21_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				116
+N21_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				117
+N21_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				118
+N22_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				119
+N22_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				120
+N22_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				121
+N22_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				122
+N22_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				123
+N22_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				124
+N23_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				125
+N23_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				126
+N23_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				127
+N23_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				128
+N24_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				129
+N24_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				130
+N24_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				131
+N24_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				132
+N24_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				133
+N25_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				134
+N25_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				135
+N25_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				136
+N25_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				137
+N25_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				138
+N25_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				139
+N26_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				140
+N27_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				141
+N27_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				142
+N27_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				143
+N27_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				144
+N27_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				145
+N28_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				146
+N28_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				147
+N28_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				148
+N28_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				150
+N28_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				151
+N29_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				152
+N29_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				153
+N29_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				154
+N29_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				155
+N29_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				156
+N29_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				157
+N30_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				158
+N30_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				159
+N30_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				160
+N30_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				161
+N30_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				162
+N31_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				163
+N31_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				164
+N31_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				165
+N31_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				166
+N31_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				168
+N32_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				169
+N32_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				170
+N32_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				171
+N32_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				172
+N32_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				173
+N33_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				175
+N33_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				176
+N33_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				177
+N33_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				178
+N34_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				179
+N34_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				180
+N34_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				181
+N34_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				182
+N34_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				183
+N35_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				185
+N35_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				186
+N35_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				187
+N35_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				188
+N35_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				189
+N36_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				191
+N36_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				192
+N36_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				193
+N36_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				194
+N36_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				195
+N37_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				197
+N37_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				198
+N38_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				201
+N38_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				202
+N38_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				203
+N38_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				204
+N38_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				205
+N38_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				206
+N54_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				207
+N54_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				208
+N54_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				209
+N54_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				210
+N54_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				211
+N54_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				212
+N55_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				213
+N55_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				214
+N55_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				215
+N55_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				216
+N55_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				217
+N55_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				218
+N56_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				219
+N56_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				220
+N56_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				221
+N57_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				225
+N57_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				226
+N57_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				227
+N57_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				228
+N57_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				229
+N57_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				230
+N58_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				231
+N58_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				232
+N58_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				233
+N58_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				234
+N58_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				235
+N58_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				236
+N59_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				237
+N59_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				238
+N59_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				239
+N60_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				243
+N60_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				244
+N60_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				245
+N60_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				246
+N60_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				247
+N60_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				248
+N61_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				249
+N61_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				250
+N61_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				251
+N61_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				252
+N61_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				253
+N61_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				254
+N62_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				255
+N62_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				256
+N62_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				257
+N62_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				258
+N62_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				259
+N62_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				260
+N63_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				261
+N63_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				262
+N63_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				263
+N63_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				264
+N63_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				265
+N63_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				266
+N64_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				267
+N64_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				268
+N64_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				269
+N64_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				270
+N64_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				271
+N64_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				272
+N65_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				273
+N65_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				274
+N65_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				275
+N65_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				276
+N65_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				277
+N65_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				278
+N66_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				279
+N66_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				280
+N66_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				281
+N66_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				282
+N66_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				283
+N66_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				284
+N67_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				285
+N67_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				286
+N67_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				287
+N67_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				288
+N67_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				289
+N67_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				290
+N68_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				291
+N68_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				292
+N68_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				293
+N68_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				294
+N68_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				295
+N68_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				296
+N39_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				297
+N39_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				298
+N39_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				299
+N39_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				300
+N39_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				301
+N39_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				302
+N40_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				303
+N40_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				304
+N40_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				305
+N40_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				307
+N40_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				308
+N41_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				309
+N41_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				310
+N41_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				311
+N41_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				313
+N41_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				314
+N42_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				315
+N42_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				316
+N42_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				317
+N42_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				318
+N42_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				319
+N43_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				321
+N43_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				322
+N43_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				324
+N43_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				325
+N44_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				327
+N44_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				328
+N44_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				330
+N44_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				331
+N45_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				333
+N45_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				334
+N45_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				335
+N45_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				336
+N45_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				337
+N46_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				339
+N46_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				340
+N46_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				342
+N46_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				343
+N46_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				344
+N47_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				345
+N47_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				346
+N47_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				348
+N47_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				349
+N47_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				350
+N48_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				351
+N48_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				352
+N48_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				354
+N48_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				355
+N48_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				356
+N49_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				357
+N49_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				358
+N49_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				359
+N49_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				360
+N49_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				361
+N49_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				362
+N50_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				363
+N50_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				364
+N50_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				365
+N50_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				366
+N50_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				367
+N50_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				368
+N51_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				369
+N51_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				370
+N51_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				371
+N51_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				372
+N51_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				373
+N51_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				374
+N52_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				375
+N52_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				376
+N52_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				377
+N52_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				378
+N52_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				379
+N52_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				380
+N53_1_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				381
+N53_1_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				382
+N53_1_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				383
+N53_2_2			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				384
+N53_2_3			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				385
+N53_2_4			metagenome	Homo sapiens	stool	not collected	USA: Ohio, Cincinnati	39.10 N 84.51 W									Metagenomics Study	Metagenomics of human gut		WGS	METAGENOMIC	RANDOM	ILLUMINA	Illumina NovaSeq 6000				386
