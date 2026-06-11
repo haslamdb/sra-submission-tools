@@ -1536,3 +1536,7 @@ def main():
         sys.exit(1)
     
     print("\nValidation completed successfully.")
+
+
+if __name__ == "__main__":
+    main()
