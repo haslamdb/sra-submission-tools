@@ -11,8 +11,15 @@ __pycache__/
 *$py.class
 
 
-aspera*.openssh
+aspera*.openssh*
+
+# Personal config files with credentials (use config_template_optimized.json as a starting point)
+config.json
 dbh_config.json
+
+# Run logs and superseded one-off artifacts (kept on disk, not in git)
+logs/
+archive/legacy/
 src/sra_metagenome_submission/__pycache__/_version.cpython-312.pyc
 
 # Ignore all sra_submission logs
