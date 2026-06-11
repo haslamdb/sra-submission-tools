@@ -278,11 +278,28 @@ sra-submit --files-dir /path/to/fastq_files --generate-templates --output templa
 - `--files-dir`: Directory containing sequence files (will auto-detect FASTQ/FQ/FASTQ.GZ files)
 - `--generate-templates`: Generate template metadata files from detected sequence files
 - `--validate-only`: Only validate files and metadata without creating submission package
-- `--submit`: Submit to SRA after preparing
+- `--submit`: Upload files to SRA via Aspera
 - `--aspera-key`: Path to Aspera key file
 - `--aspera-path`: Full path to the Aspera Connect (ascp) executable
 - `--upload-destination`: NCBI upload destination (e.g., subasp@upload.ncbi.nlm.nih.gov:uploads/your_folder)
-- `--submission-name`: Custom name for this submission (used in log filename)
+- `--submission-name`: Name for this submission. Used for the log file, the upload **subfolder** created under your destination, and the resume checkpoint. Give each submission a distinct name.
+- `--batch-size`: Files uploaded per Aspera call (default 50)
+- `--aspera-limit`: Target bandwidth passed to `ascp -l` (default `100m`)
+- `--max-retries`: Retries per batch before falling back to per-file uploads (default 3)
+- `--auto-finalize`: After a fully successful upload, also upload a `submit.ready` marker so NCBI auto-creates the submission. Omit this to complete the submission manually in the portal (the default).
+- `--restart`: Ignore and clear any existing checkpoint and re-upload from scratch
+
+#### Resumable uploads
+
+Uploads run in batches with a checkpoint stored under `.sra_checkpoints/<submission-name>.json`.
+If a run is interrupted or some files fail, simply **re-run the same command**: files already
+uploaded are skipped and previously failed files are retried. A batch that fails as a whole is
+retried with backoff and then falls back to uploading its files one at a time, so a single bad
+file never blocks the rest. Files that still fail are written to `<submission-name>_failed_files.txt`.
+
+All files for a submission are uploaded **flat** into a subfolder named after `--submission-name`,
+under your `--upload-destination`. In the portal's Files step, select that subfolder as your
+preload folder.
 
 ### Interactive Mode
 
@@ -428,8 +445,8 @@ sra-metagenome-submission/
 ├── src/                   # Source code directory
 │   └── sra_metagenome_submission/
 │       ├── __init__.py    # Package initialization
-│       ├── sra_submission.py  # Main submission script
-│       ├── sra_validate.py    # Metadata validation script
+│       ├── main.py        # Submission + Aspera upload (sra-submit)
+│       ├── sra_validate.py    # Metadata validation script (sra-validate)
 │       ├── sra_utils.py   # Utility functions
 │       └── _version.py    # Version information
 ```

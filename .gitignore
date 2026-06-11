@@ -20,3 +20,10 @@ sra_submission_*.log
 
 # Ignore all sra_validation logs
 sra_validation_*.log
+
+# Ad-hoc per-project upload logs
+nicu_*.log
+
+# Upload resume checkpoints and failed-file lists
+.sra_checkpoints/
+*_failed_files.txt
